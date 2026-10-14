@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>حاسبة بلس | حاسبات وأدوات مجانية</title>
+<meta name="description" content="حاسبات مجانية وسهلة لحساب العمر، النسبة المئوية والخصم، المدة بين تاريخين، المعدل التراكمي، وضريبة القيمة المضافة.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#b91c1c">
+<style>
+:root{--red:#b91c1c;--red2:#dc2626;--ink:#172033;--muted:#667085;--bg:#f7f8fb;--line:#e5e7eb;--card:#fff;--green:#087443}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.75}
+a{color:inherit;text-decoration:none}.wrap{width:min(1100px,92%);margin:auto}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem}.logo{display:grid;place-items:center;background:var(--red);color:#fff;border-radius:13px;width:42px;height:42px;font-size:1.3rem}.navlinks{display:flex;gap:18px;flex-wrap:wrap;color:#475467;font-size:.93rem}
+.hero{padding:58px 0 40px;background:linear-gradient(135deg,#fff 0%,#fff5f5 65%,#fee2e2 100%)}.hero-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:28px;align-items:center}.eyebrow{color:var(--red);font-weight:700;font-size:.9rem}.hero h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.25;margin:12px 0}.hero p{font-size:1.08rem;color:#475467;max-width:680px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.btn{border:0;border-radius:11px;padding:11px 18px;font:inherit;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn-primary{background:var(--red);color:#fff}.btn-light{background:#fff;border:1px solid var(--line)}.hero-box{background:#fff;border:1px solid #fee2e2;border-radius:22px;padding:22px;box-shadow:0 12px 35px #7f1d1d0c}.hero-box strong{display:block;font-size:1.15rem}.mini-tools{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.mini{background:#fff7f7;border:1px solid #fee2e2;border-radius:12px;padding:12px;font-size:.9rem}
+section{padding:38px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:20px}.section-head h2{margin:0;font-size:1.7rem}.section-head p{margin:4px 0 0;color:var(--muted)}.tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.tool{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 4px 14px #10182805}.tool h3{margin:0 0 4px;font-size:1.2rem}.tool .desc{margin:0 0 18px;color:var(--muted);font-size:.92rem}.tool-icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:#fef2f2;color:var(--red);font-size:1.35rem;margin-bottom:12px}
+label{display:block;font-weight:700;font-size:.9rem;margin:10px 0 5px}input,select{width:100%;padding:11px 12px;border:1px solid #d0d5dd;border-radius:10px;background:#fff;font:inherit;color:var(--ink);min-height:44px}input:focus,select:focus{outline:3px solid #fecaca;border-color:var(--red)}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tool .btn{margin-top:14px;width:100%}.result{display:none;margin-top:14px;padding:12px 14px;border-radius:11px;background:#ecfdf3;border:1px solid #abefc6;color:#05603a;font-weight:700}.result.show{display:block}.hint{font-size:.82rem;color:var(--muted);margin-top:8px}.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.info-card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px}.info-card h3{margin:0 0 6px}.info-card p{margin:0;color:var(--muted);font-size:.92rem}
+.faq{max-width:820px}.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 17px;margin:10px 0}.faq summary{font-weight:700;cursor:pointer}.faq p{color:var(--muted);margin-bottom:0}
+footer{background:#101828;color:#e4e7ec;padding:30px 0;margin-top:25px}.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:14px;flex-wrap:wrap}.footer-note{color:#98a2b3;font-size:.85rem;max-width:760px}
+@media(max-width:760px){.hero-grid{grid-template-columns:1fr}.tools-grid{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.nav{align-items:flex-start}.navlinks{gap:10px}.hero{padding-top:38px}.section-head{display:block}.form-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="حاسبة بلس - الرئيسية"><span class="logo">∑</span><span>حاسبة بلس</span></a>
+    <nav class="navlinks" aria-label="القائمة الرئيسية">
+      <a href="#tools">الحاسبات</a><a href="#about">عن الموقع</a><a href="#faq">الأسئلة الشائعة</a>
+    </nav>
+  </div>
+</header>
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">أدوات يومية مجانية وسهلة</div>
+        <h1>احسبها بسهولة مع <span style="color:var(--red)">حاسبة بلس</span></h1>
+        <p>مجموعة من الحاسبات العملية تساعدك على حساب العمر، والخصومات، والفترات الزمنية، والمعدل التراكمي، وضريبة القيمة المضافة في ثوانٍ.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#tools">استكشف الحاسبات ↓</a><a class="btn btn-light" href="#about">كيف يعمل الموقع؟</a></div>
+      </div>
+      <div class="hero-box">
+        <strong>ماذا تريد أن تحسب اليوم؟</strong>
+        <div class="mini-tools">
+          <a class="mini" href="#age">🎂 العمر</a><a class="mini" href="#discount">％ الخصم</a>
+          <a class="mini" href="#date-diff">📅 فرق التواريخ</a><a class="mini" href="#vat">🧾 الضريبة</a>
+          <a class="mini" href="#gpa">🎓 المعدل التراكمي</a><a class="mini" href="#tools">＋ المزيد قريباً</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="wrap">
+      <div class="section-head"><div><h2>الحاسبات المجانية</h2><p>اختر الأداة، أدخل البيانات، واحصل على النتيجة مباشرة.</p></div></div>
+      <div class="tools-grid">
+        <article class="tool" id="age">
+          <div class="tool-icon">🎂</div><h3>حاسبة العمر</h3><p class="desc">احسب عمرك بالسنوات والأشهر والأيام اعتماداً على تاريخ الميلاد.</p>
+          <label for="birthDate">تاريخ الميلاد</label><input type="date" id="birthDate">
+          <button class="btn btn-primary" onclick="calcAge()">احسب العمر</button><div class="result" id="ageResult" aria-live="polite"></div>
+          <p class="hint">تعتمد هذه الأداة على التقويم الميلادي.</p>
+        </article>
+
+        <article class="tool" id="discount">
+          <div class="tool-icon">％</div><h3>حاسبة النسبة والخصم</h3><p class="desc">اعرف قيمة الخصم والسعر النهائي بعد التخفيض.</p>
+          <div class="form-row"><div><label for="price">السعر قبل الخصم</label><input type="number" id="price" min="0" step="0.01" placeholder="مثلاً 250"></div><div><label for="discountRate">نسبة الخصم %</label><input type="number" id="discountRate" min="0" max="100" step="0.1" placeholder="مثلاً 15"></div></div>
+          <button class="btn btn-primary" onclick="calcDiscount()">احسب السعر</button><div class="result" id="discountResult" aria-live="polite"></div>
+        </article>
+
+        <article class="tool" id="date-diff">
+          <div class="tool-icon">📅</div><h3>حاسبة المدة بين تاريخين</h3><p class="desc">احسب عدد الأيام والأسابيع بين تاريخ البداية والنهاية.</p>
+          <div class="form-row"><div><label for="startDate">تاريخ البداية</label><input type="date" id="startDate"></div><div><label for="endDate">تاريخ النهاية</label><input type="date" id="endDate"></div></div>
+          <button class="btn btn-primary" onclick="calcDateDiff()">احسب المدة</button><div class="result" id="dateResult" aria-live="polite"></div>
+        </article>
+
+        <article class="tool" id="vat">
+          <div class="tool-icon">🧾</div><h3>حاسبة ضريبة القيمة المضافة</h3><p class="desc">احسب الضريبة أو أزلها من مبلغ شامل. النسبة الافتراضية 15% ويمكن تعديلها.</p>
+          <div class="form-row"><div><label for="vatAmount">المبلغ بالريال</label><input type="number" id="vatAmount" min="0" step="0.01" placeholder="مثلاً 100"></div><div><label for="vatRate">نسبة الضريبة %</label><input type="number" id="vatRate" min="0" max="100" step="0.1" value="15"></div></div>
+          <label for="vatMode">نوع المبلغ</label><select id="vatMode"><option value="before">المبلغ قبل الضريبة</option><option value="after">المبلغ شامل الضريبة</option></select>
+          <button class="btn btn-primary" onclick="calcVat()">احسب الضريبة</button><div class="result" id="vatResult" aria-live="polite"></div>
+          <p class="hint">تحقق من النسبة النظامية المنطبقة على معاملتك قبل الاعتماد على النتيجة.</p>
+        </article>
+
+        <article class="tool" id="gpa">
+          <div class="tool-icon">🎓</div><h3>حاسبة المعدل التراكمي المبسطة</h3><p class="desc">احسب المعدل الموزون من الدرجات أو نقاط المقررات وساعاتها.</p>
+          <div class="form-row"><div><label for="grade1">نقاط المقرر الأول</label><input type="number" id="grade1" min="0" max="5" step="0.01" placeholder="مثلاً 4.5"></div><div><label for="hours1">ساعات المقرر الأول</label><input type="number" id="hours1" min="1" step="1" placeholder="مثلاً 3"></div></div>
+          <div class="form-row"><div><label for="grade2">نقاط المقرر الثاني</label><input type="number" id="grade2" min="0" max="5" step="0.01" placeholder="مثلاً 3.8"></div><div><label for="hours2">ساعات المقرر الثاني</label><input type="number" id="hours2" min="1" step="1" placeholder="مثلاً 2"></div></div>
+          <div class="form-row"><div><label for="grade3">نقاط المقرر الثالث (اختياري)</label><input type="number" id="grade3" min="0" max="5" step="0.01" placeholder="مثلاً 4.0"></div><div><label for="hours3">ساعات المقرر الثالث</label><input type="number" id="hours3" min="1" step="1" placeholder="مثلاً 3"></div></div>
+          <button class="btn btn-primary" onclick="calcGpa()">احسب المعدل الموزون</button><div class="result" id="gpaResult" aria-live="polite"></div>
+          <p class="hint">هذه حاسبة مبسطة على مقياس 5 نقاط. تأكد من مقياس جامعتك وقواعدها.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><div><h2>عن حاسبة بلس</h2><p>هدفنا جعل الحسابات اليومية أوضح وأسهل للجميع.</p></div></div>
+      <div class="about-grid">
+        <div class="info-card"><h3>سهل الاستخدام</h3><p>واجهات بسيطة تعمل على الهاتف والكمبيوتر دون الحاجة إلى تثبيت تطبيق.</p></div>
+        <div class="info-card"><h3>نتائج فورية</h3><p>تُجرى الحسابات داخل المتصفح ولا تحتاج إلى إرسال بيانات الحاسبات إلى خادم.</p></div>
+        <div class="info-card"><h3>تطوير مستمر</h3><p>يمكن توسيع الموقع بأدوات جديدة بناءً على احتياجات الزوار وأسئلتهم.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap faq">
+      <div class="section-head"><div><h2>الأسئلة الشائعة</h2><p>معلومات مختصرة حول استخدام الحاسبات.</p></div></div>
+      <details><summary>هل استخدام الحاسبات مجاني؟</summary><p>نعم، النموذج الحالي مجاني للاستخدام ولا يتطلب إنشاء حساب.</p></details>
+      <details><summary>هل النتائج دقيقة؟</summary><p>تعتمد الدقة على صحة البيانات المدخلة وطريقة الحساب. النتائج تقديرية ولا تحل محل التحقق الرسمي في المسائل القانونية أو المالية أو الأكاديمية.</p></details>
+      <details><summary>هل تحفظون البيانات التي أدخلها؟</summary><p>الحسابات في هذه النسخة تتم داخل المتصفح ولا تُرسل بيانات الحاسبات إلى خادم بواسطة هذا الملف. إذا أضفت خدمات تحليل أو إعلانات لاحقاً، حدّث سياسة الخصوصية لتشرح البيانات التي قد تجمعها تلك الخدمات.</p></details>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-row"><strong>حاسبة بلس © <span id="year"></span></strong><div class="footer-links"><a href="#about">من نحن</a><a href="#faq">الأسئلة الشائعة</a><a href="mailto:hello@example.com">اتصل بنا (عدّل البريد)</a></div></div>
+    <p class="footer-note">هذه نسخة أولية تجريبية. قبل النشر، عدّل معلومات التواصل، وأضف صفحات سياسة الخصوصية وشروط الاستخدام المناسبة، واختبر النتائج على الأجهزة المختلفة. لا يوجد ضمان لقبول الموقع في برامج الإعلانات.</p>
+  </div>
+</footer>
+<script>
+const $ = id => document.getElementById(id);
+const fmt = n => new Intl.NumberFormat('ar-SA',{maximumFractionDigits:2}).format(n);
+function show(id,msg){const el=$(id);el.textContent=msg;el.classList.add('show')}
+function hide(id){const el=$(id);el.classList.remove('show');el.textContent=''}
+function validNonNegative(v){return v!=='' && Number.isFinite(Number(v)) && Number(v)>=0}
+function calcAge(){
+ hide('ageResult');const val=$('birthDate').value;if(!val){show('ageResult','يرجى اختيار تاريخ الميلاد.');return}
+ const birth=new Date(val+'T12:00:00');const now=new Date();now.setHours(12,0,0,0);
+ if(birth>now){show('ageResult','تاريخ الميلاد لا يمكن أن يكون في المستقبل.');return}
+ let y=now.getFullYear()-birth.getFullYear(),m=now.getMonth()-birth.getMonth(),d=now.getDate()-birth.getDate();
+ if(d<0){m--;const daysPrev=new Date(now.getFullYear(),now.getMonth(),0).getDate();d+=daysPrev}
+ if(m<0){y--;m+=12}
+ show('ageResult',`عمرك ${fmt(y)} سنة و${fmt(m)} شهر و${fmt(d)} يوم.`);
+}
+function calcDiscount(){
+ hide('discountResult');const p=$('price').value,r=$('discountRate').value;
+ if(!validNonNegative(p)||!validNonNegative(r)||Number(r)>100){show('discountResult','أدخل سعراً صحيحاً ونسبة خصم بين 0 و100.');return}
+ const saved=Number(p)*Number(r)/100,final=Number(p)-saved;
+ show('discountResult',`قيمة الخصم: ${fmt(saved)} ريال — السعر بعد الخصم: ${fmt(final)} ريال.`);
+}
+function calcDateDiff(){
+ hide('dateResult');const a=$('startDate').value,b=$('endDate').value;
+ if(!a||!b){show('dateResult','يرجى اختيار تاريخ البداية والنهاية.');return}
+ const da=new Date(a+'T12:00:00'),db=new Date(b+'T12:00:00');
+ if(db<da){show('dateResult','تاريخ النهاية يجب أن يكون مساوياً لتاريخ البداية أو بعده.');return}
+ const days=Math.round((db-da)/86400000);
+ show('dateResult',`المدة ${fmt(days)} يوم، أي نحو ${fmt(days/7)} أسبوع. (الحساب لا يشمل يوم البداية ضمن المدة.)`);
+}
+function calcVat(){
+ hide('vatResult');const a=$('vatAmount').value,r=$('vatRate').value,mode=$('vatMode').value;
+ if(!validNonNegative(a)||!validNonNegative(r)||Number(r)>100){show('vatResult','أدخل مبلغاً صحيحاً ونسبة ضريبة بين 0 و100.');return}
+ let base,tax,total;const amount=Number(a),rate=Number(r)/100;
+ if(mode==='before'){base=amount;tax=base*rate;total=base+tax}else{total=amount;base=total/(1+rate);tax=total-base}
+ show('vatResult',`المبلغ قبل الضريبة: ${fmt(base)} ريال — الضريبة: ${fmt(tax)} ريال — الإجمالي: ${fmt(total)} ريال.`);
+}
+function calcGpa(){
+ hide('gpaResult');let weighted=0,totalHours=0,used=0;
+ for(let i=1;i<=3;i++){
+  const g=$('grade'+i).value,h=$('hours'+i).value;
+  if(g===''&&h==='')continue;
+  if(g===''||h===''||!Number.isFinite(Number(g))||!Number.isFinite(Number(h))||Number(g)<0||Number(g)>5||Number(h)<=0){show('gpaResult','أكمل نقاط وساعات كل مقرر أدخلته. النقاط من 0 إلى 5 والساعات أكبر من صفر.');return}
+  weighted+=Number(g)*Number(h);totalHours+=Number(h);used++;
+ }
+ if(!used){show('gpaResult','أدخل بيانات مقرر واحد على الأقل.');return}
+ show('gpaResult',`المعدل الموزون: ${fmt(weighted/totalHours)} من 5 — مجموع الساعات: ${fmt(totalHours)}.`);
+}
+$('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

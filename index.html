@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#c91f32">
+<meta name="description" content="Hasiba Plus - أدوات وحاسبات مجانية وسهلة بالعربية والإنجليزية. احسب الخصومات والنسب المئوية والعمر والتواريخ وحوّل الوحدات بسهولة.">
+<title>Hasiba Plus | أدوات وحاسبات ذكية</title>
+<style>
+:root{--red:#c91f32;--red2:#a91527;--ink:#20212a;--muted:#686b76;--line:#ececf0;--bg:#fff;--soft:#fff3f4;--green:#16834a;--shadow:0 12px 35px rgba(34,25,30,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.6}button,input,select{font:inherit}button{cursor:pointer}.container{width:min(1120px,92%);margin:auto}.topbar{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:10}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.25rem;text-decoration:none;color:var(--ink)}.logo{display:grid;place-items:center;width:42px;height:42px;background:var(--red);color:#fff;border-radius:13px;font-weight:900;font-size:1.1rem;box-shadow:0 6px 15px #c91f3230}.nav-actions{display:flex;gap:8px;align-items:center}.btn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 13px;font-weight:700;color:var(--ink)}.btn.primary{background:var(--red);border-color:var(--red);color:#fff}.btn:hover{filter:brightness(.97)}.hero{padding:55px 0 32px;background:radial-gradient(ellipse at 80% 0,#fff0f2 0,transparent 50%)}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:30px}.eyebrow{color:var(--red);font-weight:800;font-size:.9rem}.hero h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.15;margin:12px 0}.hero p{font-size:1.08rem;color:var(--muted);max-width:650px}.search{display:flex;gap:8px;margin-top:22px;max-width:610px}.search input{flex:1;min-width:0;border:1px solid #dedee5;border-radius:13px;padding:13px 15px;outline:none}.search input:focus,.field input:focus,.field select:focus{border-color:var(--red);box-shadow:0 0 0 3px #c91f3214}.hero-card{background:#fff;border:1px solid #f1dadd;border-radius:24px;padding:24px;box-shadow:var(--shadow)}.hero-card .big-icon{font-size:3rem}.hero-card h3{margin:6px 0}.hero-card p{font-size:.95rem;margin:0}.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}.stat{background:var(--soft);padding:12px;border-radius:13px;text-align:center}.stat strong{display:block;color:var(--red);font-size:1.2rem}.stat span{font-size:.8rem;color:var(--muted)}section{padding:30px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}.section-head h2{margin:0;font-size:1.65rem}.section-head p{margin:4px 0 0;color:var(--muted)}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.chip{border:1px solid var(--line);border-radius:999px;padding:7px 13px;background:#fff;color:var(--muted);font-weight:700}.chip.active{background:var(--soft);border-color:#f3c4ca;color:var(--red)}.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tool-card{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff;transition:.2s;box-shadow:0 4px 18px #1f1f1f04}.tool-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#f1c3c9}.tool-top{display:flex;align-items:center;gap:12px}.tool-icon{width:45px;height:45px;display:grid;place-items:center;border-radius:14px;background:var(--soft);font-size:1.45rem}.tool-card h3{margin:0;font-size:1.05rem}.tool-card p{margin:10px 0 14px;color:var(--muted);font-size:.92rem;min-height:48px}.tool-card .btn{width:100%}.tool-panel{margin-top:24px;border:1px solid #f0c8ce;background:#fffafa;border-radius:22px;padding:22px;display:none}.tool-panel.show{display:block}.tool-panel h2{margin:0 0 5px}.tool-panel>p{margin:0 0 18px;color:var(--muted)}.fields{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-weight:700;font-size:.92rem}.field input,.field select{width:100%;border:1px solid #dedee5;border-radius:11px;padding:11px;background:#fff;min-width:0}.panel-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.result{margin-top:16px;border:1px solid #b9e2c9;background:#f1fbf4;border-radius:13px;padding:14px;display:none;overflow-wrap:anywhere}.result.show{display:block}.result strong{font-size:1.15rem;color:var(--green)}.empty{padding:25px;text-align:center;color:var(--muted);display:none}.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.info{padding:19px;border:1px solid var(--line);border-radius:17px}.info .symbol{font-size:1.5rem}.info h3{margin:5px 0}.info p{margin:0;color:var(--muted);font-size:.93rem}.faq details{padding:14px 0;border-bottom:1px solid var(--line)}.faq summary{font-weight:800;cursor:pointer}.faq details p{color:var(--muted);margin-bottom:0}.footer{margin-top:30px;background:#211e22;color:#fff;padding:32px 0}.footer-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}.footer p{color:#d6d2d5;max-width:550px}.footer a{color:#fff}.footer-links{display:flex;gap:15px;flex-wrap:wrap}.tiny{font-size:.83rem;color:var(--muted)}.toast{position:fixed;bottom:18px;left:18px;background:#222;color:#fff;padding:12px 16px;border-radius:12px;display:none;z-index:20}.toast.show{display:block}
+[dir="ltr"] .hero-card{text-align:left}
+@media(max-width:800px){.hero-grid{grid-template-columns:1fr}.hero{padding-top:35px}.hero-card{display:none}.tools-grid{grid-template-columns:repeat(2,1fr)}.fields{grid-template-columns:repeat(2,1fr)}.info-grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}}
+@media(max-width:500px){.tools-grid{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.nav{gap:8px}.brand{font-size:1.05rem}.logo{width:37px;height:37px}.btn{padding:8px 10px}.hero h1{font-size:2.25rem}.mini-stats{grid-template-columns:repeat(3,1fr)}.stat{padding:9px 5px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#" aria-label="Hasiba Plus home"><span class="logo">H+</span><span>Hasiba <span style="color:var(--red)">Plus</span></span></a>
+    <div class="nav-actions"><button class="btn" id="langBtn" type="button">English</button><a class="btn primary" href="#tools" data-i18n="explore">استكشف الأدوات</a></div>
+  </div>
+</header>
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow" data-i18n="eyebrow">أدوات مجانية • نتائج فورية</span>
+      <h1 data-i18n="heroTitle">حساباتك اليومية،<br>أصبحت أسهل.</h1>
+      <p data-i18n="heroText">مجموعة من الأدوات والحاسبات البسيطة التي تساعدك على إنجاز حساباتك بسرعة ووضوح، من هاتفك أو حاسوبك.</p>
+      <div class="search"><input id="searchInput" type="search" placeholder="ابحث عن حاسبة أو أداة..." data-i18n-placeholder="searchPlaceholder" aria-label="Search tools"><button class="btn primary" id="searchBtn" data-i18n="searchBtn">بحث</button></div>
+      <div class="mini-stats"><div class="stat"><strong>100%</strong><span data-i18n="free">مجانية</span></div><div class="stat"><strong>2</strong><span data-i18n="languages">لغتان</span></div><div class="stat"><strong>24/7</strong><span data-i18n="available">متاحة دائمًا</span></div></div>
+    </div>
+    <div class="hero-card"><div class="big-icon">🧮</div><h3 data-i18n="heroCardTitle">كل ما تحتاجه في مكان واحد</h3><p data-i18n="heroCardText">اختر الأداة، أدخل بياناتك، واحصل على النتيجة فورًا. لا تحتاج إلى إنشاء حساب.</p></div>
+  </div>
+</section>
+<section id="tools">
+  <div class="container">
+    <div class="section-head"><div><h2 data-i18n="toolsTitle">الأدوات والحاسبات</h2><p data-i18n="toolsSubtitle">اختر أداة وابدأ الحساب مباشرة.</p></div><span class="tiny" id="countLabel">8 أدوات</span></div>
+    <div class="filters" id="filters">
+      <button class="chip active" data-filter="all" data-i18n="all">الكل</button>
+      <button class="chip" data-filter="math" data-i18n="math">الحسابات</button>
+      <button class="chip" data-filter="date" data-i18n="date">التواريخ</button>
+      <button class="chip" data-filter="convert" data-i18n="convert">التحويل</button>
+      <button class="chip" data-filter="life" data-i18n="life">الحياة اليومية</button>
+    </div>
+    <div class="tools-grid" id="toolsGrid">
+      <article class="tool-card" data-tool="discount" data-category="math" data-search="خصم discount percentage sale price">
+        <div class="tool-top"><span class="tool-icon">🏷️</span><h3 data-i18n="discountTitle">حاسبة الخصم</h3></div><p data-i18n="discountDesc">احسب السعر بعد الخصم ومقدار التوفير.</p><button class="btn" data-open="discount" data-i18n="useTool">استخدم الأداة</button>
+      </article>
+      <article class="tool-card" data-tool="percent" data-category="math" data-search="نسبة مئوية percentage percent">
+        <div class="tool-top"><span class="tool-icon">％</span><h3 data-i18n="percentTitle">حاسبة النسبة المئوية</h3></div><p data-i18n="percentDesc">احسب نسبة رقم من رقم آخر بسهولة.</p><button class="btn" data-open="percent" data-i18n="useTool">استخدم الأداة</button>
+      </article>
+      <article class="tool-card" data-tool="age" data-category="date" data-search="العمر age birthday date of birth">
+        <div class="tool-top"><span class="tool-icon">🎂</span><h3 data-i18n="ageTitle">حاسبة العمر</h3></div><p data-i18n="ageDesc">احسب عمرك بالسنوات والأشهر والأيام.</p><button class="btn" data-open="age" data-i18n="useTool">استخدم الأداة</button>
+      </article>
+      <article class="tool-card" data-tool="days" data-category="date" data-search="الأيام بين تاريخين date difference days between dates">
+        <div class="tool-top"><span class="tool-icon">📅</span><h3 data-i18n="daysTitle">الفرق بين تاريخين</h3></div><p data-i18n="daysDesc">اعرف عدد الأيام بين تاريخين محددين.</p><button class="btn" data-open="days" data-i18n="useTool">استخدم الأداة</button>
+      </article>
+      <article class="tool-card" data-tool="units" data-category="convert" data-search="تحويل وحدات unit converter length weight temperature">
+        <div class="tool-top"><span class="tool-icon">📐</span><h3 data-i18n="unitsTitle">تحويل الوحدات</h3></div><p data-i18n="unitsDesc">حوّل الطول والوزن ودرجة الحرارة.</p><button class="btn" data-open="units" data-i18n="useTool">استخدم الأداة</button>
+      </article>
+      <article class="tool-card" data-tool="tip" data-category="life" data-search="فاتورة إكرامية tip bill split">
+        <div class="tool-top"><span class="tool-icon">🧾</span><h3 data-i18n="tipTitle">تقسيم الفاتورة والإكرامية</h3></div><p data-i18n="tipDesc">احسب الإكرامية ونصيب كل شخص.</p><button class="btn" data-open="tip" data-i18n="useTool">استخدم الأداة</button>
+      </article>
+      <article class="tool-card" data-tool="bmi" data-category="life" data-search="مؤشر كتلة الجسم BMI body mass index">
+        <div class="tool-top"><span class="tool-icon">⚖️</span><h3 data-i18n="bmiTitle">مؤشر كتلة الجسم</h3></div><p data-i18n="bmiDesc">احسب مؤشر كتلة الجسم بشكل تقريبي.</p><button class="btn" data-open="bmi" data-i18n="useTool">استخدم الأداة</button>
+      </article>
+      <article class="tool-card" data-tool="currency" data-category="convert" data-search="عملة عملات currency converter exchange rate">
+        <div class="tool-top"><span class="tool-icon">💱</span><h3 data-i18n="currencyTitle">حاسبة تحويل العملات</h3></div><p data-i18n="currencyDesc">حوّل بين العملات باستخدام سعر تدخله بنفسك.</p><button class="btn" data-open="currency" data-i18n="useTool">استخدم الأداة</button>
+      </article>
+    </div>
+    <div class="empty" id="emptyState" data-i18n="empty">لا توجد أدوات تطابق البحث.</div>
+    <div class="tool-panel" id="toolPanel" aria-live="polite"><div id="panelContent"></div><div class="result" id="resultBox"></div></div>
+  </div>
+</section>
+<section>
+ <div class="container">
+  <div class="section-head"><div><h2 data-i18n="whyTitle">لماذا Hasiba Plus؟</h2><p data-i18n="whySubtitle">مصمم ليكون بسيطًا ومفيدًا للجميع.</p></div></div>
+  <div class="info-grid">
+   <div class="info"><div class="symbol">⚡</div><h3 data-i18n="why1Title">نتائج سريعة</h3><p data-i18n="why1Text">أدخل القيم واحصل على الحساب مباشرة دون خطوات معقدة.</p></div>
+   <div class="info"><div class="symbol">📱</div><h3 data-i18n="why2Title">مناسب للجوال</h3><p data-i18n="why2Text">واجهة مرنة تعمل على الهاتف واللوحي والحاسوب.</p></div>
+   <div class="info"><div class="symbol">🔒</div><h3 data-i18n="why3Title">بدون حساب</h3><p data-i18n="why3Text">الأدوات تعمل داخل متصفحك ولا تحتاج إلى تسجيل دخول.</p></div>
+  </div>
+ </div>
+</section>
+<section class="faq">
+ <div class="container">
+  <div class="section-head"><div><h2 data-i18n="faqTitle">الأسئلة الشائعة</h2><p data-i18n="faqSubtitle">إجابات سريعة عن استخدام الموقع.</p></div></div>
+  <details><summary data-i18n="faq1Q">هل استخدام الأدوات مجاني؟</summary><p data-i18n="faq1A">نعم، الأدوات المتاحة في الموقع مجانية للاستخدام.</p></details>
+  <details><summary data-i18n="faq2Q">هل تُحفظ بياناتي؟</summary><p data-i18n="faq2A">تعمل الحسابات داخل المتصفح ولا تُرسل المدخلات إلى خادم في هذه النسخة.</p></details>
+  <details><summary data-i18n="faq3Q">هل نتائج الحاسبات رسمية؟</summary><p data-i18n="faq3A">النتائج تقديرية للاستخدام العام، ويجب التحقق من الحسابات المهمة من مصدر مختص.</p></details>
+ </div>
+</section>
+</main>
+<footer class="footer"><div class="container footer-grid"><div><a class="brand" href="#" style="color:#fff"><span class="logo">H+</span><span>Hasiba Plus</span></a><p data-i18n="footerText">أدوات وحاسبات مجانية لتسهيل الحسابات اليومية. نعمل باستمرار على إضافة أدوات جديدة.</p><span class="tiny" style="color:#c8c3c7">© <span id="year"></span> Hasiba Plus</span></div><div class="footer-links"><a href="#about" id="aboutLink" data-i18n="about">من نحن</a><a href="#privacy" id="privacyLink" data-i18n="privacy">سياسة الخصوصية</a><a href="mailto:hello@example.com" data-i18n="contact">اتصل بنا</a></div></div><div class="container tiny" style="color:#c8c3c7;margin-top:15px" data-i18n="footerNote">ملاحظة: استبدل بريد التواصل hello@example.com ببريدك الحقيقي قبل إطلاق الموقع.</div></footer>
+<div class="toast" id="toast"></div>
+<script>
+const translations={
+ar:{
+explore:"استكشف الأدوات",eyebrow:"أدوات مجانية • نتائج فورية",heroTitle:"حساباتك اليومية،<br>أصبحت أسهل.",heroText:"مجموعة من الأدوات والحاسبات البسيطة التي تساعدك على إنجاز حساباتك بسرعة ووضوح، من هاتفك أو حاسوبك.",searchPlaceholder:"ابحث عن حاسبة أو أداة...",searchBtn:"بحث",free:"مجانية",languages:"لغتان",available:"متاحة دائمًا",heroCardTitle:"كل ما تحتاجه في مكان واحد",heroCardText:"اختر الأداة، أدخل بياناتك، واحصل على النتيجة فورًا. لا تحتاج إلى إنشاء حساب.",toolsTitle:"الأدوات والحاسبات",toolsSubtitle:"اختر أداة وابدأ الحساب مباشرة.",all:"الكل",math:"الحسابات",date:"التواريخ",convert:"التحويل",life:"الحياة اليومية",discountTitle:"حاسبة الخصم",discountDesc:"احسب السعر بعد الخصم ومقدار التوفير.",percentTitle:"حاسبة النسبة المئوية",percentDesc:"احسب نسبة رقم من رقم آخر بسهولة.",ageTitle:"حاسبة العمر",ageDesc:"احسب عمرك بالسنوات والأشهر والأيام.",daysTitle:"الفرق بين تاريخين",daysDesc:"اعرف عدد الأيام بين تاريخين محددين.",unitsTitle:"تحويل الوحدات",unitsDesc:"حوّل الطول والوزن ودرجة الحرارة.",tipTitle:"تقسيم الفاتورة والإكرامية",tipDesc:"احسب الإكرامية ونصيب كل شخص.",bmiTitle:"مؤشر كتلة الجسم",bmiDesc:"احسب مؤشر كتلة الجسم بشكل تقريبي.",currencyTitle:"حاسبة تحويل العملات",currencyDesc:"حوّل بين العملات باستخدام سعر تدخله بنفسك.",useTool:"استخدم الأداة",empty:"لا توجد أدوات تطابق البحث.",whyTitle:"لماذا Hasiba Plus؟",whySubtitle:"مصمم ليكون بسيطًا ومفيدًا للجميع.",why1Title:"نتائج سريعة",why1Text:"أدخل القيم واحصل على الحساب مباشرة دون خطوات معقدة.",why2Title:"مناسب للجوال",why2Text:"واجهة مرنة تعمل على الهاتف واللوحي والحاسوب.",why3Title:"بدون حساب",why3Text:"الأدوات تعمل داخل متصفحك ولا تحتاج إلى تسجيل دخول.",faqTitle:"الأسئلة الشائعة",faqSubtitle:"إجابات سريعة عن استخدام الموقع.",faq1Q:"هل استخدام الأدوات مجاني؟",faq1A:"نعم، الأدوات المتاحة في الموقع مجانية للاستخدام.",faq2Q:"هل تُحفظ بياناتي؟",faq2A:"تعمل الحسابات داخل المتصفح ولا تُرسل المدخلات إلى خادم في هذه النسخة.",faq3Q:"هل نتائج الحاسبات رسمية؟",faq3A:"النتائج تقديرية للاستخدام العام، ويجب التحقق من الحسابات المهمة من مصدر مختص.",footerText:"أدوات وحاسبات مجانية لتسهيل الحسابات اليومية. نعمل باستمرار على إضافة أدوات جديدة.",about:"من نحن",privacy:"سياسة الخصوصية",contact:"اتصل بنا",footerNote:"ملاحظة: استبدل بريد التواصل hello@example.com ببريدك الحقيقي قبل إطلاق الموقع.",count:"أدوات",result:"النتيجة",calculate:"احسب",reset:"مسح",amount:"المبلغ",discountRate:"نسبة الخصم (%)",originalPrice:"السعر الأصلي",number:"الرقم",percentOf:"النسبة (%)",birthDate:"تاريخ الميلاد",startDate:"تاريخ البداية",endDate:"تاريخ النهاية",value:"القيمة",category:"نوع التحويل",length:"الطول",weight:"الوزن",temperature:"درجة الحرارة",meters:"متر",kilometers:"كيلومتر",centimeters:"سنتيمتر",feet:"قدم",kg:"كيلوغرام",grams:"غرام",pounds:"رطل",celsius:"مئوية",fahrenheit:"فهرنهايت",bill:"قيمة الفاتورة",tipRate:"الإكرامية (%)",people:"عدد الأشخاص",heightCm:"الطول (سم)",weightKg:"الوزن (كغ)",currencyFrom:"العملة الأصلية",currencyTo:"العملة المستهدفة",exchangeRate:"سعر الصرف (كل 1 من الأصل = ؟ من المستهدفة)",invalid:"يرجى إدخال قيم صحيحة.",saved:"تم",ageResult:"عمرك",years:"سنة",months:"شهر",days:"يوم",saving:"قيمة التوفير",finalPrice:"السعر بعد الخصم",of:"من",bmiLow:"أقل من النطاق المعتاد للبالغين",bmiNormal:"ضمن النطاق المعتاد للبالغين",bmiHigh:"أعلى من النطاق المعتاد للبالغين",bmiVeryHigh:"مرتفع جدًا للبالغين",approx:"تقريبي وليس تشخيصًا طبيًا",daysBetween:"عدد الأيام بين التاريخين",perPerson:"نصيب الشخص",tipAmount:"قيمة الإكرامية",total:"الإجمالي",copy:"نسخ النتيجة",copied:"تم نسخ النتيجة",toolDiscount:"حاسبة الخصم",toolPercent:"حاسبة النسبة المئوية",toolAge:"حاسبة العمر",toolDays:"الفرق بين تاريخين",toolUnits:"تحويل الوحدات",toolTip:"تقسيم الفاتورة والإكرامية",toolBmi:"مؤشر كتلة الجسم",toolCurrency:"تحويل العملات",privacyTitle:"سياسة الخصوصية",privacyBody:"هذه النسخة تعمل محليًا في متصفحك ولا ترسل مدخلات الحاسبات إلى خادم. إذا أضفت تحليلات أو إعلانات لاحقًا، حدّث سياسة الخصوصية بما يطابق الخدمات المستخدمة.",aboutTitle:"من نحن",aboutBody:"Hasiba Plus منصة أدوات وحاسبات تهدف إلى جعل الحسابات اليومية أسهل. للتواصل، حدّث بريد الموقع إلى بريدك الحقيقي."},
+en:{
+explore:"Explore tools",eyebrow:"Free tools • Instant results",heroTitle:"Everyday calculations,<br>made easier.",heroText:"A collection of simple tools and calculators to help you get things done quickly and clearly on your phone or computer.",searchPlaceholder:"Search for a calculator or tool...",searchBtn:"Search",free:"Free",languages:"Languages",available:"Always available",heroCardTitle:"Everything you need in one place",heroCardText:"Choose a tool, enter your details, and get your result instantly. No account required.",toolsTitle:"Tools & calculators",toolsSubtitle:"Choose a tool and start calculating.",all:"All",math:"Math",date:"Dates",convert:"Converters",life:"Everyday",discountTitle:"Discount calculator",discountDesc:"Calculate the sale price and how much you save.",percentTitle:"Percentage calculator",percentDesc:"Find a percentage of a number.",ageTitle:"Age calculator",ageDesc:"Calculate your age in years, months, and days.",daysTitle:"Date difference",daysDesc:"Find the number of days between two dates.",unitsTitle:"Unit converter",unitsDesc:"Convert length, weight, and temperature.",tipTitle:"Bill split & tip",tipDesc:"Calculate the tip and each person's share.",bmiTitle:"BMI calculator",bmiDesc:"Calculate your approximate body mass index.",currencyTitle:"Currency calculator",currencyDesc:"Convert currencies using an exchange rate you enter.",useTool:"Use tool",empty:"No tools match your search.",whyTitle:"Why Hasiba Plus?",whySubtitle:"Designed to be simple and useful for everyone.",why1Title:"Fast results",why1Text:"Enter values and get results without complicated steps.",why2Title:"Mobile friendly",why2Text:"A responsive interface for phones, tablets, and computers.",why3Title:"No account",why3Text:"Tools run in your browser and do not require sign-in.",faqTitle:"Frequently asked questions",faqSubtitle:"Quick answers about using the website.",faq1Q:"Are the tools free?",faq1A:"Yes, the tools available on this website are free to use.",faq2Q:"Is my data stored?",faq2A:"Calculations run in your browser and inputs are not sent to a server in this version.",faq3Q:"Are calculator results official?",faq3A:"Results are estimates for general use. Verify important calculations with an appropriate professional source.",footerText:"Free tools and calculators to simplify everyday calculations. We keep working to add more useful tools.",about:"About",privacy:"Privacy policy",contact:"Contact",footerNote:"Note: Replace hello@example.com with your real contact email before launch.",count:"tools",result:"Result",calculate:"Calculate",reset:"Reset",amount:"Amount",discountRate:"Discount (%)",originalPrice:"Original price",number:"Number",percentOf:"Percentage (%)",birthDate:"Date of birth",startDate:"Start date",endDate:"End date",value:"Value",category:"Conversion type",length:"Length",weight:"Weight",temperature:"Temperature",meters:"Meters",kilometers:"Kilometers",centimeters:"Centimeters",feet:"Feet",kg:"Kilograms",grams:"Grams",pounds:"Pounds",celsius:"Celsius",fahrenheit:"Fahrenheit",bill:"Bill amount",tipRate:"Tip (%)",people:"Number of people",heightCm:"Height (cm)",weightKg:"Weight (kg)",currencyFrom:"From currency",currencyTo:"To currency",exchangeRate:"Exchange rate (1 source = ? target)",invalid:"Please enter valid values.",saved:"Done",result:"Result",ageResult:"Your age",years:"years",months:"months",days:"days",saving:"You save",finalPrice:"Final price",of:"of",bmiLow:"Below the usual adult range",bmiNormal:"Within the usual adult range",bmiHigh:"Above the usual adult range",bmiVeryHigh:"Well above the usual adult range",approx:"Approximate only, not a medical diagnosis",daysBetween:"Days between dates",perPerson:"Per person",tipAmount:"Tip amount",total:"Total",copy:"Copy result",copied:"Result copied",toolDiscount:"Discount calculator",toolPercent:"Percentage calculator",toolAge:"Age calculator",toolDays:"Date difference",toolUnits:"Unit converter",toolTip:"Bill split & tip",toolBmi:"BMI calculator",toolCurrency:"Currency converter",privacyTitle:"Privacy policy",privacyBody:"This version runs locally in your browser and does not send calculator inputs to a server. If you add analytics or ads later, update this policy to reflect the services you use.",aboutTitle:"About us",aboutBody:"Hasiba Plus is a tools and calculators platform designed to make everyday calculations easier. Update the site's email to your real contact email."}
+};
+let lang="ar", activeFilter="all", activeTool=null;
+const $=s=>document.querySelector(s);
+const $$=s=>document.querySelectorAll(s);
+function t(k){return (translations[lang]&&translations[lang][k])||translations.ar[k]||k}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function applyLang(){
+ document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";$("#langBtn").textContent=lang==="ar"?"English":"العربية";
+ $$("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(t(k)!==k)el.innerHTML=t(k)});
+ $$("[data-i18n-placeholder]").forEach(el=>el.placeholder=t(el.dataset.i18nPlaceholder));
+ $("#countLabel").textContent=$$(".tool-card:not([hidden])").length+" "+t("count");
+ if(activeTool)openTool(activeTool,false);
+}
+const toolNames={discount:"toolDiscount",percent:"toolPercent",age:"toolAge",days:"toolDays",units:"toolUnits",tip:"toolTip",bmi:"toolBmi",currency:"toolCurrency"};
+function field(id,label,type="number",placeholder="",attrs=""){return `<div class="field"><label for="${id}">${t(label)}</label><input id="${id}" type="${type}" placeholder="${placeholder}" ${attrs}></div>`}
+function selectField(id,label,options){return `<div class="field"><label for="${id}">${t(label)}</label><select id="${id}">${options.map(o=>`<option value="${o[0]}">${t(o[1])}</option>`).join("")}</select></div>`}
+function openTool(name,scroll=true){
+ activeTool=name;const panel=$("#toolPanel"),content=$("#panelContent"),result=$("#resultBox");result.className="result";result.innerHTML="";
+ let f="",intro="";
+ if(name==="discount"){f=field("price","originalPrice","number","100",'min="0" step="any"')+field("discountRate","discountRate","number","15",'min="0" max="100" step="any"');}
+ if(name==="percent"){f=field("number","number","number","200",'step="any"')+field("percent","percentOf","number","15",'step="any"');}
+ if(name==="age"){f=field("birth","birthDate","date","",'max="'+new Date().toISOString().slice(0,10)+'"');}
+ if(name==="days"){f=field("start","startDate","date") + field("end","endDate","date");}
+ if(name==="units"){f=selectField("unitType","category",[["length","length"],["weight","weight"],["temperature","temperature"]])+field("unitValue","value","number","1",'step="any"')+`<div class="field"><label for="fromUnit">${t("category")}</label><select id="fromUnit"></select></div><div class="field"><label for="toUnit">${t("category")}</label><select id="toUnit"></select></div>`;}
+ if(name==="tip"){f=field("bill","bill","number","100",'min="0" step="any"')+field("tipRate","tipRate","number","10",'min="0" step="any"')+field("people","people","number","2",'min="1" step="1"');}
+ if(name==="bmi"){f=field("height","heightCm","number","170",'min="1" step="any"')+field("weight","weightKg","number","70",'min="1" step="any"');}
+ if(name==="currency"){f=field("money","amount","number","100",'step="any"')+selectField("fromCurrency","currencyFrom",[["SAR","SAR"],["USD","USD"],["EUR","EUR"],["GBP","GBP"],["EGP","EGP"],["YER","YER"]])+selectField("toCurrency","currencyTo",[["USD","USD"],["SAR","SAR"],["EUR","EUR"],["GBP","GBP"],["EGP","EGP"],["YER","YER"]])+field("rate","exchangeRate","number","0.27",'min="0" step="any"');}
+ content.innerHTML=`<h2>${t(toolNames[name])}</h2><p>${t(name==="currency"?"currencyDesc":name==="discount"?"discountDesc":name==="percent"?"percentDesc":name==="age"?"ageDesc":name==="days"?"daysDesc":name==="units"?"unitsDesc":name==="tip"?"tipDesc":"bmiDesc")}</p><div class="fields">${f}</div><div class="panel-actions"><button class="btn primary" id="calculateBtn">${t("calculate")}</button><button class="btn" id="resetBtn">${t("reset")}</button></div>`;
+ panel.classList.add("show");
+ if(name==="units"){updateUnitOptions();$("#unitType").addEventListener("change",updateUnitOptions)}
+ $("#calculateBtn").addEventListener("click",calculate);
+ $("#resetBtn").addEventListener("click",()=>{content.querySelectorAll("input").forEach(i=>i.value="");result.className="result";result.innerHTML=""});
+ if(scroll)panel.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function updateUnitOptions(){
+ const type=$("#unitType").value, from=$("#fromUnit"),to=$("#toUnit");
+ const opts=type==="length"?[["m","meters"],["km","kilometers"],["cm","centimeters"],["ft","feet"]]:type==="weight"?[["kg","kg"],["g","grams"],["lb","pounds"]]:[["C","celsius"],["F","fahrenheit"]];
+ const make=()=>opts.map(o=>`<option value="${o[0]}">${t(o[1])}</option>`).join("");
+ from.innerHTML=make();to.innerHTML=make();if(opts.length>1)to.selectedIndex=1;
+}
+function num(id){return Number($( "#"+id).value)}
+function valid(...vals){return vals.every(v=>Number.isFinite(v))}
+function showResult(html){const r=$("#resultBox");r.innerHTML=html+`<div style="margin-top:10px"><button class="btn" id="copyResult">${t("copy")}</button></div>`;r.className="result show";$("#copyResult").onclick=async()=>{try{await navigator.clipboard.writeText(r.innerText.replace(t("copy"),"").trim());toast(t("copied"))}catch(e){toast(r.innerText.trim())}}}
+function fmt(n){return new Intl.NumberFormat(lang==="ar"?"ar-SA":"en-US",{maximumFractionDigits:4}).format(n)}
+function calculate(){
+ const n=$("#resultBox");let html="";
+ try{
+ if(activeTool==="discount"){let p=num("price"),d=num("discountRate");if(!valid(p,d)||p<0||d<0||d>100)throw 0;html=`${t("saving")}: <strong>${fmt(p*d/100)}</strong><br>${t("finalPrice")}: <strong>${fmt(p*(1-d/100))}</strong>`;}
+ else if(activeTool==="percent"){let a=num("number"),p=num("percent");if(!valid(a,p))throw 0;html=`<strong>${fmt(a*p/100)}</strong> (${fmt(p)}% ${t("of")} ${fmt(a)})`;}
+ else if(activeTool==="age"){let b=new Date($("#birth").value+"T00:00:00"),now=new Date();now.setHours(0,0,0,0);if(!$("#birth").value||b>now||isNaN(b))throw 0;let y=now.getFullYear()-b.getFullYear(),m=now.getMonth()-b.getMonth(),d=now.getDate()-b.getDate();if(d<0){m--;d+=new Date(now.getFullYear(),now.getMonth(),0).getDate()}if(m<0){y--;m+=12}html=`${t("ageResult")}: <strong>${y}</strong> ${t("years")}, <strong>${m}</strong> ${t("months")}, <strong>${d}</strong> ${t("days")}`;}
+ else if(activeTool==="days"){let a=$("#start").value,b=$("#end").value;if(!a||!b)throw 0;let diff=Math.round(Math.abs(new Date(b+"T00:00:00")-new Date(a+"T00:00:00"))/86400000);html=`${t("daysBetween")}: <strong>${fmt(diff)}</strong>`;}
+ else if(activeTool==="units"){let v=num("unitValue"),type=$("#unitType").value,from=$("#fromUnit").value,to=$("#toUnit").value;if(!valid(v))throw 0;let result;if(type==="length"){let m={m:1,km:1000,cm:.01,ft:.3048};result=v*m[from]/m[to]}else if(type==="weight"){let m={kg:1,g:.001,lb:.45359237};result=v*m[from]/m[to]}else{result=from===to?v:from==="C"?v*9/5+32:(v-32)*5/9}html=`<strong>${fmt(v)} ${esc(from)} = ${fmt(result)} ${esc(to)}</strong>`;}
+ else if(activeTool==="tip"){let b=num("bill"),r=num("tipRate"),p=num("people");if(!valid(b,r,p)||b<0||r<0||p<1||!Number.isInteger(p))throw 0;let tip=b*r/100,total=b+tip;html=`${t("tipAmount")}: <strong>${fmt(tip)}</strong><br>${t("total")}: <strong>${fmt(total)}</strong><br>${t("perPerson")}: <strong>${fmt(total/p)}</strong>`;}
+ else if(activeTool==="bmi"){let h=num("height"),w=num("weight");if(!valid(h,w)||h<=0||w<=0)throw 0;let bmi=w/((h/100)**2),key=bmi<18.5?"bmiLow":bmi<25?"bmiNormal":bmi<30?"bmiHigh":"bmiVeryHigh";html=`${t("result")}: <strong>${fmt(bmi)}</strong><br>${t(key)}<br><small>${t("approx")}</small>`;}
+ else if(activeTool==="currency"){let a=num("money"),r=num("rate");if(!valid(a,r)||r<=0)throw 0;html=`<strong>${fmt(a*r)}</strong> ${esc($("#toCurrency").value)}<br><small>${fmt(a)} ${esc($("#fromCurrency").value)} × ${fmt(r)}</small>`;}
+ showResult(html);
+ }catch(e){n.innerHTML=`<strong style="color:var(--red)">${t("invalid")}</strong>`;n.className="result show"}
+}
+function toast(msg){const el=$("#toast");el.textContent=msg;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2500)}
+function filterTools(){
+ const q=$("#searchInput").value.trim().toLowerCase();let shown=0;
+ $$(".tool-card").forEach(card=>{const text=(card.dataset.search+" "+card.innerText).toLowerCase();const ok=(activeFilter==="all"||card.dataset.category===activeFilter)&&(!q||text.includes(q));card.hidden=!ok;if(ok)shown++});
+ $("#emptyState").style.display=shown?"none":"block";$("#countLabel").textContent=shown+" "+t("count");
+}
+$("#filters").addEventListener("click",e=>{const b=e.target.closest("[data-filter]");if(!b)return;activeFilter=b.dataset.filter;$$(".chip").forEach(c=>c.classList.toggle("active",c===b));filterTools()});
+$("#searchBtn").addEventListener("click",filterTools);$("#searchInput").addEventListener("input",filterTools);
+$("#searchInput").addEventListener("keydown",e=>{if(e.key==="Enter")filterTools()});
+$("#toolsGrid").addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)openTool(b.dataset.open)});
+$("#langBtn").addEventListener("click",()=>{lang=lang==="ar"?"en":"ar";applyLang()});
+$("#aboutLink").addEventListener("click",e=>{e.preventDefault();alert(t("aboutTitle")+"\n\n"+t("aboutBody"))});
+$("#privacyLink").addEventListener("click",e=>{e.preventDefault();alert(t("privacyTitle")+"\n\n"+t("privacyBody"))});
+$("#year").textContent=new Date().getFullYear();applyLang();filterTools();
+</script>
+</body>
+</html>

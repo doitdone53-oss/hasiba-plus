@@ -77,7 +77,105 @@
 </section>
 <section>
  <div class="container">
-   div class="section-head"><div><h2 data-i18n="whyTitle">لماذا Hasiba Plus
+   <!-- بداية قسم العملات الرقمية في Hasiba Plus: الصق هذا الجزء كاملاً قبل </body> -->
+<style>
+#cryptoHub{--ch-red:#b91c1c;--ch-ink:#172033;--ch-muted:#667085;--ch-line:#e5e7eb;color:var(--ch-ink);font-family:inherit;line-height:1.7;padding:32px 0}
+#cryptoHub *{box-sizing:border-box}#cryptoHub .ch-wrap{width:min(1100px,92%);margin:auto}#cryptoHub .ch-head{margin-bottom:18px}#cryptoHub .ch-head h2{margin:0;font-size:1.7rem}#cryptoHub .ch-head p{color:var(--ch-muted);margin:5px 0 0}#cryptoHub .ch-notice{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:12px 14px;color:#9a3412;margin:14px 0 20px;font-size:.9rem}#cryptoHub .ch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}#cryptoHub .ch-card{background:#fff;border:1px solid var(--ch-line);border-radius:16px;padding:18px;box-shadow:0 4px 14px #10182808;min-width:0}#cryptoHub .ch-card h3{margin:0 0 5px;font-size:1.12rem}#cryptoHub .ch-desc{font-size:.88rem;color:var(--ch-muted);margin:0 0 12px}#cryptoHub label{display:block;font-weight:700;font-size:.88rem;margin:9px 0 4px}#cryptoHub input,#cryptoHub select{width:100%;min-height:43px;padding:9px 10px;border:1px solid #d0d5dd;border-radius:9px;background:#fff;color:var(--ch-ink);font:inherit}#cryptoHub input:focus,#cryptoHub select:focus{outline:2px solid #fecaca;border-color:var(--ch-red)}#cryptoHub .ch-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}#cryptoHub .ch-btn{width:100%;margin-top:12px;border:0;border-radius:10px;background:var(--ch-red);color:white;padding:10px 14px;font:inherit;font-weight:700;cursor:pointer}#cryptoHub .ch-btn.secondary{background:#fff;color:var(--ch-red);border:1px solid #fecaca}#cryptoHub .ch-result{display:none;margin-top:12px;background:#ecfdf3;border:1px solid #abefc6;border-radius:10px;padding:11px 12px;color:#05603a;font-weight:700;overflow-wrap:anywhere}#cryptoHub .ch-result.show{display:block}#cryptoHub .ch-small{font-size:.8rem;color:var(--ch-muted);margin:8px 0 0}#cryptoHub .ch-status{font-size:.88rem;color:var(--ch-muted);margin:8px 0}#cryptoHub .ch-table-wrap{overflow-x:auto}#cryptoHub table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:360px}#cryptoHub th,#cryptoHub td{padding:9px 7px;border-bottom:1px solid var(--ch-line);text-align:right;white-space:nowrap}#cryptoHub th{color:var(--ch-muted);font-size:.82rem}#cryptoHub .ch-price{font-weight:700}#cryptoHub .ch-badge{display:inline-block;background:#fef2f2;color:var(--ch-red);border-radius:7px;padding:2px 7px;font-size:.78rem}
+@media(max-width:700px){#cryptoHub .ch-grid{grid-template-columns:1fr}#cryptoHub .ch-row{grid-template-columns:1fr}#cryptoHub .ch-head h2{font-size:1.45rem}}
+</style>
+<section id="cryptoHub">
+ <div class="ch-wrap">
+  <div class="ch-head"><span class="ch-badge">قسم جديد</span><h2>₿ حاسبات العملات الرقمية</h2><p>أدوات لحساب الأرباح ومتوسط الشراء والتحويل ورسوم التداول.</p></div>
+  <div class="ch-notice"><strong>تنبيه مهم:</strong> أسعار السوق أدناه تُجلب من CoinGecko عند نجاح الاتصال بالإنترنت، وقد تتأخر أو تتوقف بسبب حدود الخدمة. تحويل USDT إلى SAR يستخدم سعرًا تقديريًا قابلًا للتعديل وليس سعر تداول مباشرًا. حاسبة التصفية تقديرية وليست مطابقة بالضرورة لقواعد Binance أو أي منصة.</div>
+  <div class="ch-grid">
+   <article class="ch-card" id="ch-live">
+    <h3>📈 متابعة الأسعار المباشرة</h3><p class="ch-desc">أسعار تقريبية محدثة من مصدر بيانات خارجي عند توفره.</p>
+    <div class="ch-status" id="chLiveStatus" aria-live="polite">لم يتم جلب الأسعار بعد.</div>
+    <div class="ch-table-wrap"><table><thead><tr><th>العملة</th><th>السعر بالدولار</th><th>تقريبًا بالريال</th></tr></thead><tbody id="chPrices"><tr><td colspan="3">اضغط تحديث الأسعار للاتصال بمصدر البيانات.</td></tr></tbody></table></div>
+    <button class="ch-btn" type="button" onclick="chFetchPrices()">تحديث الأسعار</button><p class="ch-small">المصدر: CoinGecko API. إذا تعذر الاتصال، لن نعرض أرقامًا قديمة على أنها مباشرة.</p>
+   </article>
+   <article class="ch-card">
+    <h3>💱 تحويل USDT إلى SAR</h3><p class="ch-desc">تقدير قيمة التيثر بالريال مع إمكانية تعديل سعر الصرف.</p>
+    <label for="chUsdtAmount">المبلغ بعملة USDT</label><input id="chUsdtAmount" type="number" min="0" step="any" placeholder="مثلاً 100">
+    <label for="chUsdtRate">سعر 1 USDT بالريال (قابل للتعديل)</label><input id="chUsdtRate" type="number" min="0" step="any" value="3.75">
+    <button class="ch-btn" type="button" onclick="chUsdtToSar()">احسب بالريال</button><div class="ch-result" id="chUsdtResult"></div><p class="ch-small">القيمة الافتراضية 3.75 ريال تقديرية فقط؛ أدخل السعر الفعلي من منصتك للحصول على تقدير أدق.</p>
+   </article>
+   <article class="ch-card">
+    <h3>🧮 حاسبة الربح والخسارة</h3><p class="ch-desc">احسب نتيجة شراء وبيع عملة بسعرين مختلفين.</p>
+    <div class="ch-row"><div><label for="chPLQty">الكمية</label><input id="chPLQty" type="number" min="0" step="any" placeholder="مثلاً 2"></div><div><label for="chPLBuy">سعر الشراء</label><input id="chPLBuy" type="number" min="0" step="any" placeholder="مثلاً 100"></div></div>
+    <label for="chPLSell">سعر البيع</label><input id="chPLSell" type="number" min="0" step="any" placeholder="مثلاً 120">
+    <button class="ch-btn" type="button" onclick="chProfitLoss()">احسب الربح والخسارة</button><div class="ch-result" id="chPLResult"></div>
+   </article>
+   <article class="ch-card">
+    <h3>⚖️ حاسبة متوسط الشراء</h3><p class="ch-desc">أدخل حتى ثلاث عمليات شراء، وسيتم حساب المتوسط المرجح بالكمية.</p>
+    <div class="ch-row"><div><label for="chAQty1">كمية الشراء الأول</label><input id="chAQty1" type="number" min="0" step="any" placeholder="الكمية"></div><div><label for="chAPrice1">سعر الشراء الأول</label><input id="chAPrice1" type="number" min="0" step="any" placeholder="السعر"></div></div>
+    <div class="ch-row"><div><label for="chAQty2">كمية الشراء الثاني</label><input id="chAQty2" type="number" min="0" step="any" placeholder="اختياري"></div><div><label for="chAPrice2">سعر الشراء الثاني</label><input id="chAPrice2" type="number" min="0" step="any" placeholder="اختياري"></div></div>
+    <div class="ch-row"><div><label for="chAQty3">كمية الشراء الثالث</label><input id="chAQty3" type="number" min="0" step="any" placeholder="اختياري"></div><div><label for="chAPrice3">سعر الشراء الثالث</label><input id="chAPrice3" type="number" min="0" step="any" placeholder="اختياري"></div></div>
+    <button class="ch-btn" type="button" onclick="chAverageBuy()">احسب متوسط الشراء</button><div class="ch-result" id="chAvgResult"></div>
+   </article>
+   <article class="ch-card">
+    <h3>🔄 محول العملات الرقمية</h3><p class="ch-desc">حوّل بين العملات المتاحة باستخدام آخر أسعار تم جلبها بنجاح.</p>
+    <label for="chConvAmount">المبلغ</label><input id="chConvAmount" type="number" min="0" step="any" placeholder="مثلاً 0.5">
+    <div class="ch-row"><div><label for="chConvFrom">من</label><select id="chConvFrom"><option value="bitcoin">BTC — Bitcoin</option><option value="ethereum">ETH — Ethereum</option><option value="binancecoin">BNB — BNB</option><option value="ripple">XRP — XRP</option><option value="solana">SOL — Solana</option><option value="dogecoin">DOGE — Dogecoin</option><option value="cardano">ADA — Cardano</option><option value="tron">TRX — TRON</option><option value="tether">USDT — Tether</option></select></div><div><label for="chConvTo">إلى</label><select id="chConvTo"><option value="tether">USDT — Tether</option><option value="bitcoin">BTC — Bitcoin</option><option value="ethereum">ETH — Ethereum</option><option value="binancecoin">BNB — BNB</option><option value="ripple">XRP — XRP</option><option value="solana">SOL — Solana</option><option value="dogecoin">DOGE — Dogecoin</option><option value="cardano">ADA — Cardano</option><option value="tron">TRX — TRON</option></select></div></div>
+    <button class="ch-btn" type="button" onclick="chConvertCrypto()">حوّل المبلغ</button><div class="ch-result" id="chConvResult"></div><p class="ch-small">يجب تحديث الأسعار أولاً. التحويل تقديري ولا يشمل فروق أسعار المنصات أو الرسوم.</p>
+   </article>
+   <article class="ch-card">
+    <h3>🎯 حاسبة هدف السعر</h3><p class="ch-desc">احسب قيمة استثمارك والربح أو الخسارة إذا وصلت العملة إلى سعر مستهدف.</p>
+    <div class="ch-row"><div><label for="chTargetQty">الكمية</label><input id="chTargetQty" type="number" min="0" step="any" placeholder="مثلاً 100"></div><div><label for="chTargetBuy">سعر الشراء</label><input id="chTargetBuy" type="number" min="0" step="any" placeholder="سعر الدخول"></div></div>
+    <label for="chTargetPrice">السعر المستهدف</label><input id="chTargetPrice" type="number" min="0" step="any" placeholder="السعر المتوقع">
+    <button class="ch-btn" type="button" onclick="chTargetCalc()">احسب الهدف</button><div class="ch-result" id="chTargetResult"></div>
+   </article>
+   <article class="ch-card">
+    <h3>🧾 حاسبة رسوم التداول</h3><p class="ch-desc">تقدير رسوم الشراء والبيع وصافي النتيجة وفق نسبة الرسوم التي تدخلها.</p>
+    <div class="ch-row"><div><label for="chFeeBuy">قيمة الشراء</label><input id="chFeeBuy" type="number" min="0" step="any" placeholder="قيمة الصفقة"></div><div><label for="chFeeSell">قيمة البيع</label><input id="chFeeSell" type="number" min="0" step="any" placeholder="قيمة الصفقة"></div></div>
+    <label for="chFeeRate">رسوم كل عملية %</label><input id="chFeeRate" type="number" min="0" max="100" step="any" value="0.1">
+    <button class="ch-btn" type="button" onclick="chCalcFees()">احسب الرسوم</button><div class="ch-result" id="chFeeResult"></div><p class="ch-small">استخدم نسبة الرسوم المناسبة لحسابك ومنصتك؛ قد تختلف رسوم maker وtaker والخصومات.</p>
+   </article>
+   <article class="ch-card">
+    <h3>⚠️ حاسبة سعر التصفية التقريبي</h3><p class="ch-desc">تقدير تعليمي مبسط للعقود ذات الهامش المعزول، وليس سعر تصفية رسميًا.</p>
+    <label for="chLiqSide">اتجاه الصفقة</label><select id="chLiqSide"><option value="long">شراء / Long</option><option value="short">بيع / Short</option></select>
+    <div class="ch-row"><div><label for="chLiqEntry">سعر الدخول</label><input id="chLiqEntry" type="number" min="0" step="any" placeholder="سعر الدخول"></div><div><label for="chLiqLev">الرافعة المالية ×</label><input id="chLiqLev" type="number" min="1.01" max="125" step="any" placeholder="مثلاً 10"></div></div>
+    <label for="chLiqMmr">هامش الصيانة % (افتراضي 0.5%)</label><input id="chLiqMmr" type="number" min="0" max="50" step="any" value="0.5">
+    <button class="ch-btn" type="button" onclick="chCalcLiq()">قدّر سعر التصفية</button><div class="ch-result" id="chLiqResult"></div><p class="ch-small">لا تستخدم هذه النتيجة لاتخاذ قرار تداول. سعر التصفية الفعلي يعتمد على المنصة، وحجم المركز، وفئة الهامش، والرسوم، والهامش الإضافي.</p>
+   </article>
+  </div>
+ </div>
+</section>
+<script>
+(function(){
+ const ch$=id=>document.getElementById(id);
+ const chFmt=n=>new Intl.NumberFormat('en-US',{maximumFractionDigits:8}).format(n);
+ const chMoney=n=>new Intl.NumberFormat('en-US',{maximumFractionDigits:4}).format(n);
+ const chShow=(id,msg)=>{const e=ch$(id);e.textContent=msg;e.classList.add('show')};
+ const chValid=(v)=>v!==''&&Number.isFinite(Number(v))&&Number(v)>=0;
+ const chNames={bitcoin:'BTC',ethereum:'ETH',binancecoin:'BNB',ripple:'XRP',solana:'SOL',dogecoin:'DOGE',cardano:'ADA',tron:'TRX',tether:'USDT'};
+ let chMarket={}; let chUpdated=null;
+ window.chFetchPrices=async function(){
+  const status=ch$('chLiveStatus'),body=ch$('chPrices');status.textContent='جارٍ الاتصال بمصدر الأسعار…';
+  try{
+   const ids=Object.keys(chNames).join(',');
+   const res=await fetch('https://api.coingecko.com/api/v3/simple/price?ids='+encodeURIComponent(ids)+'&vs_currencies=usd',{cache:'no-store'});
+   if(!res.ok)throw new Error('HTTP '+res.status);
+   const data=await res.json();
+   const next={};Object.keys(chNames).forEach(id=>{if(data[id]&&Number.isFinite(Number(data[id].usd)))next[id]=Number(data[id].usd)});
+   if(!Object.keys(next).length)throw new Error('No price data');
+   chMarket=next;chUpdated=new Date();
+   body.innerHTML=Object.keys(chNames).filter(id=>chMarket[id]!==undefined).map(id=>'<tr><td><strong>'+chNames[id]+'</strong></td><td class="ch-price">$'+chMoney(chMarket[id])+'</td><td>'+chMoney(chMarket[id]*3.75)+' SAR*</td></tr>').join('');
+   status.textContent='تم التحديث: '+chUpdated.toLocaleTimeString('ar-SA')+' — الأسعار بالدولار من CoinGecko.';
+  }catch(err){status.textContent='تعذر جلب الأسعار الآن. تحقق من الإنترنت وحاول مرة أخرى؛ لا توجد أسعار مباشرة مؤكدة حاليًا.';if(!Object.keys(chMarket).length)body.innerHTML='<tr><td colspan="3">لا توجد بيانات أسعار متاحة.</td></tr>';}
+ };
+ window.chUsdtToSar=function(){const a=ch$('chUsdtAmount').value,r=ch$('chUsdtRate').value;if(!chValid(a)||!chValid(r)||Number(r)<=0){chShow('chUsdtResult','أدخل مبلغًا وسعر صرف أكبر من صفر.');return}chShow('chUsdtResult',chFmt(Number(a))+' USDT ≈ '+chMoney(Number(a)*Number(r))+' SAR حسب سعر الصرف الذي أدخلته.');};
+ window.chProfitLoss=function(){const q=ch$('chPLQty').value,b=ch$('chPLBuy').value,s=ch$('chPLSell').value;if(!chValid(q)||Number(q)<=0||!chValid(b)||!chValid(s)){chShow('chPLResult','أدخل كمية أكبر من صفر وسعرَي شراء وبيع صحيحين.');return}const cost=Number(q)*Number(b),value=Number(q)*Number(s),p=value-cost,pct=cost?p/cost*100:0;chShow('chPLResult','قيمة الشراء: '+chMoney(cost)+' — قيمة البيع: '+chMoney(value)+' — '+(p>=0?'الربح: ':'الخسارة: ')+chMoney(Math.abs(p))+' ('+chMoney(pct)+'%). قبل الرسوم والضرائب.');};
+ window.chAverageBuy=function(){let qty=0,cost=0,used=0;for(let i=1;i<=3;i++){const q=ch$('chAQty'+i).value,p=ch$('chAPrice'+i).value;if(q===''&&p==='')continue;if(!chValid(q)||Number(q)<=0||!chValid(p)){chShow('chAvgResult','أكمل الكمية والسعر لكل عملية شراء أدخلتها، واجعل الكمية أكبر من صفر.');return}qty+=Number(q);cost+=Number(q)*Number(p);used++}if(!used){chShow('chAvgResult','أدخل عملية شراء واحدة على الأقل.');return}chShow('chAvgResult','إجمالي الكمية: '+chFmt(qty)+' — إجمالي التكلفة: '+chMoney(cost)+' — متوسط سعر الشراء: '+chMoney(cost/qty)+'. لا يشمل الرسوم.');};
+ window.chConvertCrypto=function(){const a=ch$('chConvAmount').value,from=ch$('chConvFrom').value,to=ch$('chConvTo').value;if(!chValid(a)){chShow('chConvResult','أدخل مبلغًا صحيحًا.');return}if(!chMarket[from]||!chMarket[to]){chShow('chConvResult','الأسعار غير متاحة بعد. اضغط «تحديث الأسعار» أولًا.');return}const result=Number(a)*chMarket[from]/chMarket[to];chShow('chConvResult',chFmt(Number(a))+' '+chNames[from]+' ≈ '+chFmt(result)+' '+chNames[to]+' وفق آخر الأسعار المحمّلة.');};
+ window.chTargetCalc=function(){const q=ch$('chTargetQty').value,b=ch$('chTargetBuy').value,t=ch$('chTargetPrice').value;if(!chValid(q)||Number(q)<=0||!chValid(b)||!chValid(t)){chShow('chTargetResult','أدخل كمية أكبر من صفر وسعر شراء وسعر مستهدف صحيحين.');return}const cost=Number(q)*Number(b),value=Number(q)*Number(t),p=value-cost,pct=cost?p/cost*100:0;chShow('chTargetResult','قيمة الاستثمار عند الهدف: '+chMoney(value)+' — '+(p>=0?'الربح المتوقع حسابيًا: ':'الخسارة المتوقعة حسابيًا: ')+chMoney(Math.abs(p))+' ('+chMoney(pct)+'%). لا يشمل الرسوم، ولا يعني أن الهدف سيتحقق.');};
+ window.chCalcFees=function(){const b=ch$('chFeeBuy').value,s=ch$('chFeeSell').value,r=ch$('chFeeRate').value;if(!chValid(b)||!chValid(s)||!chValid(r)||Number(r)>100){chShow('chFeeResult','أدخل قيمة شراء وبيع صحيحتين ونسبة رسوم بين 0 و100.');return}const feeBuy=Number(b)*Number(r)/100,feeSell=Number(s)*Number(r)/100,gross=Number(s)-Number(b),fees=feeBuy+feeSell,net=gross-fees;chShow('chFeeResult','رسوم الشراء: '+chMoney(feeBuy)+' — رسوم البيع: '+chMoney(feeSell)+' — مجموع الرسوم: '+chMoney(fees)+' — النتيجة بعد الرسوم: '+(net>=0?'ربح ':'خسارة ')+chMoney(Math.abs(net))+'.');};
+ window.chCalcLiq=function(){const side=ch$('chLiqSide').value,e=ch$('chLiqEntry').value,l=ch$('chLiqLev').value,m=ch$('chLiqMmr').value;if(!chValid(e)||Number(e)<=0||!chValid(l)||Number(l)<=1||!chValid(m)||Number(m)>=100){chShow('chLiqResult','أدخل سعر دخول أكبر من صفر، ورافعة أكبر من 1، وهامش صيانة صحيحًا.');return}const lev=Number(l),mmr=Number(m)/100,price=side==='long'?Number(e)*(1-1/lev+mmr):Number(e)*(1+1/lev-mmr);if(price<=0){chShow('chLiqResult','لا يمكن حساب تقدير موجب بهذه القيم.');return}chShow('chLiqResult','سعر التصفية التقديري المبسط: '+chMoney(price)+'. هذا نموذج تعليمي فقط، وليس السعر الفعلي الذي تحدده المنصة.');};
+ // تحديث واحد تلقائي عند فتح القسم؛ التحديثات التالية يدوية لتجنب الضغط على واجهة البيانات.
+ chFetchPrices();
+})();
+</script>
+<!-- نهاية قسم العملات الرقمية -->
   <div class="section-head"><div><h2 data-i18n="whyTitle">لماذا Hasiba Plus؟</h2><p data-i18n="whySubtitle">مصمم ليكون بسيطًا ومفيدًا للجميع.</p></div></div>
   <div class="info-grid">
    <div class="info"><div class="symbol">⚡</div><h3 data-i18n="why1Title">نتائج سريعة</h3><p data-i18n="why1Text">أدخل القيم واحصل على الحساب مباشرة دون خطوات معقدة.</p></div>

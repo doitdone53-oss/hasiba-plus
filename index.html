@@ -1,545 +1,534 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta name="google-site-verification" content="aaG2rTAuMUFxCYlciTF-zpNyGvN8KryreuzoKEFkQT8" />
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#c91f32">
-<meta name="description" content="Hasiba Plus - أدوات وحاسبات مجانية وسهلة بالعربية والإنجليزية. احسب الخصومات والنسب المئوية والعمر والتواريخ وحوّل الوحدات بسهولة.">
-<title>Hasiba Plus | أدوات وحاسبات ذكية</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#b91c1c">
+<meta name="description" content="Hasiba Plus - أدوات وحاسبات مجانية بالعربية والإنجليزية، مع أسعار العملات الرقمية المباشرة.">
+<title>Hasiba Plus | حاسبة بلس</title>
+
 <style>
-:root{--red:#c91f32;--red2:#a91527;--ink:#20212a;--muted:#686b76;--line:#ececf0;--bg:#fff;--soft:#fff3f4;--green:#16834a;--shadow:0 12px 35px rgba(34,25,30,.07)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.6}button,input,select{font:inherit}button{cursor:pointer}.container{width:min(1120px,92%);margin:auto}.topbar{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:10}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.25rem;text-decoration:none;color:var(--ink)}.logo{display:grid;place-items:center;width:42px;height:42px;background:var(--red);color:#fff;border-radius:13px;font-weight:900;font-size:1.1rem;box-shadow:0 6px 15px #c91f3230}.nav-actions{display:flex;gap:8px;align-items:center}.btn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 13px;font-weight:700;color:var(--ink)}.btn.primary{background:var(--red);border-color:var(--red);color:#fff}.btn:hover{filter:brightness(.97)}.hero{padding:55px 0 32px;background:radial-gradient(ellipse at 80% 0,#fff0f2 0,transparent 50%)}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:30px}.eyebrow{color:var(--red);font-weight:800;font-size:.9rem}.hero h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.15;margin:12px 0}.hero p{font-size:1.08rem;color:var(--muted);max-width:650px}.search{display:flex;gap:8px;margin-top:22px;max-width:610px}.search input{flex:1;min-width:0;border:1px solid #dedee5;border-radius:13px;padding:13px 15px;outline:none}.search input:focus,.field input:focus,.field select:focus{border-color:var(--red);box-shadow:0 0 0 3px #c91f3214}.hero-card{background:#fff;border:1px solid #f1dadd;border-radius:24px;padding:24px;box-shadow:var(--shadow)}.hero-card .big-icon{font-size:3rem}.hero-card h3{margin:6px 0}.hero-card p{font-size:.95rem;margin:0}.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}.stat{background:var(--soft);padding:12px;border-radius:13px;text-align:center}.stat strong{display:block;color:var(--red);font-size:1.2rem}.stat span{font-size:.8rem;color:var(--muted)}section{padding:30px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}.section-head h2{margin:0;font-size:1.65rem}.section-head p{margin:4px 0 0;color:var(--muted)}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.chip{border:1px solid var(--line);border-radius:999px;padding:7px 13px;background:#fff;color:var(--muted);font-weight:700}.chip.active{background:var(--soft);border-color:#f3c4ca;color:var(--red)}.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tool-card{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff;transition:.2s;box-shadow:0 4px 18px #1f1f1f04}.tool-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#f1c3c9}.tool-top{display:flex;align-items:center;gap:12px}.tool-icon{width:45px;height:45px;display:grid;place-items:center;border-radius:14px;background:var(--soft);font-size:1.45rem}.tool-card h3{margin:0;font-size:1.05rem}.tool-card p{margin:10px 0 14px;color:var(--muted);font-size:.92rem;min-height:48px}.tool-card .btn{width:100%}.tool-panel{margin-top:24px;border:1px solid #f0c8ce;background:#fffafa;border-radius:22px;padding:22px;display:none}.tool-panel.show{display:block}.tool-panel h2{margin:0 0 5px}.tool-panel>p{margin:0 0 18px;color:var(--muted)}.fields{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-weight:700;font-size:.92rem}.field input,.field select{width:100%;border:1px solid #dedee5;border-radius:11px;padding:11px;background:#fff;min-width:0}.panel-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.result{margin-top:16px;border:1px solid #b9e2c9;background:#f1fbf4;border-radius:13px;padding:14px;display:none;overflow-wrap:anywhere}.result.show{display:block}.result strong{font-size:1.15rem;color:var(--green)}.empty{padding:25px;text-align:center;color:var(--muted);display:none}.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.info{padding:19px;border:1px solid var(--line);border-radius:17px}.info .symbol{font-size:1.5rem}.info h3{margin:5px 0}.info p{margin:0;color:var(--muted);font-size:.93rem}.faq details{padding:14px 0;border-bottom:1px solid var(--line)}.faq summary{font-weight:800;cursor:pointer}.faq details p{color:var(--muted);margin-bottom:0}.footer{margin-top:30px;background:#211e22;color:#fff;padding:32px 0}.footer-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}.footer p{color:#d6d2d5;max-width:550px}.footer a{color:#fff}.footer-links{display:flex;gap:15px;flex-wrap:wrap}.tiny{font-size:.83rem;color:var(--muted)}.toast{position:fixed;bottom:18px;left:18px;background:#222;color:#fff;padding:12px 16px;border-radius:12px;display:none;z-index:20}.toast.show{display:block}
-[dir="ltr"] .hero-card{text-align:left}
-@media(max-width:800px){.hero-grid{grid-template-columns:1fr}.hero{padding-top:35px}.hero-card{display:none}.tools-grid{grid-template-columns:repeat(2,1fr)}.fields{grid-template-columns:repeat(2,1fr)}.info-grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}}
-@media(max-width:500px){.tools-grid{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.nav{gap:8px}.brand{font-size:1.05rem}.logo{width:37px;height:37px}.btn{padding:8px 10px}.hero h1{font-size:2.25rem}.mini-stats{grid-template-columns:repeat(3,1fr)}.stat{padding:9px 5px}}
+:root {
+  --red: #b91c1c;
+  --red2: #dc2626;
+  --bg: #f8fafc;
+  --white: #ffffff;
+  --text: #172033;
+  --muted: #64748b;
+  --line: #e5e7eb;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav {
+  max-width: 1100px;
+  margin: auto;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.logo { font-size: 24px; font-weight: 800; color: var(--red); }
+button, input, select { font: inherit; }
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  background: var(--red);
+  color: white;
+}
+button:hover { background: var(--red2); }
+button.secondary {
+  color: var(--red);
+  background: #fee2e2;
+}
+.container { max-width: 1100px; margin: auto; padding: 22px 16px; }
+.hero {
+  background: linear-gradient(135deg, #991b1b, #dc2626);
+  color: white;
+  padding: 40px 24px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+.hero h1 { font-size: clamp(28px, 5vw, 44px); margin: 0 0 10px; }
+.hero p { margin: 0 0 20px; }
+.hero .hero-btn { background: white; color: var(--red); font-weight: bold; }
+.section-title { margin: 32px 0 16px; font-size: 25px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 14px rgba(15,23,42,.035);
+  min-width: 0;
+}
+.card h3 { margin-top: 0; }
+label { display: block; margin: 12px 0 5px; font-weight: 600; }
+input, select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background: white;
+  color: var(--text);
+}
+.result {
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #991b1b;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 14px;
+  overflow-wrap: anywhere;
+}
+.muted { color: var(--muted); font-size: 14px; }
+.crypto-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 480px; }
+th, td { text-align: start; padding: 12px 10px; border-bottom: 1px solid var(--line); }
+th { background: #fff1f2; }
+footer { text-align: center; color: var(--muted); padding: 28px 12px; }
+.hidden { display: none !important; }
+a { color: var(--red); }
+@media (max-width: 500px) {
+  .nav { padding: 10px 12px; }
+  .logo { font-size: 20px; }
+  .container { padding: 14px 12px; }
+  .hero { padding: 28px 18px; }
+  .card { padding: 16px; }
+}
 </style>
 </head>
+
 <body>
-<header class="topbar">
-  <div class="container nav">
-    <a class="brand" href="#" aria-label="Hasiba Plus home"><span class="logo">H+</span><span>Hasiba <span style="color:var(--red)">Plus</span></span></a>
-    <div class="nav-actions"><button class="btn" id="langBtn" type="button">English</button><a class="btn primary" href="#tools" data-i18n="explore">استكشف الأدوات</a></div>
+<header>
+  <div class="nav">
+    <div class="logo">Hasiba Plus</div>
+    <button class="secondary" id="langBtn" onclick="toggleLanguage()">English</button>
   </div>
 </header>
-<main>
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <span class="eyebrow" data-i18n="eyebrow">أدوات مجانية • نتائج فورية</span>
-      <h1 data-i18n="heroTitle">حساباتك اليومية،<br>أصبحت أسهل.</h1>
-      <p data-i18n="heroText">مجموعة من الأدوات والحاسبات البسيطة التي تساعدك على إنجاز حساباتك بسرعة ووضوح، من هاتفك أو حاسوبك.</p>
-      <div class="search"><input id="searchInput" type="search" placeholder="ابحث عن حاسبة أو أداة..." data-i18n-placeholder="searchPlaceholder" aria-label="Search tools"><button class="btn primary" id="searchBtn" data-i18n="searchBtn">بحث</button></div>
-      <div class="mini-stats"><div class="stat"><strong>100%</strong><span data-i18n="free">مجانية</span></div><div class="stat"><strong>2</strong><span data-i18n="languages">لغتان</span></div><div class="stat"><strong>24/7</strong><span data-i18n="available">متاحة دائمًا</span></div></div>
+
+<main class="container">
+  <section class="hero">
+    <h1 data-ar="كل حساباتك في مكان واحد" data-en="All your calculations in one place">كل حساباتك في مكان واحد</h1>
+    <p data-ar="حاسبات مجانية وسهلة الاستخدام، وأدوات لمتابعة العملات الرقمية." data-en="Free, easy calculators and cryptocurrency tracking tools.">حاسبات مجانية وسهلة الاستخدام، وأدوات لمتابعة العملات الرقمية.</p>
+    <button class="hero-btn" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})" data-ar="اكتشف الحاسبات" data-en="Explore calculators">اكتشف الحاسبات</button>
+  </section>
+
+  <h2 class="section-title" id="tools" data-ar="الحاسبات والأدوات" data-en="Calculators & Tools">الحاسبات والأدوات</h2>
+
+  <div class="grid">
+    <section class="card">
+      <h3 data-ar="حاسبة النسبة المئوية" data-en="Percentage Calculator">حاسبة النسبة المئوية</h3>
+      <label data-ar="المبلغ" data-en="Amount">المبلغ</label>
+      <input id="pctAmount" type="number" value="1000" min="0">
+      <label data-ar="النسبة %" data-en="Percentage %">النسبة %</label>
+      <input id="pctRate" type="number" value="15">
+      <button onclick="percentage()" data-ar="احسب" data-en="Calculate">احسب</button>
+      <div class="result" id="pctResult" aria-live="polite">—</div>
+    </section>
+
+    <section class="card">
+      <h3 data-ar="حاسبة الخصم" data-en="Discount Calculator">حاسبة الخصم</h3>
+      <label data-ar="السعر الأصلي" data-en="Original price">السعر الأصلي</label>
+      <input id="discountPrice" type="number" value="200" min="0">
+      <label data-ar="الخصم %" data-en="Discount %">الخصم %</label>
+      <input id="discountRate" type="number" value="20" min="0" max="100">
+      <button onclick="discount()" data-ar="احسب السعر" data-en="Calculate price">احسب السعر</button>
+      <div class="result" id="discountResult" aria-live="polite">—</div>
+    </section>
+
+    <section class="card">
+      <h3 data-ar="حاسبة البقشيش" data-en="Tip Calculator">حاسبة البقشيش</h3>
+      <label data-ar="قيمة الفاتورة" data-en="Bill amount">قيمة الفاتورة</label>
+      <input id="bill" type="number" value="150" min="0">
+      <label data-ar="البقشيش %" data-en="Tip %">البقشيش %</label>
+      <input id="tipRate" type="number" value="10" min="0">
+      <label data-ar="عدد الأشخاص" data-en="People">عدد الأشخاص</label>
+      <input id="people" type="number" value="2" min="1">
+      <button onclick="tip()" data-ar="احسب" data-en="Calculate">احسب</button>
+      <div class="result" id="tipResult" aria-live="polite">—</div>
+    </section>
+
+    <section class="card">
+      <h3 data-ar="مؤشر كتلة الجسم BMI" data-en="BMI Calculator">مؤشر كتلة الجسم BMI</h3>
+      <label data-ar="الوزن بالكيلوغرام" data-en="Weight (kg)">الوزن بالكيلوغرام</label>
+      <input id="weight" type="number" value="70" min="1">
+      <label data-ar="الطول بالسنتيمتر" data-en="Height (cm)">الطول بالسنتيمتر</label>
+      <input id="height" type="number" value="170" min="1">
+      <button onclick="bmi()" data-ar="احسب المؤشر" data-en="Calculate BMI">احسب المؤشر</button>
+      <div class="result" id="bmiResult" aria-live="polite">—</div>
+      <p class="muted" data-ar="النتيجة تقديرية للبالغين وليست تشخيصًا طبيًا." data-en="An estimate for adults, not a medical diagnosis.">النتيجة تقديرية للبالغين وليست تشخيصًا طبيًا.</p>
+    </section>
+
+    <section class="card">
+      <h3 data-ar="حاسبة القرض المبسطة" data-en="Loan Calculator">حاسبة القرض المبسطة</h3>
+      <label data-ar="مبلغ القرض" data-en="Loan amount">مبلغ القرض</label>
+      <input id="loan" type="number" value="50000" min="0">
+      <label data-ar="الفائدة السنوية %" data-en="Annual interest %">الفائدة السنوية %</label>
+      <input id="interest" type="number" value="5" min="0">
+      <label data-ar="المدة بالسنوات" data-en="Term in years">المدة بالسنوات</label>
+      <input id="years" type="number" value="5" min="1">
+      <button onclick="loanCalc()" data-ar="احسب" data-en="Calculate">احسب</button>
+      <div class="result" id="loanResult" aria-live="polite">—</div>
+      <p class="muted" data-ar="حساب تقديري بأقساط شهرية ثابتة." data-en="Estimate based on fixed monthly payments.">حساب تقديري بأقساط شهرية ثابتة.</p>
+    </section>
+
+    <section class="card">
+      <h3 data-ar="تحويل العملات" data-en="Currency Converter">تحويل العملات</h3>
+      <label data-ar="المبلغ بالريال السعودي" data-en="Amount in SAR">المبلغ بالريال السعودي</label>
+      <input id="sarAmount" type="number" value="100" min="0">
+      <label data-ar="العملة المستهدفة" data-en="Target currency">العملة المستهدفة</label>
+      <select id="currency">
+        <option value="USD">USD - الدولار الأمريكي</option>
+        <option value="EUR">EUR - اليورو</option>
+        <option value="GBP">GBP - الجنيه الإسترليني</option>
+        <option value="EGP">EGP - الجنيه المصري</option>
+        <option value="AED">AED - الدرهم الإماراتي</option>
+      </select>
+      <button onclick="convertCurrency()" data-ar="احسب التحويل" data-en="Convert">احسب التحويل</button>
+      <div class="result" id="currencyResult" aria-live="polite">—</div>
+      <p class="muted" data-ar="أسعار تقريبية ثابتة للتوضيح، وليست أسعار صرف مباشرة." data-en="Illustrative fixed rates, not live exchange rates.">أسعار تقريبية ثابتة للتوضيح، وليست أسعار صرف مباشرة.</p>
+    </section>
+  </div>
+
+  <section id="cryptoHub">
+    <div class="crypto-head">
+      <h2 class="section-title" data-ar="حاسبات العملات الرقمية" data-en="Cryptocurrency Tools">حاسبات العملات الرقمية</h2>
+      <button onclick="loadCrypto()" data-ar="تحديث الأسعار" data-en="Refresh prices">تحديث الأسعار</button>
     </div>
-    <div class="hero-card"><div class="big-icon">🧮</div><h3 data-i18n="heroCardTitle">كل ما تحتاجه في مكان واحد</h3><p data-i18n="heroCardText">اختر الأداة، أدخل بياناتك، واحصل على النتيجة فورًا. لا تحتاج إلى إنشاء حساب.</p></div>
-  </div>
-</section>
-<section id="tools">
-  <div class="container">
-    <div class="section-head"><div><h2 data-i18n="toolsTitle">الأدوات والحاسبات</h2><p data-i18n="toolsSubtitle">اختر أداة وابدأ الحساب مباشرة.</p></div><span class="tiny" id="countLabel">8 أدوات</span></div>
-    <div class="filters" id="filters">
-      <button class="chip active" data-filter="all" data-i18n="all">الكل</button>
-      <button class="chip" data-filter="math" data-i18n="math">الحسابات</button>
-      <button class="chip" data-filter="date" data-i18n="date">التواريخ</button>
-      <button class="chip" data-filter="convert" data-i18n="convert">التحويل</button>
-      <button class="chip" data-filter="life" data-i18n="life">الحياة اليومية</button>
+    <p class="muted" data-ar="الأسعار بالدولار الأمريكي من CoinGecko. قد تتأخر أو يتعذر جلبها مؤقتًا." data-en="Prices in USD from CoinGecko. They may be delayed or temporarily unavailable.">الأسعار بالدولار الأمريكي من CoinGecko. قد تتأخر أو يتعذر جلبها مؤقتًا.</p>
+    <div class="result" id="cryptoStatus" aria-live="polite" data-ar="جارٍ تحميل الأسعار..." data-en="Loading prices...">جارٍ تحميل الأسعار...</div>
+
+    <div class="card" style="margin-top:16px">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th data-ar="العملة" data-en="Coin">العملة</th>
+              <th data-ar="السعر بالدولار" data-en="Price USD">السعر بالدولار</th>
+              <th data-ar="السعر بالريال" data-en="Price SAR">السعر بالريال</th>
+            </tr>
+          </thead>
+          <tbody id="cryptoTable">
+            <tr><td colspan="3">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted" data-ar="الريال محسوب على أساس تقريبي 3.75 ريال للدولار." data-en="SAR values use an approximate 3.75 SAR per USD.">الريال محسوب على أساس تقريبي 3.75 ريال للدولار.</p>
     </div>
-    <div class="tools-grid" id="toolsGrid">
-      <article class="tool-card" data-tool="discount" data-category="math" data-search="خصم discount percentage sale price">
-        <div class="tool-top"><span class="tool-icon">🏷️</span><h3 data-i18n="discountTitle">حاسبة الخصم</h3></div><p data-i18n="discountDesc">احسب السعر بعد الخصم ومقدار التوفير.</p><button class="btn" data-open="discount" data-i18n="useTool">استخدم الأداة</button>
-      </article>
-      <article class="tool-card" data-tool="percent" data-category="math" data-search="نسبة مئوية percentage percent">
-        <div class="tool-top"><span class="tool-icon">％</span><h3 data-i18n="percentTitle">حاسبة النسبة المئوية</h3></div><p data-i18n="percentDesc">احسب نسبة رقم من رقم آخر بسهولة.</p><button class="btn" data-open="percent" data-i18n="useTool">استخدم الأداة</button>
-      </article>
-      <article class="tool-card" data-tool="age" data-category="date" data-search="العمر age birthday date of birth">
-        <div class="tool-top"><span class="tool-icon">🎂</span><h3 data-i18n="ageTitle">حاسبة العمر</h3></div><p data-i18n="ageDesc">احسب عمرك بالسنوات والأشهر والأيام.</p><button class="btn" data-open="age" data-i18n="useTool">استخدم الأداة</button>
-      </article>
-      <article class="tool-card" data-tool="days" data-category="date" data-search="الأيام بين تاريخين date difference days between dates">
-        <div class="tool-top"><span class="tool-icon">📅</span><h3 data-i18n="daysTitle">الفرق بين تاريخين</h3></div><p data-i18n="daysDesc">اعرف عدد الأيام بين تاريخين محددين.</p><button class="btn" data-open="days" data-i18n="useTool">استخدم الأداة</button>
-      </article>
-      <article class="tool-card" data-tool="units" data-category="convert" data-search="تحويل وحدات unit converter length weight temperature">
-        <div class="tool-top"><span class="tool-icon">📐</span><h3 data-i18n="unitsTitle">تحويل الوحدات</h3></div><p data-i18n="unitsDesc">حوّل الطول والوزن ودرجة الحرارة.</p><button class="btn" data-open="units" data-i18n="useTool">استخدم الأداة</button>
-      </article>
-      <article class="tool-card" data-tool="tip" data-category="life" data-search="فاتورة إكرامية tip bill split">
-        <div class="tool-top"><span class="tool-icon">🧾</span><h3 data-i18n="tipTitle">تقسيم الفاتورة والإكرامية</h3></div><p data-i18n="tipDesc">احسب الإكرامية ونصيب كل شخص.</p><button class="btn" data-open="tip" data-i18n="useTool">استخدم الأداة</button>
-      </article>
-      <article class="tool-card" data-tool="bmi" data-category="life" data-search="مؤشر كتلة الجسم BMI body mass index">
-        <div class="tool-top"><span class="tool-icon">⚖️</span><h3 data-i18n="bmiTitle">مؤشر كتلة الجسم</h3></div><p data-i18n="bmiDesc">احسب مؤشر كتلة الجسم بشكل تقريبي.</p><button class="btn" data-open="bmi" data-i18n="useTool">استخدم الأداة</button>
-      </article>
-      <article class="tool-card" data-tool="currency" data-category="convert" data-search="عملة عملات currency converter exchange rate">
-        <div class="tool-top"><span class="tool-icon">💱</span><h3 data-i18n="currencyTitle">حاسبة تحويل العملات</h3></div><p data-i18n="currencyDesc">حوّل بين العملات باستخدام سعر تدخله بنفسك.</p><button class="btn" data-open="currency" data-i18n="useTool">استخدم الأداة</button>
-      </article>
+
+    <div class="grid" style="margin-top:16px">
+      <section class="card">
+        <h3 data-ar="حساب الربح والخسارة" data-en="Profit & Loss">حساب الربح والخسارة</h3>
+        <label data-ar="سعر الشراء بالدولار" data-en="Buy price USD">سعر الشراء بالدولار</label>
+        <input id="buyPrice" type="number" value="60000" min="0">
+        <label data-ar="السعر الحالي بالدولار" data-en="Current price USD">السعر الحالي بالدولار</label>
+        <input id="currentPrice" type="number" value="65000" min="0">
+        <label data-ar="الكمية" data-en="Quantity">الكمية</label>
+        <input id="coinQty" type="number" value="0.01" min="0" step="any">
+        <button onclick="calculatePL()" data-ar="احسب الربح" data-en="Calculate P/L">احسب الربح</button>
+        <div class="result" id="plResult" aria-live="polite">—</div>
+      </section>
+
+      <section class="card">
+        <h3 data-ar="متوسط سعر الشراء" data-en="Average Buy Price">متوسط سعر الشراء</h3>
+        <label data-ar="الكمية الأولى" data-en="First quantity">الكمية الأولى</label>
+        <input id="qty1" type="number" value="1" min="0">
+        <label data-ar="سعر الشراء الأول" data-en="First buy price">سعر الشراء الأول</label>
+        <input id="price1" type="number" value="100" min="0">
+        <label data-ar="الكمية الثانية" data-en="Second quantity">الكمية الثانية</label>
+        <input id="qty2" type="number" value="2" min="0">
+        <label data-ar="سعر الشراء الثاني" data-en="Second buy price">سعر الشراء الثاني</label>
+        <input id="price2" type="number" value="80" min="0">
+        <button onclick="averagePrice()" data-ar="احسب المتوسط" data-en="Calculate average">احسب المتوسط</button>
+        <div class="result" id="averageResult" aria-live="polite">—</div>
+      </section>
+
+      <section class="card">
+        <h3 data-ar="قيمة المحفظة" data-en="Portfolio Value">قيمة المحفظة</h3>
+        <label data-ar="سعر العملة بالدولار" data-en="Coin price USD">سعر العملة بالدولار</label>
+        <input id="portfolioPrice" type="number" value="100" min="0">
+        <label data-ar="عدد العملات" data-en="Number of coins">عدد العملات</label>
+        <input id="portfolioQty" type="number" value="10" min="0">
+        <button onclick="portfolio()" data-ar="احسب القيمة" data-en="Calculate value">احسب القيمة</button>
+        <div class="result" id="portfolioResult" aria-live="polite">—</div>
+      </section>
+
+      <section class="card">
+        <h3 data-ar="السعر المستهدف" data-en="Target Price">السعر المستهدف</h3>
+        <label data-ar="سعر الشراء" data-en="Buy price">سعر الشراء</label>
+        <input id="targetBuy" type="number" value="100" min="0">
+        <label data-ar="الربح المستهدف %" data-en="Target profit %">الربح المستهدف %</label>
+        <input id="targetProfit" type="number" value="20">
+        <button onclick="targetPrice()" data-ar="احسب السعر" data-en="Calculate target">احسب السعر</button>
+        <div class="result" id="targetResult" aria-live="polite">—</div>
+      </section>
+
+      <section class="card">
+        <h3 data-ar="حاسبة رسوم التداول" data-en="Trading Fee Calculator">حاسبة رسوم التداول</h3>
+        <label data-ar="قيمة الصفقة بالدولار" data-en="Trade value USD">قيمة الصفقة بالدولار</label>
+        <input id="tradeValue" type="number" value="1000" min="0">
+        <label data-ar="الرسوم %" data-en="Fee %">الرسوم %</label>
+        <input id="feeRate" type="number" value="0.1" min="0">
+        <button onclick="tradeFee()" data-ar="احسب الرسوم" data-en="Calculate fee">احسب الرسوم</button>
+        <div class="result" id="feeResult" aria-live="polite">—</div>
+      </section>
     </div>
-    <div class="empty" id="emptyState" data-i18n="empty">لا توجد أدوات تطابق البحث.</div>
-    <div class="tool-panel" id="toolPanel" aria-live="polite"><div id="panelContent"></div><div class="result" id="resultBox"></div></div>
-  </div>
-</section>
-<section>
- <div class="container">
-    <article class="tool-article">
-      <h2>عنوان القسم</h2>
-      <p>اكتب المحتوى هنا.</p>
-    </article>
-  </div>
-</section>
-<style>
-#cryptoHub{
- --ch-red:#b91c1c;--ch-ink:#172033;--ch-muted:#667085;
- --ch-line:#e5e7eb;--ch-bg:#fff7f7;
- color:var(--ch-ink);font-family:inherit;line-height:1.7;
- padding:30px 0;margin:20px 0;border-top:1px solid var(--ch-line)
-}
-#cryptoHub *{box-sizing:border-box}
-#cryptoHub .ch-wrap{width:min(1100px,94%);margin:auto}
-#cryptoHub .ch-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-#cryptoHub .ch-title{font-size:clamp(23px,4vw,34px);font-weight:800;margin:0}
-#cryptoHub .ch-muted{color:var(--ch-muted);font-size:14px}
-#cryptoHub .ch-btn{border:0;border-radius:9px;padding:10px 15px;cursor:pointer;font:inherit;font-weight:700}
-#cryptoHub .ch-primary{background:var(--ch-red);color:#fff}
-#cryptoHub .ch-secondary{background:#fff;color:var(--ch-ink);border:1px solid var(--ch-line)}
-#cryptoHub .ch-prices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0}
-#cryptoHub .ch-card{background:#fff;border:1px solid var(--ch-line);border-radius:13px;padding:15px;min-width:0}
-#cryptoHub .ch-price{font-size:19px;font-weight:800;overflow-wrap:anywhere}
-#cryptoHub .ch-up{color:#087443}#cryptoHub .ch-down{color:#b42318}
-#cryptoHub .ch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
-#cryptoHub .ch-tool h3{font-size:18px;margin:0 0 10px}
-#cryptoHub label{display:block;font-size:14px;font-weight:700;margin:9px 0 4px}
-#cryptoHub input{display:block;width:100%;min-width:0;min-height:43px;padding:9px 11px;border:1px solid #d0d5dd;border-radius:8px;background:#fff;color:#172033;font:inherit}
-#cryptoHub .ch-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-#cryptoHub .ch-result{margin-top:12px;padding:12px;background:var(--ch-bg);border:1px solid #fee2e2;border-radius:9px;overflow-wrap:anywhere;font-weight:700}
-#cryptoHub .ch-status{font-size:13px;color:var(--ch-muted);margin:8px 0}
-#cryptoHub .ch-disclaimer{font-size:13px;color:var(--ch-muted);margin-top:20px}
-@media(max-width:650px){
- #cryptoHub .ch-prices{grid-template-columns:repeat(2,minmax(0,1fr))}
- #cryptoHub .ch-grid{grid-template-columns:1fr}
-}
-@media(max-width:360px){#cryptoHub .ch-fields{grid-template-columns:1fr}}
-</style>
+  </section>
 
-<section id="cryptoHub" lang="ar" dir="rtl">
- <div class="ch-wrap">
-  <div class="ch-head">
-   <div>
-    <div class="ch-muted" data-ch-ar="أدوات مالية مجانية" data-ch-en="Free financial tools">أدوات مالية مجانية</div>
-    <h2 class="ch-title" data-ch-ar="حاسبات العملات الرقمية" data-ch-en="Crypto Calculators">حاسبات العملات الرقمية</h2>
-   </div>
-   <button type="button" id="chLang" class="ch-btn ch-secondary">English</button>
-  </div>
-
-  <p class="ch-muted" data-ch-ar="تابع الأسعار واحسب أرباحك وقيمة محفظتك بسهولة." data-ch-en="Track prices and calculate profit and portfolio value easily.">تابع الأسعار واحسب أرباحك وقيمة محفظتك بسهولة.</p>
-
-  <div class="ch-head">
-   <h3 data-ch-ar="أسعار العملات المباشرة" data-ch-en="Live Crypto Prices">أسعار العملات المباشرة</h3>
-   <button type="button" id="chRefresh" class="ch-btn ch-primary" data-ch-ar="تحديث الأسعار" data-ch-en="Refresh Prices">تحديث الأسعار</button>
-  </div>
-
-  <div class="ch-prices" id="chPrices" aria-live="polite">
-   <div class="ch-card"><b>BTC</b><div class="ch-price">—</div>Bitcoin</div>
-   <div class="ch-card"><b>ETH</b><div class="ch-price">—</div>Ethereum</div>
-   <div class="ch-card"><b>BNB</b><div class="ch-price">—</div>BNB</div>
-   <div class="ch-card"><b>XRP</b><div class="ch-price">—</div>XRP</div>
-  </div>
-  <div id="chStatus" class="ch-status" role="status" data-ch-ar="جارٍ الاتصال بمصدر الأسعار..." data-ch-en="Connecting to price provider...">جارٍ الاتصال بمصدر الأسعار...</div>
-
-  <h3 data-ch-ar="الحاسبات" data-ch-en="Calculators">الحاسبات</h3>
-  <div class="ch-grid">
-
-   <div class="ch-card ch-tool">
-    <h3 data-ch-ar="1. حاسبة الربح والخسارة" data-ch-en="1. Profit and Loss">1. حاسبة الربح والخسارة</h3>
-    <div class="ch-fields">
-     <div><label data-ch-ar="سعر الشراء ($)" data-ch-en="Buy price ($)">سعر الشراء ($)</label><input id="chBuy" type="number" min="0" step="any" value="1"></div>
-     <div><label data-ch-ar="سعر البيع ($)" data-ch-en="Sell price ($)">سعر البيع ($)</label><input id="chSell" type="number" min="0" step="any" value="1.5"></div>
-     <div><label data-ch-ar="الكمية" data-ch-en="Quantity">الكمية</label><input id="chQty" type="number" min="0" step="any" value="100"></div>
-     <div><label data-ch-ar="إجمالي الرسوم (%)" data-ch-en="Total fees (%)">إجمالي الرسوم (%)</label><input id="chFees" type="number" min="0" step="any" value="0.2"></div>
-    </div>
-    <button type="button" class="ch-btn ch-primary" data-ch-calc="pnl" data-ch-ar="احسب" data-ch-en="Calculate">احسب</button>
-    <div class="ch-result" id="chPnlResult" aria-live="polite">—</div>
-   </div>
-
-   <div class="ch-card ch-tool">
-    <h3 data-ch-ar="2. متوسط سعر الشراء" data-ch-en="2. Average Buy Price">2. متوسط سعر الشراء</h3>
-    <div class="ch-fields">
-     <div><label data-ch-ar="الكمية الأولى" data-ch-en="First quantity">الكمية الأولى</label><input id="chQ1" type="number" min="0" step="any" value="10"></div>
-     <div><label data-ch-ar="سعر الشراء الأول ($)" data-ch-en="First buy price ($)">سعر الشراء الأول ($)</label><input id="chP1" type="number" min="0" step="any" value="2"></div>
-     <div><label data-ch-ar="الكمية الثانية" data-ch-en="Second quantity">الكمية الثانية</label><input id="chQ2" type="number" min="0" step="any" value="5"></div>
-     <div><label data-ch-ar="سعر الشراء الثاني ($)" data-ch-en="Second buy price ($)">سعر الشراء الثاني ($)</label><input id="chP2" type="number" min="0" step="any" value="1.5"></div>
-    </div>
-    <button type="button" class="ch-btn ch-primary" data-ch-calc="average" data-ch-ar="احسب المتوسط" data-ch-en="Calculate Average">احسب المتوسط</button>
-    <div class="ch-result" id="chAverageResult" aria-live="polite">—</div>
-   </div>
-
-   <div class="ch-card ch-tool">
-    <h3 data-ch-ar="3. قيمة المحفظة" data-ch-en="3. Portfolio Value">3. قيمة المحفظة</h3>
-    <label data-ch-ar="كمية العملة" data-ch-en="Coin quantity">كمية العملة</label><input id="chHolding" type="number" min="0" step="any" value="1">
-    <label data-ch-ar="سعر العملة بالدولار ($)" data-ch-en="Coin price in USD ($)">سعر العملة بالدولار ($)</label><input id="chCoinPrice" type="number" min="0" step="any" value="100">
-    <label data-ch-ar="سعر الدولار بالريال" data-ch-en="USD to SAR rate">سعر الدولار بالريال</label><input id="chFx" type="number" min="0" step="any" value="3.75">
-    <button type="button" class="ch-btn ch-primary" data-ch-calc="portfolio" data-ch-ar="احسب قيمة المحفظة" data-ch-en="Calculate Portfolio">احسب قيمة المحفظة</button>
-    <div class="ch-result" id="chPortfolioResult" aria-live="polite">—</div>
-   </div>
-
-   <div class="ch-card ch-tool">
-    <h3 data-ch-ar="4. السعر المستهدف" data-ch-en="4. Target Price">4. السعر المستهدف</h3>
-    <label data-ch-ar="سعر الدخول ($)" data-ch-en="Entry price ($)">سعر الدخول ($)</label><input id="chEntry" type="number" min="0" step="any" value="1">
-    <label data-ch-ar="نسبة الربح المستهدفة (%)" data-ch-en="Target profit (%)">نسبة الربح المستهدفة (%)</label><input id="chTargetPct" type="number" step="any" value="25">
-    <button type="button" class="ch-btn ch-primary" data-ch-calc="target" data-ch-ar="احسب السعر المستهدف" data-ch-en="Calculate Target Price">احسب السعر المستهدف</button>
-    <div class="ch-result" id="chTargetResult" aria-live="polite">—</div>
-   </div>
-
-   <div class="ch-card ch-tool">
-    <h3 data-ch-ar="5. رسوم التداول" data-ch-en="5. Trading Fees">5. رسوم التداول</h3>
-    <label data-ch-ar="قيمة الصفقة ($)" data-ch-en="Trade value ($)">قيمة الصفقة ($)</label><input id="chTradeValue" type="number" min="0" step="any" value="1000">
-    <label data-ch-ar="نسبة الرسوم (%)" data-ch-en="Fee rate (%)">نسبة الرسوم (%)</label><input id="chFeeRate" type="number" min="0" step="any" value="0.1">
-    <button type="button" class="ch-btn ch-primary" data-ch-calc="fee" data-ch-ar="احسب الرسوم" data-ch-en="Calculate Fees">احسب الرسوم</button>
-    <div class="ch-result" id="chFeeResult" aria-live="polite">—</div>
-   </div>
-
-   <div class="ch-card ch-tool">
-    <h3 data-ch-ar="6. تحويل الدولار إلى الريال" data-ch-en="6. USD to SAR Converter">6. تحويل الدولار إلى الريال</h3>
-    <label data-ch-ar="المبلغ بالدولار ($)" data-ch-en="Amount in USD ($)">المبلغ بالدولار ($)</label><input id="chUsd" type="number" min="0" step="any" value="100">
-    <label data-ch-ar="سعر الصرف" data-ch-en="Exchange rate">سعر الصرف</label><input id="chRate" type="number" min="0" step="any" value="3.75">
-    <button type="button" class="ch-btn ch-primary" data-ch-calc="convert" data-ch-ar="حوّل المبلغ" data-ch-en="Convert Amount">حوّل المبلغ</button>
-    <div class="ch-result" id="chConvertResult" aria-live="polite">—</div>
-   </div>
-
-  </div>
-  <p class="ch-disclaimer" data-ch-ar="تنبيه: الأسعار تقريبية وفق المصدر المتاح، والحاسبات لأغراض تعليمية وليست نصيحة استثمارية." data-ch-en="Disclaimer: Prices depend on the available data source. Calculators are educational and not investment advice.">تنبيه: الأسعار تقريبية وفق المصدر المتاح، والحاسبات لأغراض تعليمية وليست نصيحة استثمارية.</p>
- </div>
-</section>
-
-<script>
-(function(){
- 'use strict';
- const root=document.getElementById('cryptoHub');
- if(!root || root.dataset.initialized==='1') return;
- root.dataset.initialized='1';
-
- let lang='ar';
- const $=id=>root.querySelector('#'+id);
- const n=id=>Number($(id).value)||0;
- const money=(v,c='USD')=>new Intl.NumberFormat(
-   lang==='ar'?'ar-SA':'en-US',
-   {style:'currency',currency:c,maximumFractionDigits:8}
- ).format(v);
-
- function say(id,ar,en){$(id).textContent=lang==='ar'?ar:en;}
-
- function calc(type){
-  if(type==='pnl'){
-   const b=n('chBuy'),s=n('chSell'),q=n('chQty'),f=n('chFees')/100;
-   const cost=b*q,proceeds=s*q,fees=(cost+proceeds)*f;
-   const profit=proceeds-cost-fees;
-   const pct=cost?profit/cost*100:0;
-   say('chPnlResult',
-    `صافي الربح/الخسارة: ${money(profit)} (${pct.toFixed(2)}%) — الرسوم: ${money(fees)}`,
-    `Net profit/loss: ${money(profit)} (${pct.toFixed(2)}%) — Fees: ${money(fees)}`);
-  }
-  if(type==='average'){
-   const q=n('chQ1')+n('chQ2');
-   const total=n('chQ1')*n('chP1')+n('chQ2')*n('chP2');
-   const avg=q?total/q:0;
-   say('chAverageResult',
-    `متوسط الشراء: ${money(avg)} — إجمالي الكمية: ${q}`,
-    `Average buy price: ${money(avg)} — Total quantity: ${q}`);
-  }
-  if(type==='portfolio'){
-   const usd=n('chHolding')*n('chCoinPrice');
-   const sar=usd*n('chFx');
-   say('chPortfolioResult',
-    `بالدولار: ${money(usd)} | بالريال: ${money(sar,'SAR')}`,
-    `USD value: ${money(usd)} | SAR value: ${money(sar,'SAR')}`);
-  }
-  if(type==='target'){
-   const p=n('chEntry'),pct=Number($('chTargetPct').value)||0;
-   const target=p*(1+pct/100);
-   say('chTargetResult',`السعر المستهدف: ${money(target)}`,
-    `Target price: ${money(target)}`);
-  }
-  if(type==='fee'){
-   const v=n('chTradeValue'),f=v*n('chFeeRate')/100;
-   say('chFeeResult',`الرسوم: ${money(f)} — بعد خصم الرسوم: ${money(v-f)}`,
-    `Trading fee: ${money(f)} — After fee: ${money(v-f)}`);
-  }
-  if(type==='convert'){
-   const usd=n('chUsd'),sar=usd*n('chRate');
-   say('chConvertResult',`${money(usd)} = ${money(sar,'SAR')}`,
-    `${money(usd)} = ${money(sar,'SAR')}`);
-  }
- }
-
- root.querySelectorAll('[data-ch-calc]').forEach(btn=>{
-  btn.addEventListener('click',()=>calc(btn.dataset.chCalc));
- });
-
- function setLang(next){
-  lang=next;
-  root.lang=lang;
-  root.dir=lang==='ar'?'rtl':'ltr';
-  root.querySelectorAll('[data-ch-ar][data-ch-en]').forEach(el=>{
-   el.textContent=el.getAttribute('data-ch-'+lang);
-  });
-  $('chLang').textContent=lang==='ar'?'English':'العربية';
-  ['pnl','average','portfolio','target','fee','convert'].forEach(calc);
- }
-
- $('chLang').addEventListener('click',()=>{
-  setLang(lang==='ar'?'en':'ar');
- });
-
- async function prices(){
-  const status=$('chStatus');
-  status.textContent=lang==='ar'?'جارٍ جلب الأسعار...':'Fetching prices...';
-  $('chRefresh').disabled=true;
-
-  try{
-   const url='https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,ripple&vs_currencies=usd,sar&include_24hr_change=true';
-   const response=await fetch(url,{cache:'no-store'});
-   if(!response.ok) throw new Error('Price API unavailable');
-   const data=await response.json();
-
-   const coins=[
-    {id:'bitcoin',symbol:'BTC',name:'Bitcoin'},
-    {id:'ethereum',symbol:'ETH',name:'Ethereum'},
-    {id:'binancecoin',symbol:'BNB',name:'BNB'},
-    {id:'ripple',symbol:'XRP',name:'XRP'}
-   ];
-
-   $('chPrices').replaceChildren();
-
-   coins.forEach(coin=>{
-    const d=data[coin.id];
-    const card=document.createElement('div');
-    card.className='ch-card';
-
-    const symbol=document.createElement('b');
-    symbol.textContent=coin.symbol;
-    card.appendChild(symbol);
-
-    const price=document.createElement('div');
-    price.className='ch-price';
-    price.textContent=d?money(d.usd):'—';
-    card.appendChild(price);
-
-    if(d){
-     const change=document.createElement('div');
-     const pct=Number(d.usd_24h_change)||0;
-     change.className=pct>=0?'ch-up':'ch-down';
-     change.textContent=(pct>=0?'+':'')+pct.toFixed(2)+'% / 24h';
-     card.appendChild(change);
-
-     const sar=document.createElement('div');
-     sar.className='ch-muted';
-     sar.textContent=money(d.sar,'SAR');
-     card.appendChild(sar);
-    }
-
-    $('chPrices').appendChild(card);
-   });
-
-   status.textContent=lang==='ar'
-    ?'آخر تحديث: '+new Date().toLocaleTimeString('ar-SA')
-    :'Last updated: '+new Date().toLocaleTimeString('en-US');
-
-  }catch(e){
-   status.textContent=lang==='ar'
-    ?'تعذر جلب الأسعار الآن. حاول مرة أخرى لاحقًا.'
-    :'Unable to fetch prices now. Please try again later.';
-  }finally{
-   $('chRefresh').disabled=false;
-  }
- }
-
- $('chRefresh').addEventListener('click',prices);
- setLang('ar');
- prices();
-})();
-</script>
-<!-- End Hasiba Plus Crypto Hub -->
-
-(function(){
- const ch$=id=>document.getElementById(id);
- const chFmt=n=>new Intl.NumberFormat('en-US',{maximumFractionDigits:8}).format(n);
- const chMoney=n=>new Intl.NumberFormat('en-US',{maximumFractionDigits:4}).format(n);
- const chShow=(id,msg)=>{const e=ch$(id);e.textContent=msg;e.classList.add('show')};
- const chValid=(v)=>v!==''&&Number.isFinite(Number(v))&&Number(v)>=0;
- const chNames={bitcoin:'BTC',ethereum:'ETH',binancecoin:'BNB',ripple:'XRP',solana:'SOL',dogecoin:'DOGE',cardano:'ADA',tron:'TRX',tether:'USDT'};
- let chMarket={}; let chUpdated=null;
- 
-window.chFetchPrices = async function () {
-  const status = ch$('chLiveStatus');
-  const body = ch$('chPrices');
-
-  status.textContent = 'جارٍ جلب الأسعار من CoinGecko...';
-
-  try {
-    const ids = Object.keys(chNames).join(',');
-    const url =
-      'https://api.coingecko.com/api/v3/simple/price?ids=' +
-      encodeURIComponent(ids) +
-      '&vs_currencies=usd,sar&include_24hr_change=true';
-
-    const res = await fetch(url, { cache: 'no-store' });
-    if (!res.ok) throw new Error('Price request failed');
-
-    const data = await res.json();
-    const next = {};
-
-    Object.keys(chNames).forEach(id => {
-      if (data[id] && Number.isFinite(Number(data[id].usd))) {
-        next[id] = Number(data[id].usd);
-      }
-    });
-
-    if (!Object.keys(next).length) {
-      throw new Error('No prices available');
-    }
-
-    chMarket = next;
-    chUpdated = new Date();
-
-    body.innerHTML = Object.keys(chNames)
-      .filter(id => data[id] && next[id] !== undefined)
-      .map(id => {
-        const usd = next[id];
-        const sar = Number.isFinite(Number(data[id].sar))
-          ? Number(data[id].sar)
-          : usd * 3.75;
-
-        const change = Number(data[id].usd_24h_change);
-        const changeHtml = Number.isFinite(change)
-          ? '<br><small style="color:' +
-            (change >= 0 ? '#16834a' : '#d32f2f') +
-            '">' + (change > 0 ? '+' : '') +
-            change.toFixed(2) + '% خلال 24 ساعة</small>'
-          : '';
-
-        return '<tr><td><strong>' + chNames[id] +
-          '</strong>' + changeHtml +
-          '</td><td class="ch-price">$' + chMoney(usd) +
-          '</td><td>' + chMoney(sar) + ' SAR</td></tr>';
-      })
-      .join('');
-
-    status.textContent =
-      'آخر تحديث: ' + chUpdated.toLocaleTimeString('ar-SA') +
-      ' — المصدر: CoinGecko';
-
-  }catch(err){
-  chMarket={};
-  status.textContent='تعذر جلب الأسعار الآن. تحقق من الإنترنت وحاول مرة أخرى.';
-  body.innerHTML='<tr><td colspan="3">الأسعار غير متاحة حاليًا. اضغط تحديث الأسعار للمحاولة مجددًا.</td></tr>';
-}
-};
-
- window.chUsdtToSar=function(){const a=ch$('chUsdtAmount').value,r=ch$('chUsdtRate').value;if(!chValid(a)||!chValid(r)||Number(r)<=0){chShow('chUsdtResult','أدخل مبلغًا وسعر صرف أكبر من صفر.');return}chShow('chUsdtResult',chFmt(Number(a))+' USDT ≈ '+chMoney(Number(a)*Number(r))+' SAR حسب سعر الصرف الذي أدخلته.');};
- window.chProfitLoss=function(){const q=ch$('chPLQty').value,b=ch$('chPLBuy').value,s=ch$('chPLSell').value;if(!chValid(q)||Number(q)<=0||!chValid(b)||!chValid(s)){chShow('chPLResult','أدخل كمية أكبر من صفر وسعرَي شراء وبيع صحيحين.');return}const cost=Number(q)*Number(b),value=Number(q)*Number(s),p=value-cost,pct=cost?p/cost*100:0;chShow('chPLResult','قيمة الشراء: '+chMoney(cost)+' — قيمة البيع: '+chMoney(value)+' — '+(p>=0?'الربح: ':'الخسارة: ')+chMoney(Math.abs(p))+' ('+chMoney(pct)+'%). قبل الرسوم والضرائب.');};
- window.chAverageBuy=function(){let qty=0,cost=0,used=0;for(let i=1;i<=3;i++){const q=ch$('chAQty'+i).value,p=ch$('chAPrice'+i).value;if(q===''&&p==='')continue;if(!chValid(q)||Number(q)<=0||!chValid(p)){chShow('chAvgResult','أكمل الكمية والسعر لكل عملية شراء أدخلتها، واجعل الكمية أكبر من صفر.');return}qty+=Number(q);cost+=Number(q)*Number(p);used++}if(!used){chShow('chAvgResult','أدخل عملية شراء واحدة على الأقل.');return}chShow('chAvgResult','إجمالي الكمية: '+chFmt(qty)+' — إجمالي التكلفة: '+chMoney(cost)+' — متوسط سعر الشراء: '+chMoney(cost/qty)+'. لا يشمل الرسوم.');};
- window.chConvertCrypto=function(){const a=ch$('chConvAmount').value,from=ch$('chConvFrom').value,to=ch$('chConvTo').value;if(!chValid(a)){chShow('chConvResult','أدخل مبلغًا صحيحًا.');return}if(!chMarket[from]||!chMarket[to]){chShow('chConvResult','الأسعار غير متاحة بعد. اضغط «تحديث الأسعار» أولًا.');return}const result=Number(a)*chMarket[from]/chMarket[to];chShow('chConvResult',chFmt(Number(a))+' '+chNames[from]+' ≈ '+chFmt(result)+' '+chNames[to]+' وفق آخر الأسعار المحمّلة.');};
- window.chTargetCalc=function(){const q=ch$('chTargetQty').value,b=ch$('chTargetBuy').value,t=ch$('chTargetPrice').value;if(!chValid(q)||Number(q)<=0||!chValid(b)||!chValid(t)){chShow('chTargetResult','أدخل كمية أكبر من صفر وسعر شراء وسعر مستهدف صحيحين.');return}const cost=Number(q)*Number(b),value=Number(q)*Number(t),p=value-cost,pct=cost?p/cost*100:0;chShow('chTargetResult','قيمة الاستثمار عند الهدف: '+chMoney(value)+' — '+(p>=0?'الربح المتوقع حسابيًا: ':'الخسارة المتوقعة حسابيًا: ')+chMoney(Math.abs(p))+' ('+chMoney(pct)+'%). لا يشمل الرسوم، ولا يعني أن الهدف سيتحقق.');};
- window.chCalcFees=function(){const b=ch$('chFeeBuy').value,s=ch$('chFeeSell').value,r=ch$('chFeeRate').value;if(!chValid(b)||!chValid(s)||!chValid(r)||Number(r)>100){chShow('chFeeResult','أدخل قيمة شراء وبيع صحيحتين ونسبة رسوم بين 0 و100.');return}const feeBuy=Number(b)*Number(r)/100,feeSell=Number(s)*Number(r)/100,gross=Number(s)-Number(b),fees=feeBuy+feeSell,net=gross-fees;chShow('chFeeResult','رسوم الشراء: '+chMoney(feeBuy)+' — رسوم البيع: '+chMoney(feeSell)+' — مجموع الرسوم: '+chMoney(fees)+' — النتيجة بعد الرسوم: '+(net>=0?'ربح ':'خسارة ')+chMoney(Math.abs(net))+'.');};
- window.chCalcLiq=function(){const side=ch$('chLiqSide').value,e=ch$('chLiqEntry').value,l=ch$('chLiqLev').value,m=ch$('chLiqMmr').value;if(!chValid(e)||Number(e)<=0||!chValid(l)||Number(l)<=1||!chValid(m)||Number(m)>=100){chShow('chLiqResult','أدخل سعر دخول أكبر من صفر، ورافعة أكبر من 1، وهامش صيانة صحيحًا.');return}const lev=Number(l),mmr=Number(m)/100,price=side==='long'?Number(e)*(1-1/lev+mmr):Number(e)*(1+1/lev-mmr);if(price<=0){chShow('chLiqResult','لا يمكن حساب تقدير موجب بهذه القيم.');return}chShow('chLiqResult','سعر التصفية التقديري المبسط: '+chMoney(price)+'. هذا نموذج تعليمي فقط، وليس السعر الفعلي الذي تحدده المنصة.');};
- // تحديث واحد تلقائي عند فتح القسم؛ التحديثات التالية يدوية لتجنب الضغط على واجهة البيانات.
- chFetchPrices();
-})();
-</script>
-<!-- نهاية قسم العملات الرقمية -->
-  <div class="section-head"><div><h2 data-i18n="whyTitle">لماذا Hasiba Plus؟</h2><p data-i18n="whySubtitle">مصمم ليكون بسيطًا ومفيدًا للجميع.</p></div></div>
-  <div class="info-grid">
-   <div class="info"><div class="symbol">⚡</div><h3 data-i18n="why1Title">نتائج سريعة</h3><p data-i18n="why1Text">أدخل القيم واحصل على الحساب مباشرة دون خطوات معقدة.</p></div>
-   <div class="info"><div class="symbol">📱</div><h3 data-i18n="why2Title">مناسب للجوال</h3><p data-i18n="why2Text">واجهة مرنة تعمل على الهاتف واللوحي والحاسوب.</p></div>
-   <div class="info"><div class="symbol">🔒</div><h3 data-i18n="why3Title">بدون حساب</h3><p data-i18n="why3Text">الأدوات تعمل داخل متصفحك ولا تحتاج إلى تسجيل دخول.</p></div>
-  </div>
- </div>
-</section>
-<section class="faq">
- <div class="container">
-  <div class="section-head"><div><h2 data-i18n="faqTitle">الأسئلة الشائعة</h2><p data-i18n="faqSubtitle">إجابات سريعة عن استخدام الموقع.</p></div></div>
-  <details><summary data-i18n="faq1Q">هل استخدام الأدوات مجاني؟</summary><p data-i18n="faq1A">نعم، الأدوات المتاحة في الموقع مجانية للاستخدام.</p></details>
-  <details><summary data-i18n="faq2Q">هل تُحفظ بياناتي؟</summary><p data-i18n="faq2A">تعمل الحسابات داخل المتصفح ولا تُرسل المدخلات إلى خادم في هذه النسخة.</p></details>
-  <details><summary data-i18n="faq3Q">هل نتائج الحاسبات رسمية؟</summary><p data-i18n="faq3A">النتائج تقديرية للاستخدام العام، ويجب التحقق من الحسابات المهمة من مصدر مختص.</p></details>
- </div>
-</section>
+  <section class="card" style="margin-top:28px">
+    <h2 data-ar="عن Hasiba Plus" data-en="About Hasiba Plus">عن Hasiba Plus</h2>
+    <p data-ar="Hasiba Plus منصة أدوات وحاسبات مجانية تساعدك على إجراء الحسابات اليومية ومتابعة مؤشرات العملات الرقمية بسهولة." data-en="Hasiba Plus is a free tools and calculators platform for everyday calculations and cryptocurrency tracking.">Hasiba Plus منصة أدوات وحاسبات مجانية تساعدك على إجراء الحسابات اليومية ومتابعة مؤشرات العملات الرقمية بسهولة.</p>
+  </section>
 </main>
-<footer class="footer"><div class="container footer-grid"><div><a class="brand" href="#" style="color:#fff"><span class="logo">H+</span><span>Hasiba Plus</span></a><p data-i18n="footerText">أدوات وحاسبات مجانية لتسهيل الحسابات اليومية. نعمل باستمرار على إضافة أدوات جديدة.</p><span class="tiny" style="color:#c8c3c7">© <span id="year"></span> Hasiba Plus</span></div><div class="footer-links"><a href="#about" id="aboutLink" data-i18n="about">من نحن</a><a href="#privacy" id="privacyLink" data-i18n="privacy">سياسة الخصوصية</a><a href="mailto:doitdone53@gmail.com" data-i18n="contact">اتصل بنا</a></div></div></div></footer>
-<div class="toast" id="toast"></div>
+
+<footer>
+  <p>© <span id="year"></span> Hasiba Plus</p>
+  <p data-ar="أداة معلوماتية فقط وليست نصيحة استثمارية." data-en="For informational purposes only. Not investment advice.">أداة معلوماتية فقط وليست نصيحة استثمارية.</p>
+</footer>
+
 <script>
-const translations={
-ar:{
-explore:"استكشف الأدوات",eyebrow:"أدوات مجانية • نتائج فورية",heroTitle:"حساباتك اليومية،<br>أصبحت أسهل.",heroText:"مجموعة من الأدوات والحاسبات البسيطة التي تساعدك على إنجاز حساباتك بسرعة ووضوح، من هاتفك أو حاسوبك.",searchPlaceholder:"ابحث عن حاسبة أو أداة...",searchBtn:"بحث",free:"مجانية",languages:"لغتان",available:"متاحة دائمًا",heroCardTitle:"كل ما تحتاجه في مكان واحد",heroCardText:"اختر الأداة، أدخل بياناتك، واحصل على النتيجة فورًا. لا تحتاج إلى إنشاء حساب.",toolsTitle:"الأدوات والحاسبات",toolsSubtitle:"اختر أداة وابدأ الحساب مباشرة.",all:"الكل",math:"الحسابات",date:"التواريخ",convert:"التحويل",life:"الحياة اليومية",discountTitle:"حاسبة الخصم",discountDesc:"احسب السعر بعد الخصم ومقدار التوفير.",percentTitle:"حاسبة النسبة المئوية",percentDesc:"احسب نسبة رقم من رقم آخر بسهولة.",ageTitle:"حاسبة العمر",ageDesc:"احسب عمرك بالسنوات والأشهر والأيام.",daysTitle:"الفرق بين تاريخين",daysDesc:"اعرف عدد الأيام بين تاريخين محددين.",unitsTitle:"تحويل الوحدات",unitsDesc:"حوّل الطول والوزن ودرجة الحرارة.",tipTitle:"تقسيم الفاتورة والإكرامية",tipDesc:"احسب الإكرامية ونصيب كل شخص.",bmiTitle:"مؤشر كتلة الجسم",bmiDesc:"احسب مؤشر كتلة الجسم بشكل تقريبي.",currencyTitle:"حاسبة تحويل العملات",currencyDesc:"حوّل بين العملات باستخدام سعر تدخله بنفسك.",useTool:"استخدم الأداة",empty:"لا توجد أدوات تطابق البحث.",whyTitle:"لماذا Hasiba Plus؟",whySubtitle:"مصمم ليكون بسيطًا ومفيدًا للجميع.",why1Title:"نتائج سريعة",why1Text:"أدخل القيم واحصل على الحساب مباشرة دون خطوات معقدة.",why2Title:"مناسب للجوال",why2Text:"واجهة مرنة تعمل على الهاتف واللوحي والحاسوب.",why3Title:"بدون حساب",why3Text:"الأدوات تعمل داخل متصفحك ولا تحتاج إلى تسجيل دخول.",faqTitle:"الأسئلة الشائعة",faqSubtitle:"إجابات سريعة عن استخدام الموقع.",faq1Q:"هل استخدام الأدوات مجاني؟",faq1A:"نعم، الأدوات المتاحة في الموقع مجانية للاستخدام.",faq2Q:"هل تُحفظ بياناتي؟",faq2A:"تعمل الحسابات داخل المتصفح ولا تُرسل المدخلات إلى خادم في هذه النسخة.",faq3Q:"هل نتائج الحاسبات رسمية؟",faq3A:"النتائج تقديرية للاستخدام العام، ويجب التحقق من الحسابات المهمة من مصدر مختص.",footerText:"أدوات وحاسبات مجانية لتسهيل الحسابات اليومية. نعمل باستمرار على إضافة أدوات جديدة.",about:"من نحن",privacy:"سياسة الخصوصية",contact:"اتصل بنا",footerNote:"ملاحظة: استبدل بريد التواصل hello@example.com ببريدك الحقيقي قبل إطلاق الموقع.",count:"أدوات",result:"النتيجة",calculate:"احسب",reset:"مسح",amount:"المبلغ",discountRate:"نسبة الخصم (%)",originalPrice:"السعر الأصلي",number:"الرقم",percentOf:"النسبة (%)",birthDate:"تاريخ الميلاد",startDate:"تاريخ البداية",endDate:"تاريخ النهاية",value:"القيمة",category:"نوع التحويل",length:"الطول",weight:"الوزن",temperature:"درجة الحرارة",meters:"متر",kilometers:"كيلومتر",centimeters:"سنتيمتر",feet:"قدم",kg:"كيلوغرام",grams:"غرام",pounds:"رطل",celsius:"مئوية",fahrenheit:"فهرنهايت",bill:"قيمة الفاتورة",tipRate:"الإكرامية (%)",people:"عدد الأشخاص",heightCm:"الطول (سم)",weightKg:"الوزن (كغ)",currencyFrom:"العملة الأصلية",currencyTo:"العملة المستهدفة",exchangeRate:"سعر الصرف (كل 1 من الأصل = ؟ من المستهدفة)",invalid:"يرجى إدخال قيم صحيحة.",saved:"تم",ageResult:"عمرك",years:"سنة",months:"شهر",days:"يوم",saving:"قيمة التوفير",finalPrice:"السعر بعد الخصم",of:"من",bmiLow:"أقل من النطاق المعتاد للبالغين",bmiNormal:"ضمن النطاق المعتاد للبالغين",bmiHigh:"أعلى من النطاق المعتاد للبالغين",bmiVeryHigh:"مرتفع جدًا للبالغين",approx:"تقريبي وليس تشخيصًا طبيًا",daysBetween:"عدد الأيام بين التاريخين",perPerson:"نصيب الشخص",tipAmount:"قيمة الإكرامية",total:"الإجمالي",copy:"نسخ النتيجة",copied:"تم نسخ النتيجة",toolDiscount:"حاسبة الخصم",toolPercent:"حاسبة النسبة المئوية",toolAge:"حاسبة العمر",toolDays:"الفرق بين تاريخين",toolUnits:"تحويل الوحدات",toolTip:"تقسيم الفاتورة والإكرامية",toolBmi:"مؤشر كتلة الجسم",toolCurrency:"تحويل العملات",privacyTitle:"سياسة الخصوصية",privacyBody:"هذه النسخة تعمل محليًا في متصفحك ولا ترسل مدخلات الحاسبات إلى خادم. إذا أضفت تحليلات أو إعلانات لاحقًا، حدّث سياسة الخصوصية بما يطابق الخدمات المستخدمة.",aboutTitle:"من نحن",aboutBody:"Hasiba Plus منصة أدوات وحاسبات تهدف إلى جعل الحسابات اليومية أسهل. للتواصل، حدّث بريد الموقع إلى بريدك الحقيقي."},
-en:{
-explore:"Explore tools",eyebrow:"Free tools • Instant results",heroTitle:"Everyday calculations,<br>made easier.",heroText:"A collection of simple tools and calculators to help you get things done quickly and clearly on your phone or computer.",searchPlaceholder:"Search for a calculator or tool...",searchBtn:"Search",free:"Free",languages:"Languages",available:"Always available",heroCardTitle:"Everything you need in one place",heroCardText:"Choose a tool, enter your details, and get your result instantly. No account required.",toolsTitle:"Tools & calculators",toolsSubtitle:"Choose a tool and start calculating.",all:"All",math:"Math",date:"Dates",convert:"Converters",life:"Everyday",discountTitle:"Discount calculator",discountDesc:"Calculate the sale price and how much you save.",percentTitle:"Percentage calculator",percentDesc:"Find a percentage of a number.",ageTitle:"Age calculator",ageDesc:"Calculate your age in years, months, and days.",daysTitle:"Date difference",daysDesc:"Find the number of days between two dates.",unitsTitle:"Unit converter",unitsDesc:"Convert length, weight, and temperature.",tipTitle:"Bill split & tip",tipDesc:"Calculate the tip and each person's share.",bmiTitle:"BMI calculator",bmiDesc:"Calculate your approximate body mass index.",currencyTitle:"Currency calculator",currencyDesc:"Convert currencies using an exchange rate you enter.",useTool:"Use tool",empty:"No tools match your search.",whyTitle:"Why Hasiba Plus?",whySubtitle:"Designed to be simple and useful for everyone.",why1Title:"Fast results",why1Text:"Enter values and get results without complicated steps.",why2Title:"Mobile friendly",why2Text:"A responsive interface for phones, tablets, and computers.",why3Title:"No account",why3Text:"Tools run in your browser and do not require sign-in.",faqTitle:"Frequently asked questions",faqSubtitle:"Quick answers about using the website.",faq1Q:"Are the tools free?",faq1A:"Yes, the tools available on this website are free to use.",faq2Q:"Is my data stored?",faq2A:"Calculations run in your browser and inputs are not sent to a server in this version.",faq3Q:"Are calculator results official?",faq3A:"Results are estimates for general use. Verify important calculations with an appropriate professional source.",footerText:"Free tools and calculators to simplify everyday calculations. We keep working to add more useful tools.",about:"About",privacy:"Privacy policy",contact:"Contact",footerNote:"Note: Replace hello@example.com with your real contact email before launch.",count:"tools",result:"Result",calculate:"Calculate",reset:"Reset",amount:"Amount",discountRate:"Discount (%)",originalPrice:"Original price",number:"Number",percentOf:"Percentage (%)",birthDate:"Date of birth",startDate:"Start date",endDate:"End date",value:"Value",category:"Conversion type",length:"Length",weight:"Weight",temperature:"Temperature",meters:"Meters",kilometers:"Kilometers",centimeters:"Centimeters",feet:"Feet",kg:"Kilograms",grams:"Grams",pounds:"Pounds",celsius:"Celsius",fahrenheit:"Fahrenheit",bill:"Bill amount",tipRate:"Tip (%)",people:"Number of people",heightCm:"Height (cm)",weightKg:"Weight (kg)",currencyFrom:"From currency",currencyTo:"To currency",exchangeRate:"Exchange rate (1 source = ? target)",invalid:"Please enter valid values.",saved:"Done",result:"Result",ageResult:"Your age",years:"years",months:"months",days:"days",saving:"You save",finalPrice:"Final price",of:"of",bmiLow:"Below the usual adult range",bmiNormal:"Within the usual adult range",bmiHigh:"Above the usual adult range",bmiVeryHigh:"Well above the usual adult range",approx:"Approximate only, not a medical diagnosis",daysBetween:"Days between dates",perPerson:"Per person",tipAmount:"Tip amount",total:"Total",copy:"Copy result",copied:"Result copied",toolDiscount:"Discount calculator",toolPercent:"Percentage calculator",toolAge:"Age calculator",toolDays:"Date difference",toolUnits:"Unit converter",toolTip:"Bill split & tip",toolBmi:"BMI calculator",toolCurrency:"Currency converter",privacyTitle:"Privacy policy",privacyBody:"This version runs locally in your browser and does not send calculator inputs to a server. If you add analytics or ads later, update this policy to reflect the services you use.",aboutTitle:"About us",aboutBody:"Hasiba Plus is a tools and calculators platform designed to make everyday calculations easier. Update the site's email to your real contact email."}
-};
-let lang="ar", activeFilter="all", activeTool=null;
-const $=s=>document.querySelector(s);
-const $$=s=>document.querySelectorAll(s);
-function t(k){return (translations[lang]&&translations[lang][k])||translations.ar[k]||k}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function applyLang(){
- document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";$("#langBtn").textContent=lang==="ar"?"English":"العربية";
- $$("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(t(k)!==k)el.innerHTML=t(k)});
- $$("[data-i18n-placeholder]").forEach(el=>el.placeholder=t(el.dataset.i18nPlaceholder));
- $("#countLabel").textContent=$$(".tool-card:not([hidden])").length+" "+t("count");
- if(activeTool)openTool(activeTool,false);
+"use strict";
+
+let language = "ar";
+const $ = id => document.getElementById(id);
+const num = id => Number($(id).value);
+const fmt = (n, digits = 2) =>
+  Number.isFinite(n) ? n.toLocaleString(language === "ar" ? "ar-SA" : "en-US", {
+    maximumFractionDigits: digits
+  }) : "—";
+
+function t(ar, en) { return language === "ar" ? ar : en; }
+
+function toggleLanguage() {
+  language = language === "ar" ? "en" : "ar";
+  document.documentElement.lang = language;
+  document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+  $("langBtn").textContent = language === "ar" ? "English" : "العربية";
+
+  document.querySelectorAll("[data-ar][data-en]").forEach(el => {
+    el.textContent = el.dataset[language];
+  });
+  $("cryptoStatus").textContent = t("جارٍ تحميل الأسعار...", "Loading prices...");
+  if (cryptoPrices) renderCrypto();
 }
-const toolNames={discount:"toolDiscount",percent:"toolPercent",age:"toolAge",days:"toolDays",units:"toolUnits",tip:"toolTip",bmi:"toolBmi",currency:"toolCurrency"};
-function field(id,label,type="number",placeholder="",attrs=""){return `<div class="field"><label for="${id}">${t(label)}</label><input id="${id}" type="${type}" placeholder="${placeholder}" ${attrs}></div>`}
-function selectField(id,label,options){return `<div class="field"><label for="${id}">${t(label)}</label><select id="${id}">${options.map(o=>`<option value="${o[0]}">${t(o[1])}</option>`).join("")}</select></div>`}
-function openTool(name,scroll=true){
- activeTool=name;const panel=$("#toolPanel"),content=$("#panelContent"),result=$("#resultBox");result.className="result";result.innerHTML="";
- let f="",intro="";
- if(name==="discount"){f=field("price","originalPrice","number","100",'min="0" step="any"')+field("discountRate","discountRate","number","15",'min="0" max="100" step="any"');}
- if(name==="percent"){f=field("number","number","number","200",'step="any"')+field("percent","percentOf","number","15",'step="any"');}
- if(name==="age"){f=field("birth","birthDate","date","",'max="'+new Date().toISOString().slice(0,10)+'"');}
- if(name==="days"){f=field("start","startDate","date") + field("end","endDate","date");}
- if(name==="units"){f=selectField("unitType","category",[["length","length"],["weight","weight"],["temperature","temperature"]])+field("unitValue","value","number","1",'step="any"')+`<div class="field"><label for="fromUnit">${t("category")}</label><select id="fromUnit"></select></div><div class="field"><label for="toUnit">${t("category")}</label><select id="toUnit"></select></div>`;}
- if(name==="tip"){f=field("bill","bill","number","100",'min="0" step="any"')+field("tipRate","tipRate","number","10",'min="0" step="any"')+field("people","people","number","2",'min="1" step="1"');}
- if(name==="bmi"){f=field("height","heightCm","number","170",'min="1" step="any"')+field("weight","weightKg","number","70",'min="1" step="any"');}
- if(name==="currency"){f=field("money","amount","number","100",'step="any"')+selectField("fromCurrency","currencyFrom",[["SAR","SAR"],["USD","USD"],["EUR","EUR"],["GBP","GBP"],["EGP","EGP"],["YER","YER"]])+selectField("toCurrency","currencyTo",[["USD","USD"],["SAR","SAR"],["EUR","EUR"],["GBP","GBP"],["EGP","EGP"],["YER","YER"]])+field("rate","exchangeRate","number","0.27",'min="0" step="any"');}
- content.innerHTML=`<h2>${t(toolNames[name])}</h2><p>${t(name==="currency"?"currencyDesc":name==="discount"?"discountDesc":name==="percent"?"percentDesc":name==="age"?"ageDesc":name==="days"?"daysDesc":name==="units"?"unitsDesc":name==="tip"?"tipDesc":"bmiDesc")}</p><div class="fields">${f}</div><div class="panel-actions"><button class="btn primary" id="calculateBtn">${t("calculate")}</button><button class="btn" id="resetBtn">${t("reset")}</button></div>`;
- panel.classList.add("show");
- if(name==="units"){updateUnitOptions();$("#unitType").addEventListener("change",updateUnitOptions)}
- $("#calculateBtn").addEventListener("click",calculate);
- $("#resetBtn").addEventListener("click",()=>{content.querySelectorAll("input").forEach(i=>i.value="");result.className="result";result.innerHTML=""});
- if(scroll)panel.scrollIntoView({behavior:"smooth",block:"start"});
+
+function percentage() {
+  const amount = num("pctAmount"), rate = num("pctRate");
+  $("pctResult").textContent = [amount, rate].every(Number.isFinite)
+    ? fmt(amount * rate / 100) : t("أدخل أرقامًا صحيحة", "Enter valid numbers");
 }
-function updateUnitOptions(){
- const type=$("#unitType").value, from=$("#fromUnit"),to=$("#toUnit");
- const opts=type==="length"?[["m","meters"],["km","kilometers"],["cm","centimeters"],["ft","feet"]]:type==="weight"?[["kg","kg"],["g","grams"],["lb","pounds"]]:[["C","celsius"],["F","fahrenheit"]];
- const make=()=>opts.map(o=>`<option value="${o[0]}">${t(o[1])}</option>`).join("");
- from.innerHTML=make();to.innerHTML=make();if(opts.length>1)to.selectedIndex=1;
+
+function discount() {
+  const price = num("discountPrice"), rate = num("discountRate");
+  if (price < 0 || rate < 0 || rate > 100) {
+    $("discountResult").textContent = t("تحقق من القيم المدخلة", "Check your values");
+    return;
+  }
+  $("discountResult").textContent =
+    t("السعر بعد الخصم: ", "Price after discount: ") +
+    fmt(price * (1 - rate / 100)) +
+    " | " + t("قيمة الخصم: ", "Saved: ") + fmt(price * rate / 100);
 }
-function num(id){return Number($( "#"+id).value)}
-function valid(...vals){return vals.every(v=>Number.isFinite(v))}
-function showResult(html){const r=$("#resultBox");r.innerHTML=html+`<div style="margin-top:10px"><button class="btn" id="copyResult">${t("copy")}</button></div>`;r.className="result show";$("#copyResult").onclick=async()=>{try{await navigator.clipboard.writeText(r.innerText.replace(t("copy"),"").trim());toast(t("copied"))}catch(e){toast(r.innerText.trim())}}}
-function fmt(n){return new Intl.NumberFormat(lang==="ar"?"ar-SA":"en-US",{maximumFractionDigits:4}).format(n)}
-function calculate(){
- const n=$("#resultBox");let html="";
- try{
- if(activeTool==="discount"){let p=num("price"),d=num("discountRate");if(!valid(p,d)||p<0||d<0||d>100)throw 0;html=`${t("saving")}: <strong>${fmt(p*d/100)}</strong><br>${t("finalPrice")}: <strong>${fmt(p*(1-d/100))}</strong>`;}
- else if(activeTool==="percent"){let a=num("number"),p=num("percent");if(!valid(a,p))throw 0;html=`<strong>${fmt(a*p/100)}</strong> (${fmt(p)}% ${t("of")} ${fmt(a)})`;}
- else if(activeTool==="age"){let b=new Date($("#birth").value+"T00:00:00"),now=new Date();now.setHours(0,0,0,0);if(!$("#birth").value||b>now||isNaN(b))throw 0;let y=now.getFullYear()-b.getFullYear(),m=now.getMonth()-b.getMonth(),d=now.getDate()-b.getDate();if(d<0){m--;d+=new Date(now.getFullYear(),now.getMonth(),0).getDate()}if(m<0){y--;m+=12}html=`${t("ageResult")}: <strong>${y}</strong> ${t("years")}, <strong>${m}</strong> ${t("months")}, <strong>${d}</strong> ${t("days")}`;}
- else if(activeTool==="days"){let a=$("#start").value,b=$("#end").value;if(!a||!b)throw 0;let diff=Math.round(Math.abs(new Date(b+"T00:00:00")-new Date(a+"T00:00:00"))/86400000);html=`${t("daysBetween")}: <strong>${fmt(diff)}</strong>`;}
- else if(activeTool==="units"){let v=num("unitValue"),type=$("#unitType").value,from=$("#fromUnit").value,to=$("#toUnit").value;if(!valid(v))throw 0;let result;if(type==="length"){let m={m:1,km:1000,cm:.01,ft:.3048};result=v*m[from]/m[to]}else if(type==="weight"){let m={kg:1,g:.001,lb:.45359237};result=v*m[from]/m[to]}else{result=from===to?v:from==="C"?v*9/5+32:(v-32)*5/9}html=`<strong>${fmt(v)} ${esc(from)} = ${fmt(result)} ${esc(to)}</strong>`;}
- else if(activeTool==="tip"){let b=num("bill"),r=num("tipRate"),p=num("people");if(!valid(b,r,p)||b<0||r<0||p<1||!Number.isInteger(p))throw 0;let tip=b*r/100,total=b+tip;html=`${t("tipAmount")}: <strong>${fmt(tip)}</strong><br>${t("total")}: <strong>${fmt(total)}</strong><br>${t("perPerson")}: <strong>${fmt(total/p)}</strong>`;}
- else if(activeTool==="bmi"){let h=num("height"),w=num("weight");if(!valid(h,w)||h<=0||w<=0)throw 0;let bmi=w/((h/100)**2),key=bmi<18.5?"bmiLow":bmi<25?"bmiNormal":bmi<30?"bmiHigh":"bmiVeryHigh";html=`${t("result")}: <strong>${fmt(bmi)}</strong><br>${t(key)}<br><small>${t("approx")}</small>`;}
- else if(activeTool==="currency"){let a=num("money"),r=num("rate");if(!valid(a,r)||r<=0)throw 0;html=`<strong>${fmt(a*r)}</strong> ${esc($("#toCurrency").value)}<br><small>${fmt(a)} ${esc($("#fromCurrency").value)} × ${fmt(r)}</small>`;}
- showResult(html);
- }catch(e){n.innerHTML=`<strong style="color:var(--red)">${t("invalid")}</strong>`;n.className="result show"}
+
+function tip() {
+  const bill = num("bill"), rate = num("tipRate"), people = num("people");
+  if (bill < 0 || rate < 0 || people <= 0) {
+    $("tipResult").textContent = t("تحقق من القيم المدخلة", "Check your values");
+    return;
+  }
+  const gratuity = bill * rate / 100;
+  $("tipResult").textContent =
+    t("البقشيش: ", "Tip: ") + fmt(gratuity) +
+    " | " + t("الإجمالي: ", "Total: ") + fmt(bill + gratuity) +
+    " | " + t("لكل شخص: ", "Per person: ") + fmt((bill + gratuity) / people);
 }
-function toast(msg){const el=$("#toast");el.textContent=msg;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2500)}
-function filterTools(){
- const q=$("#searchInput").value.trim().toLowerCase();let shown=0;
- $$(".tool-card").forEach(card=>{const text=(card.dataset.search+" "+card.innerText).toLowerCase();const ok=(activeFilter==="all"||card.dataset.category===activeFilter)&&(!q||text.includes(q));card.hidden=!ok;if(ok)shown++});
- $("#emptyState").style.display=shown?"none":"block";$("#countLabel").textContent=shown+" "+t("count");
+
+function bmi() {
+  const weight = num("weight"), height = num("height") / 100;
+  if (weight <= 0 || height <= 0) {
+    $("bmiResult").textContent = t("أدخل وزنًا وطولًا صحيحين", "Enter valid weight and height");
+    return;
+  }
+  const value = weight / (height * height);
+  const category = value < 18.5 ? t("أقل من الطبيعي", "Underweight")
+    : value < 25 ? t("طبيعي", "Normal")
+    : value < 30 ? t("زيادة في الوزن", "Overweight")
+    : t("سمنة", "Obesity");
+  $("bmiResult").textContent = fmt(value, 1) + " — " + category;
 }
-$("#filters").addEventListener("click",e=>{const b=e.target.closest("[data-filter]");if(!b)return;activeFilter=b.dataset.filter;$$(".chip").forEach(c=>c.classList.toggle("active",c===b));filterTools()});
-$("#searchBtn").addEventListener("click",filterTools);$("#searchInput").addEventListener("input",filterTools);
-$("#searchInput").addEventListener("keydown",e=>{if(e.key==="Enter")filterTools()});
-$("#toolsGrid").addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)openTool(b.dataset.open)});
-$("#langBtn").addEventListener("click",()=>{lang=lang==="ar"?"en":"ar";applyLang()});
-$("#aboutLink").addEventListener("click",e=>{e.preventDefault();alert(t("aboutTitle")+"\n\n"+t("aboutBody"))});
-$("#privacyLink").addEventListener("click",e=>{e.preventDefault();alert(t("privacyTitle")+"\n\n"+t("privacyBody"))});
-$("#year").textContent=new Date().getFullYear();applyLang();filterTools();
+
+function loanCalc() {
+  const principal = num("loan"), annual = num("interest") / 100;
+  const years = num("years");
+  if (principal < 0 || annual < 0 || years <= 0) {
+    $("loanResult").textContent = t("تحقق من القيم المدخلة", "Check your values");
+    return;
+  }
+  const months = years * 12, monthlyRate = annual / 12;
+  const payment = monthlyRate === 0 ? principal / months :
+    principal * monthlyRate / (1 - Math.pow(1 + monthlyRate, -months));
+  $("loanResult").textContent =
+    t("القسط الشهري: ", "Monthly payment: ") + fmt(payment) +
+    " | " + t("إجمالي السداد: ", "Total repayment: ") + fmt(payment * months);
+}
+
+const fx = { USD: 3.75, EUR: 4.05, GBP: 4.75, EGP: 0.075, AED: 1.021 };
+function convertCurrency() {
+  const sar = num("sarAmount"), currency = $("currency").value;
+  if (sar < 0) {
+    $("currencyResult").textContent = t("أدخل مبلغًا صحيحًا", "Enter a valid amount");
+    return;
+  }
+  $("currencyResult").textContent = fmt(sar / fx[currency], 4) + " " + currency;
+}
+
+function calculatePL() {
+  const buy = num("buyPrice"), current = num("currentPrice"), qty = num("coinQty");
+  if (buy < 0 || current < 0 || qty < 0) {
+    $("plResult").textContent = t("تحقق من القيم المدخلة", "Check your values");
+    return;
+  }
+  const cost = buy * qty, value = current * qty, pnl = value - cost;
+  const pct = cost === 0 ? 0 : pnl / cost * 100;
+  $("plResult").textContent =
+    t("قيمة الاستثمار: ", "Investment: ") + "$" + fmt(cost) +
+    " | " + t("القيمة الحالية: ", "Current value: ") + "$" + fmt(value) +
+    " | " + t("الربح/الخسارة: ", "Profit/Loss: ") + "$" + fmt(pnl) +
+    " (" + fmt(pct) + "%)";
+}
+
+function averagePrice() {
+  const q1 = num("qty1"), p1 = num("price1"), q2 = num("qty2"), p2 = num("price2");
+  if ([q1,p1,q2,p2].some(v => v < 0) || q1 + q2 === 0) {
+    $("averageResult").textContent = t("أدخل كميات وأسعار صحيحة", "Enter valid quantities and prices");
+    return;
+  }
+  $("averageResult").textContent = "$" + fmt((q1 * p1 + q2 * p2) / (q1 + q2), 6);
+}
+
+function portfolio() {
+  const price = num("portfolioPrice"), qty = num("portfolioQty");
+  if (price < 0 || qty < 0) {
+    $("portfolioResult").textContent = t("تحقق من القيم المدخلة", "Check your values");
+    return;
+  }
+  const value = price * qty;
+  $("portfolioResult").textContent =
+    "$" + fmt(value) + " | " + fmt(value * 3.75) + " SAR";
+}
+
+function targetPrice() {
+  const buy = num("targetBuy"), profit = num("targetProfit");
+  if (buy < 0 || profit < -100) {
+    $("targetResult").textContent = t("تحقق من القيم المدخلة", "Check your values");
+    return;
+  }
+  $("targetResult").textContent = "$" + fmt(buy * (1 + profit / 100), 6);
+}
+
+function tradeFee() {
+  const value = num("tradeValue"), rate = num("feeRate");
+  if (value < 0 || rate < 0) {
+    $("feeResult").textContent = t("تحقق من القيم المدخلة", "Check your values");
+    return;
+  }
+  $("feeResult").textContent =
+    t("الرسوم: ", "Fee: ") + "$" + fmt(value * rate / 100) +
+    " | " + t("بعد الرسوم: ", "After fee: ") + "$" + fmt(value * (1 - rate / 100));
+}
+
+let cryptoPrices = null;
+const coinIds = [
+  ["bitcoin", "BTC", "Bitcoin"],
+  ["ethereum", "ETH", "Ethereum"],
+  ["binancecoin", "BNB", "BNB"],
+  ["ripple", "XRP", "XRP"],
+  ["solana", "SOL", "Solana"],
+  ["dogecoin", "DOGE", "Dogecoin"],
+  ["cardano", "ADA", "Cardano"],
+  ["the-open-network", "TON", "Toncoin"]
+];
+
+async function loadCrypto() {
+  $("cryptoStatus").textContent = t("جارٍ تحميل الأسعار...", "Loading prices...");
+  try {
+    const ids = coinIds.map(c => c[0]).join(",");
+    const url = "https://api.coingecko.com/api/v3/simple/price?ids=" +
+      encodeURIComponent(ids) + "&vs_currencies=usd";
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("Price service unavailable");
+    const data = await response.json();
+    if (!data || !data.bitcoin || typeof data.bitcoin.usd !== "number") {
+      throw new Error("Incomplete price data");
+    }
+    cryptoPrices = data;
+    renderCrypto();
+  } catch (error) {
+    $("cryptoStatus").textContent = t(
+      "تعذر جلب الأسعار الآن. تحقق من الإنترنت وحاول مرة أخرى.",
+      "Unable to fetch prices. Check your connection and try again."
+    );
+  }
+}
+
+function renderCrypto() {
+  if (!cryptoPrices) return;
+  let rows = "";
+  coinIds.forEach(([id, symbol, name]) => {
+    const price = cryptoPrices[id]?.usd;
+    if (typeof price !== "number") return;
+    rows += "<tr><td><strong>" + symbol + "</strong> <span class='muted'>" +
+      name + "</span></td><td>$" + fmt(price, 8) + "</td><td>" +
+      fmt(price * 3.75, 6) + " SAR</td></tr>";
+  });
+  $("cryptoTable").innerHTML = rows || "<tr><td colspan='3'>—</td></tr>";
+  $("cryptoStatus").textContent = t(
+    "تم تحديث الأسعار. آخر تحديث: ", "Prices updated. Last refresh: "
+  ) + new Date().toLocaleTimeString(language === "ar" ? "ar-SA" : "en-US");
+}
+
+$("year").textContent = new Date().getFullYear();
+percentage();
+discount();
+tip();
+bmi();
+loanCalc();
+convertCurrency();
+calculatePL();
+averagePrice();
+portfolio();
+targetPrice();
+tradeFee();
+loadCrypto();
+setInterval(loadCrypto, 120000);
 </script>
 </body>
 </html>

@@ -77,7 +77,6 @@
 </section>
 <section>
  <div class="container">
-   <!-- بداية قسم العملات الرقمية في Hasiba Plus: الصق هذا الجزء كاملاً قبل </body> -->
 <style>
 #cryptoHub{--ch-red:#b91c1c;--ch-ink:#172033;--ch-muted:#667085;--ch-line:#e5e7eb;color:var(--ch-ink);font-family:inherit;line-height:1.7;padding:32px 0}
 #cryptoHub *{box-sizing:border-box}#cryptoHub .ch-wrap{width:min(1100px,92%);margin:auto}#cryptoHub .ch-head{margin-bottom:18px}#cryptoHub .ch-head h2{margin:0;font-size:1.7rem}#cryptoHub .ch-head p{color:var(--ch-muted);margin:5px 0 0}#cryptoHub .ch-notice{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:12px 14px;color:#9a3412;margin:14px 0 20px;font-size:.9rem}#cryptoHub .ch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}#cryptoHub .ch-card{background:#fff;border:1px solid var(--ch-line);border-radius:16px;padding:18px;box-shadow:0 4px 14px #10182808;min-width:0}#cryptoHub .ch-card h3{margin:0 0 5px;font-size:1.12rem}#cryptoHub .ch-desc{font-size:.88rem;color:var(--ch-muted);margin:0 0 12px}#cryptoHub label{display:block;font-weight:700;font-size:.88rem;margin:9px 0 4px}#cryptoHub input,#cryptoHub select{width:100%;min-height:43px;padding:9px 10px;border:1px solid #d0d5dd;border-radius:9px;background:#fff;color:var(--ch-ink);font:inherit}#cryptoHub input:focus,#cryptoHub select:focus{outline:2px solid #fecaca;border-color:var(--ch-red)}#cryptoHub .ch-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}#cryptoHub .ch-btn{width:100%;margin-top:12px;border:0;border-radius:10px;background:var(--ch-red);color:white;padding:10px 14px;font:inherit;font-weight:700;cursor:pointer}#cryptoHub .ch-btn.secondary{background:#fff;color:var(--ch-red);border:1px solid #fecaca}#cryptoHub .ch-result{display:none;margin-top:12px;background:#ecfdf3;border:1px solid #abefc6;border-radius:10px;padding:11px 12px;color:#05603a;font-weight:700;overflow-wrap:anywhere}#cryptoHub .ch-result.show{display:block}#cryptoHub .ch-small{font-size:.8rem;color:var(--ch-muted);margin:8px 0 0}#cryptoHub .ch-status{font-size:.88rem;color:var(--ch-muted);margin:8px 0}#cryptoHub .ch-table-wrap{overflow-x:auto}#cryptoHub table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:360px}#cryptoHub th,#cryptoHub td{padding:9px 7px;border-bottom:1px solid var(--ch-line);text-align:right;white-space:nowrap}#cryptoHub th{color:var(--ch-muted);font-size:.82rem}#cryptoHub .ch-price{font-weight:700}#cryptoHub .ch-badge{display:inline-block;background:#fef2f2;color:var(--ch-red);border-radius:7px;padding:2px 7px;font-size:.78rem}
@@ -150,20 +149,77 @@
  const chValid=(v)=>v!==''&&Number.isFinite(Number(v))&&Number(v)>=0;
  const chNames={bitcoin:'BTC',ethereum:'ETH',binancecoin:'BNB',ripple:'XRP',solana:'SOL',dogecoin:'DOGE',cardano:'ADA',tron:'TRX',tether:'USDT'};
  let chMarket={}; let chUpdated=null;
- window.chFetchPrices=async function(){
-  const status=ch$('chLiveStatus'),body=ch$('chPrices');status.textContent='جارٍ الاتصال بمصدر الأسعار…';
-  try{
-   const ids=Object.keys(chNames).join(',');
-   const res=await fetch('https://api.coingecko.com/api/v3/simple/price?ids='+encodeURIComponent(ids)+'&vs_currencies=usd',{cache:'no-store'});
-   if(!res.ok)throw new Error('HTTP '+res.status);
-   const data=await res.json();
-   const next={};Object.keys(chNames).forEach(id=>{if(data[id]&&Number.isFinite(Number(data[id].usd)))next[id]=Number(data[id].usd)});
-   if(!Object.keys(next).length)throw new Error('No price data');
-   chMarket=next;chUpdated=new Date();
-   body.innerHTML=Object.keys(chNames).filter(id=>chMarket[id]!==undefined).map(id=>'<tr><td><strong>'+chNames[id]+'</strong></td><td class="ch-price">$'+chMoney(chMarket[id])+'</td><td>'+chMoney(chMarket[id]*3.75)+' SAR*</td></tr>').join('');
-   status.textContent='تم التحديث: '+chUpdated.toLocaleTimeString('ar-SA')+' — الأسعار بالدولار من CoinGecko.';
-  }catch(err){status.textContent='تعذر جلب الأسعار الآن. تحقق من الإنترنت وحاول مرة أخرى؛ لا توجد أسعار مباشرة مؤكدة حاليًا.';if(!Object.keys(chMarket).length)body.innerHTML='<tr><td colspan="3">لا توجد بيانات أسعار متاحة.</td></tr>';}
- };
+ 
+window.chFetchPrices = async function () {
+  const status = ch$('chLiveStatus');
+  const body = ch$('chPrices');
+
+  status.textContent = 'جارٍ جلب الأسعار من CoinGecko...';
+
+  try {
+    const ids = Object.keys(chNames).join(',');
+    const url =
+      'https://api.coingecko.com/api/v3/simple/price?ids=' +
+      encodeURIComponent(ids) +
+      '&vs_currencies=usd,sar&include_24hr_change=true';
+
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error('Price request failed');
+
+    const data = await res.json();
+    const next = {};
+
+    Object.keys(chNames).forEach(id => {
+      if (data[id] && Number.isFinite(Number(data[id].usd))) {
+        next[id] = Number(data[id].usd);
+      }
+    });
+
+    if (!Object.keys(next).length) {
+      throw new Error('No prices available');
+    }
+
+    chMarket = next;
+    chUpdated = new Date();
+
+    body.innerHTML = Object.keys(chNames)
+      .filter(id => data[id] && next[id] !== undefined)
+      .map(id => {
+        const usd = next[id];
+        const sar = Number.isFinite(Number(data[id].sar))
+          ? Number(data[id].sar)
+          : usd * 3.75;
+
+        const change = Number(data[id].usd_24h_change);
+        const changeHtml = Number.isFinite(change)
+          ? '<br><small style="color:' +
+            (change >= 0 ? '#16834a' : '#d32f2f') +
+            '">' + (change > 0 ? '+' : '') +
+            change.toFixed(2) + '% خلال 24 ساعة</small>'
+          : '';
+
+        return '<tr><td><strong>' + chNames[id] +
+          '</strong>' + changeHtml +
+          '</td><td class="ch-price">$' + chMoney(usd) +
+          '</td><td>' + chMoney(sar) + ' SAR</td></tr>';
+      })
+      .join('');
+
+    status.textContent =
+      'آخر تحديث: ' + chUpdated.toLocaleTimeString('ar-SA') +
+      ' — المصدر: CoinGecko';
+
+  } catch (err) {
+    chMarket = {};
+
+    status.textContent =
+      'تعذر جلب الأسعار حاليًا. تحقق من الإنترنت وحاول لاحقًا.';
+
+    body.innerHTML =
+      '<tr><td colspan="3">الأسعار غير متاحة حاليًا؛ لم يتم عرض أسعار قديمة على أنها مباشرة.</td></tr>';
+  }
+};
+
  window.chUsdtToSar=function(){const a=ch$('chUsdtAmount').value,r=ch$('chUsdtRate').value;if(!chValid(a)||!chValid(r)||Number(r)<=0){chShow('chUsdtResult','أدخل مبلغًا وسعر صرف أكبر من صفر.');return}chShow('chUsdtResult',chFmt(Number(a))+' USDT ≈ '+chMoney(Number(a)*Number(r))+' SAR حسب سعر الصرف الذي أدخلته.');};
  window.chProfitLoss=function(){const q=ch$('chPLQty').value,b=ch$('chPLBuy').value,s=ch$('chPLSell').value;if(!chValid(q)||Number(q)<=0||!chValid(b)||!chValid(s)){chShow('chPLResult','أدخل كمية أكبر من صفر وسعرَي شراء وبيع صحيحين.');return}const cost=Number(q)*Number(b),value=Number(q)*Number(s),p=value-cost,pct=cost?p/cost*100:0;chShow('chPLResult','قيمة الشراء: '+chMoney(cost)+' — قيمة البيع: '+chMoney(value)+' — '+(p>=0?'الربح: ':'الخسارة: ')+chMoney(Math.abs(p))+' ('+chMoney(pct)+'%). قبل الرسوم والضرائب.');};
  window.chAverageBuy=function(){let qty=0,cost=0,used=0;for(let i=1;i<=3;i++){const q=ch$('chAQty'+i).value,p=ch$('chAPrice'+i).value;if(q===''&&p==='')continue;if(!chValid(q)||Number(q)<=0||!chValid(p)){chShow('chAvgResult','أكمل الكمية والسعر لكل عملية شراء أدخلتها، واجعل الكمية أكبر من صفر.');return}qty+=Number(q);cost+=Number(q)*Number(p);used++}if(!used){chShow('chAvgResult','أدخل عملية شراء واحدة على الأقل.');return}chShow('chAvgResult','إجمالي الكمية: '+chFmt(qty)+' — إجمالي التكلفة: '+chMoney(cost)+' — متوسط سعر الشراء: '+chMoney(cost/qty)+'. لا يشمل الرسوم.');};

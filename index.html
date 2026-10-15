@@ -209,15 +209,11 @@ window.chFetchPrices = async function () {
       'آخر تحديث: ' + chUpdated.toLocaleTimeString('ar-SA') +
       ' — المصدر: CoinGecko';
 
-  } catch (err) {
-    chMarket = {};
-
-    status.textContent =
-      'تعذر جلب الأسعار حاليًا. تحقق من الإنترنت وحاول لاحقًا.';
-
-    body.innerHTML =
-      '<tr><td colspan="3">الأسعار غير متاحة حاليًا؛ لم يتم عرض أسعار قديمة على أنها مباشرة.</td></tr>';
-  }
+  }catch(err){
+  chMarket={};
+  status.textContent='تعذر جلب الأسعار الآن. تحقق من الإنترنت وحاول مرة أخرى.';
+  body.innerHTML='<tr><td colspan="3">الأسعار غير متاحة حاليًا. اضغط تحديث الأسعار للمحاولة مجددًا.</td></tr>';
+}
 };
 
  window.chUsdtToSar=function(){const a=ch$('chUsdtAmount').value,r=ch$('chUsdtRate').value;if(!chValid(a)||!chValid(r)||Number(r)<=0){chShow('chUsdtResult','أدخل مبلغًا وسعر صرف أكبر من صفر.');return}chShow('chUsdtResult',chFmt(Number(a))+' USDT ≈ '+chMoney(Number(a)*Number(r))+' SAR حسب سعر الصرف الذي أدخلته.');};

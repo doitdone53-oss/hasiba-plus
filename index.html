@@ -218,6 +218,148 @@ a { color: var(--red); }
     </section>
   </div>
 
+<!-- حاسبة العمر والسعرات الحرارية -->
+<section id="extraCalculators">
+  <h2 class="section-title" data-ar="حاسبات الصحة والعمر"
+      data-en="Age & Health Calculators">حاسبات الصحة والعمر</h2>
+
+  <div class="grid">
+
+    <!-- حاسبة العمر -->
+    <div class="card">
+      <h3 data-ar="🎂 حاسبة العمر" data-en="🎂 Age Calculator">🎂 حاسبة العمر</h3>
+
+      <label data-ar="تاريخ الميلاد" data-en="Date of birth">تاريخ الميلاد</label>
+      <input type="date" id="birthDate">
+
+      <button type="button" onclick="calculateAge()"
+        data-ar="احسب عمري" data-en="Calculate my age">احسب عمري</button>
+
+      <div class="result" id="ageResult" aria-live="polite">—</div>
+    </div>
+
+    <!-- حاسبة السعرات الحرارية -->
+    <div class="card">
+      <h3 data-ar="🔥 حاسبة السعرات الحرارية"
+          data-en="🔥 Calorie Calculator">🔥 حاسبة السعرات الحرارية</h3>
+
+      <label data-ar="العمر بالسنوات" data-en="Age in years">العمر بالسنوات</label>
+      <input type="number" id="calAge" min="18" max="120" value="30">
+
+      <label data-ar="الجنس" data-en="Sex">الجنس</label>
+      <select id="calSex">
+        <option value="male" data-ar="ذكر" data-en="Male">ذكر</option>
+        <option value="female" data-ar="أنثى" data-en="Female">أنثى</option>
+      </select>
+
+      <label data-ar="الوزن بالكيلوغرام" data-en="Weight (kg)">الوزن بالكيلوغرام</label>
+      <input type="number" id="calWeight" min="1" step="0.1" value="70">
+
+      <label data-ar="الطول بالسنتيمتر" data-en="Height (cm)">الطول بالسنتيمتر</label>
+      <input type="number" id="calHeight" min="1" step="0.1" value="170">
+
+      <label data-ar="مستوى النشاط" data-en="Activity level">مستوى النشاط</label>
+      <select id="calActivity">
+        <option value="1.2" data-ar="قليل الحركة" data-en="Sedentary">قليل الحركة</option>
+        <option value="1.375" data-ar="نشاط خفيف (1–3 أيام أسبوعيًا)" data-en="Light activity (1–3 days/week)">نشاط خفيف (1–3 أيام أسبوعيًا)</option>
+        <option value="1.55" selected data-ar="نشاط متوسط (3–5 أيام أسبوعيًا)" data-en="Moderate activity (3–5 days/week)">نشاط متوسط (3–5 أيام أسبوعيًا)</option>
+        <option value="1.725" data-ar="نشاط عالٍ (6–7 أيام أسبوعيًا)" data-en="High activity (6–7 days/week)">نشاط عالٍ (6–7 أيام أسبوعيًا)</option>
+        <option value="1.9" data-ar="نشاط شديد جدًا" data-en="Very high activity">نشاط شديد جدًا</option>
+      </select>
+
+      <button type="button" onclick="calculateCalories()"
+        data-ar="احسب السعرات" data-en="Calculate calories">احسب السعرات</button>
+
+      <div class="result" id="calResult" aria-live="polite">—</div>
+
+      <p class="muted"
+         data-ar="النتائج تقديرية للبالغين، وليست تشخيصًا أو خطة غذائية طبية."
+         data-en="Estimates for adults, not a medical diagnosis or diet plan.">
+        النتائج تقديرية للبالغين، وليست تشخيصًا أو خطة غذائية طبية.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function calculateAge() {
+  const input = document.getElementById("birthDate").value;
+  const result = document.getElementById("ageResult");
+  const en = document.documentElement.lang === "en";
+
+  if (!input) {
+    result.textContent = en ? "Please select your birth date." : "يرجى اختيار تاريخ الميلاد.";
+    return;
+  }
+
+  const birth = new Date(input + "T00:00:00");
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  if (Number.isNaN(birth.getTime()) || birth > today) {
+    result.textContent = en ? "Please enter a valid birth date." : "يرجى إدخال تاريخ ميلاد صحيح.";
+    return;
+  }
+
+  let years = today.getFullYear() - birth.getFullYear();
+  let months = today.getMonth() - birth.getMonth();
+  let days = today.getDate() - birth.getDate();
+
+  if (days < 0) {
+    months--;
+    const lastMonthDays = new Date(
+      today.getFullYear(), today.getMonth(), 0
+    ).getDate();
+    days += lastMonthDays;
+  }
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  result.textContent = en
+    ? `Your age: ${years} years, ${months} months, ${days} days.`
+    : `عمرك: ${years} سنة، و${months} شهر، و${days} يوم.`;
+}
+
+function calculateCalories() {
+  const age = Number(document.getElementById("calAge").value);
+  const weight = Number(document.getElementById("calWeight").value);
+  const height = Number(document.getElementById("calHeight").value);
+  const sex = document.getElementById("calSex").value;
+  const activity = Number(document.getElementById("calActivity").value);
+  const result = document.getElementById("calResult");
+  const en = document.documentElement.lang === "en";
+
+  if (
+    !Number.isFinite(age) || age < 18 || age > 120 ||
+    !Number.isFinite(weight) || weight <= 0 ||
+    !Number.isFinite(height) || height <= 0 ||
+    !Number.isFinite(activity) || activity <= 0
+  ) {
+    result.textContent = en
+      ? "Enter valid values. This calculator is for adults aged 18+."
+      : "أدخل بيانات صحيحة. هذه الحاسبة مخصصة للبالغين من عمر 18 سنة.";
+    return;
+  }
+
+  // معادلة Mifflin–St Jeor لتقدير معدل الأيض الأساسي
+  const bmr = 10 * weight + 6.25 * height - 5 * age +
+    (sex === "male" ? 5 : -161);
+
+  const maintenance = bmr * activity;
+
+  result.textContent = en
+    ? `Estimated basal metabolism: ${Math.round(bmr)} kcal/day. ` +
+      `Estimated maintenance: ${Math.round(maintenance)} kcal/day.`
+    : `معدل الأيض الأساسي التقديري: ${Math.round(bmr)} سعرة يوميًا. ` +
+      `السعرات التقريبية للمحافظة على الوزن: ${Math.round(maintenance)} سعرة يوميًا.`;
+}
+</script>
+<!-- نهاية حاسبة العمر والسعرات الحرارية -->
+
   <section id="cryptoHub">
     <div class="crypto-head">
       <h2 class="section-title" data-ar="حاسبات العملات الرقمية" data-en="Cryptocurrency Tools">حاسبات العملات الرقمية</h2>

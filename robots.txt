@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://doitdone53-oss.github.io/hasiba-plus/sitemap.xml

@@ -16,6 +16,79 @@
 <meta name="description" content="استخدم Hasiba Plus مجانًا: حاسبة النسبة المئوية والخصم والعمر والسعرات والقروض، وتحويل العملات وحاسبات العملات الرقمية بالعربية والإنجليزية.">
 
 <style>
+  
+/* شبكة مربعات الحاسبات */
+#calculatorDirectory {
+  scroll-margin-top: 90px;
+}
+
+.calculator-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.calculator-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 130px;
+  padding: 16px 10px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  transition: transform .2s, border-color .2s,
+              box-shadow .2s;
+}
+
+.calculator-tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--red);
+  box-shadow: 0 8px 20px rgba(185, 28, 28, 0.10);
+}
+
+.calculator-tile:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+}
+
+.calculator-tile strong {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.tile-icon {
+  font-size: 30px;
+  color: var(--red);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.card, #cryptoHub, #extraCalculators {
+  scroll-margin-top: 90px;
+}
+
+@media (min-width: 700px) {
+  .calculator-directory-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .calculator-directory-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 :root {
   --red: #b91c1c;
   --red2: #dc2626;

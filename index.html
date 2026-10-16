@@ -413,7 +413,7 @@ a { color: var(--red); }
       <p class="muted" data-ar="النتيجة تقديرية للبالغين وليست تشخيصًا طبيًا." data-en="An estimate for adults, not a medical diagnosis.">النتيجة تقديرية للبالغين وليست تشخيصًا طبيًا.</p>
     </section>
 
-    <section class="card">
+    <section class="card" id="loanCalcCard">
       <h3 data-ar="حاسبة القرض المبسطة" data-en="Loan Calculator">حاسبة القرض المبسطة</h3>
       <label data-ar="مبلغ القرض" data-en="Loan amount">مبلغ القرض</label>
       <input id="loan" type="number" value="50000" min="0">
@@ -426,7 +426,7 @@ a { color: var(--red); }
       <p class="muted" data-ar="حساب تقديري بأقساط شهرية ثابتة." data-en="Estimate based on fixed monthly payments.">حساب تقديري بأقساط شهرية ثابتة.</p>
     </section>
 
-    <section class="card">
+    <section class="card" id="currencyCalc">
       <h3 data-ar="تحويل العملات" data-en="Currency Converter">تحويل العملات</h3>
       <label data-ar="المبلغ بالريال السعودي" data-en="Amount in SAR">المبلغ بالريال السعودي</label>
       <input id="sarAmount" type="number" value="100" min="0">
@@ -452,7 +452,7 @@ a { color: var(--red); }
   <div class="grid">
 
     <!-- حاسبة العمر -->
-    <div class="card">
+    <div class="card" id="ageCalc">
       <h3 data-ar="🎂 حاسبة العمر" data-en="🎂 Age Calculator">🎂 حاسبة العمر</h3>
 
       <label data-ar="تاريخ الميلاد" data-en="Date of birth">تاريخ الميلاد</label>
@@ -465,7 +465,7 @@ a { color: var(--red); }
     </div>
 
     <!-- حاسبة السعرات الحرارية -->
-    <div class="card">
+    <div class="card" id="caloriesCalc">
       <h3 data-ar="🔥 حاسبة السعرات الحرارية"
           data-en="🔥 Calorie Calculator">🔥 حاسبة السعرات الحرارية</h3>
 
@@ -613,7 +613,7 @@ function calculateCalories() {
     </div>
 
     <div class="grid" style="margin-top:16px">
-      <section class="card">
+      <div class="card" id="plCalc">
         <h3 data-ar="حساب الربح والخسارة" data-en="Profit & Loss">حساب الربح والخسارة</h3>
         <label data-ar="سعر الشراء بالدولار" data-en="Buy price USD">سعر الشراء بالدولار</label>
         <input id="buyPrice" type="number" value="60000" min="0">
@@ -625,7 +625,7 @@ function calculateCalories() {
         <div class="result" id="plResult" aria-live="polite">—</div>
       </section>
 
-      <section class="card">
+      <div class="card" id="averageCalc">
         <h3 data-ar="متوسط سعر الشراء" data-en="Average Buy Price">متوسط سعر الشراء</h3>
         <label data-ar="الكمية الأولى" data-en="First quantity">الكمية الأولى</label>
         <input id="qty1" type="number" value="1" min="0">
@@ -639,7 +639,7 @@ function calculateCalories() {
         <div class="result" id="averageResult" aria-live="polite">—</div>
       </section>
 
-      <section class="card">
+      <div class="card" id="portfolioCalc">
         <h3 data-ar="قيمة المحفظة" data-en="Portfolio Value">قيمة المحفظة</h3>
         <label data-ar="سعر العملة بالدولار" data-en="Coin price USD">سعر العملة بالدولار</label>
         <input id="portfolioPrice" type="number" value="100" min="0">
@@ -649,7 +649,7 @@ function calculateCalories() {
         <div class="result" id="portfolioResult" aria-live="polite">—</div>
       </section>
 
-      <section class="card">
+      <div class="card" id="targetCalc">
         <h3 data-ar="السعر المستهدف" data-en="Target Price">السعر المستهدف</h3>
         <label data-ar="سعر الشراء" data-en="Buy price">سعر الشراء</label>
         <input id="targetBuy" type="number" value="100" min="0">
@@ -659,7 +659,7 @@ function calculateCalories() {
         <div class="result" id="targetResult" aria-live="polite">—</div>
       </section>
 
-      <section class="card">
+      <div class="card" id="feesCalc">
         <h3 data-ar="حاسبة رسوم التداول" data-en="Trading Fee Calculator">حاسبة رسوم التداول</h3>
         <label data-ar="قيمة الصفقة بالدولار" data-en="Trade value USD">قيمة الصفقة بالدولار</label>
         <input id="tradeValue" type="number" value="1000" min="0">

@@ -148,6 +148,152 @@ a { color: var(--red); }
     <button class="hero-btn" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})" data-ar="اكتشف الحاسبات" data-en="Explore calculators">اكتشف الحاسبات</button>
   </section>
 
+<!-- دليل الحاسبات في Hasiba Plus -->
+<section id="calculatorDirectory">
+  <h2 class="section-title"
+      data-ar="اختر الحاسبة التي تحتاجها"
+      data-en="Choose Your Calculator">
+    اختر الحاسبة التي تحتاجها
+  </h2>
+
+  <p class="muted"
+     data-ar="اضغط على أي مربع للانتقال مباشرة إلى الحاسبة."
+     data-en="Tap any tile to jump directly to the calculator.">
+    اضغط على أي مربع للانتقال مباشرة إلى الحاسبة.
+  </p>
+
+  <label for="calculatorSearch"
+         data-ar="ابحث عن حاسبة"
+         data-en="Search calculators">
+    ابحث عن حاسبة
+  </label>
+  <input id="calculatorSearch" type="search"
+         placeholder="مثال: السعرات الحرارية"
+         oninput="filterCalculatorTiles(this.value)">
+
+  <div class="calculator-directory-grid">
+
+    <a class="calculator-tile" href="#pctCalc"
+       data-search="النسبة المئوية percentage">
+      <span class="tile-icon">％</span>
+      <strong data-ar="النسبة المئوية" data-en="Percentage">
+        النسبة المئوية
+      </strong>
+    </a>
+
+    <a class="calculator-tile" href="#discountCalc"
+       data-search="الخصم السعر النهائي discount">
+      <span class="tile-icon">🏷️</span>
+      <strong data-ar="حاسبة الخصم" data-en="Discount">
+        حاسبة الخصم
+      </strong>
+    </a>
+
+    <a class="calculator-tile" href="#tipCalc"
+       data-search="البقشيش الفاتورة tip bill">
+      <span class="tile-icon">🧾</span>
+      <strong data-ar="البقشيش وتقسيم الفاتورة" data-en="Tip & Bill Split">
+        البقشيش وتقسيم الفاتورة
+      </strong>
+    </a>
+
+    <a class="calculator-tile" href="#bmiCalc"
+       data-search="مؤشر كتلة الجسم الوزن bmi">
+      <span class="tile-icon">⚖️</span>
+      <strong data-ar="مؤشر كتلة الجسم" data-en="BMI Calculator">
+        مؤشر كتلة الجسم
+      </strong>
+    </a>
+
+    <a class="calculator-tile" href="#caloriesCalc"
+       data-search="السعرات الحرارية التغذية calorie calories">
+      <span class="tile-icon">🔥</span>
+      <strong data-ar="السعرات الحرارية" data-en="Calorie Calculator">
+        السعرات الحرارية
+      </strong>
+    </a>
+
+    <a class="calculator-tile" href="#loanCalcCard"
+       data-search="القروض الأقساط loan">
+      <span class="tile-icon">💰</span>
+      <strong data-ar="القروض والأقساط" data-en="Loan Calculator">
+        القروض والأقساط
+      </strong>
+    </a>
+
+    <a class="calculator-tile" href="#currencyCalc"
+       data-search="تحويل العملات ريال دولار currency">
+      <span class="tile-icon">💱</span>
+      <strong data-ar="تحويل العملات" data-en="Currency Converter">
+        تحويل العملات
+      </strong>
+    </a>
+
+    <a class="calculator-tile" href="#ageCalc"
+       data-search="العمر تاريخ الميلاد age">
+      <span class="tile-icon">🎂</span>
+      <strong data-ar="حاسبة العمر" data-en="Age Calculator">
+        حاسبة العمر
+      </strong>
+    </a>
+
+    <a class="calculator-tile" href="#cryptoHub"
+       data-search="العملات الرقمية bitcoin crypto أسعار">
+      <span class="tile-icon">₿</span>
+      <strong data-ar="أسعار العملات الرقمية" data-en="Crypto Prices">
+        أسعار العملات الرقمية
+      </strong>
+    </a>
+
+    <a class="calculator-tile" href="#plCalc"
+       data-search="الربح الخسارة الاستثمار profit loss">
+      <span class="tile-icon">📈</span>
+      <strong data-ar="الربح والخسارة" data-en="Profit & Loss">
+        الربح والخسارة
+      </strong>
+    </a>
+
+    <a class="calculator-tile" href="#averageCalc"
+       data-search="متوسط سعر الشراء average buy price">
+      <span class="tile-icon">🧮</span>
+      <strong data-ar="متوسط سعر الشراء" data-en="Average Buy Price">
+        متوسط سعر الشراء
+      </strong>
+    </a>
+
+    <a class="calculator-tile" href="#portfolioCalc"
+       data-search="قيمة المحفظة portfolio">
+      <span class="tile-icon">👛</span>
+      <strong data-ar="قيمة المحفظة" data-en="Portfolio Value">
+        قيمة المحفظة
+      </strong>
+    </a>
+
+    <a class="calculator-tile" href="#targetCalc"
+       data-search="السعر المستهدف الربح target price">
+      <span class="tile-icon">🎯</span>
+      <strong data-ar="السعر المستهدف" data-en="Target Price">
+        السعر المستهدف
+      </strong>
+    </a>
+
+    <a class="calculator-tile" href="#feesCalc"
+       data-search="رسوم التداول trading fees">
+      <span class="tile-icon">📊</span>
+      <strong data-ar="رسوم التداول" data-en="Trading Fees">
+        رسوم التداول
+      </strong>
+    </a>
+
+  </div>
+  <p id="noCalculatorResults" class="muted hidden"
+     data-ar="لا توجد حاسبات مطابقة للبحث."
+     data-en="No matching calculators found.">
+    لا توجد حاسبات مطابقة للبحث.
+  </p>
+</section>
+<!-- نهاية دليل الحاسبات -->
+
   <h2 class="section-title" id="tools" data-ar="الحاسبات والأدوات" data-en="Calculators & Tools">الحاسبات والأدوات</h2>
 
   <div class="grid">

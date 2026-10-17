@@ -209,8 +209,20 @@ a { color: var(--red); }
 <body>
 <header>
   <div class="nav">
-    <div class="logo">Hasiba Plus</div>
-    <button class="secondary" id="langBtn" onclick="toggleLanguage()">English</button>
+    <a href="https://doitdone53-oss.github.io/hasiba-plus/"
+       class="logo"
+       style="color: var(--red); text-decoration: none; font-weight: bold; font-size: 22px;">
+      Hasiba Plus
+    </a>
+
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="https://doitdone53-oss.github.io/hasiba-plus/blog.html"
+         style="color: var(--red); text-decoration: none; font-weight: bold;">
+        المدونة | Blog
+      </a>
+
+      <button class="secondary" id="langBtn" onclick="toggleLanguage()">English</button>
+    </div>
   </div>
 </header>
 

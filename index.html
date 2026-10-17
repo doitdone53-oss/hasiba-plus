@@ -939,57 +939,55 @@ targetPrice();
 tradeFee();
 loadCrypto();
 setInterval(loadCrypto, 120000);
-  
-<script>
-function filterCalculatorTiles(query) {
+</script>
+        <script>
+(function () {
+  const search = document.getElementById("calculatorSearch");
   const tiles = document.querySelectorAll(".calculator-tile");
   const message = document.getElementById("noCalculatorResults");
 
-  // توحيد النص لتسهيل البحث بالعربية والإنجليزية
   function normalize(text) {
     return String(text || "")
       .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u064B-\u065F\u0670]/g, "")
-      .replace(/ـ/g, "")
       .replace(/[أإآ]/g, "ا")
       .replace(/ى/g, "ي")
+      .replace(/ة/g, "ه")
+      .replace(/[\u064B-\u065F\u0670ـ]/g, "")
       .trim();
   }
 
-  const searchText = normalize(query);
-  let visibleCount = 0;
+  function filterCalculators() {
+    const query = normalize(search.value);
+    let count = 0;
 
-  tiles.forEach(function(tile) {
-    const title = tile.querySelector("strong");
+    tiles.forEach(function (tile) {
+      const title = tile.querySelector("strong");
 
-    const searchableText = normalize([
-      tile.dataset.search,
-      title ? title.textContent : "",
-      title ? title.dataset.ar : "",
-      title ? title.dataset.en : "",
-      tile.getAttribute("href")
-    ].join(" "));
+      const words = normalize(
+        (tile.getAttribute("data-search") || "") + " " +
+        (title ? title.textContent : "") + " " +
+        (title ? title.getAttribute("data-ar") || "" : "") + " " +
+        (title ? title.getAttribute("data-en") || "" : "")
+      );
 
-    const matches = !searchText ||
-      searchableText.includes(searchText);
+      const show = query === "" || words.includes(query);
 
-    tile.classList.toggle("hidden", !matches);
+      tile.style.display = show ? "flex" : "none";
 
-    if (matches) {
-      visibleCount++;
+      if (show) count++;
+    });
+
+    if (message) {
+      message.classList.toggle("hidden", count !== 0);
     }
-  });
-
-  if (message) {
-    message.classList.toggle(
-      "hidden",
-      visibleCount > 0
-    );
   }
-}
-</script>
 
+  if (search) {
+    search.addEventListener("input", filterCalculators);
+    window.filterCalculatorTiles = filterCalculators;
+    filterCalculators();
+  }
+})();
 </script>
 </body>
 </html>

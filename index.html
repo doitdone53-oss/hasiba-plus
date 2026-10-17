@@ -1105,5 +1105,44 @@ setInterval(loadCrypto, 120000);
   }
 })();
 </script>
+        
+<style>
+  .hasiba-home-link {
+    color: inherit !important;
+    text-decoration: none !important;
+    cursor: pointer;
+  }
+
+  .hasiba-home-link:hover {
+    opacity: 0.8;
+  }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const homeURL = "https://doitdone53-oss.github.io/hasiba-plus/";
+
+  document.querySelectorAll("h1, h2, h3, .logo, .site-title, header").forEach(function (element) {
+    const text = element.textContent.trim();
+
+    if (
+      text === "Hasiba Plus" ||
+      text === "Hasiba Plus حاسبة" ||
+      element.classList.contains("logo") ||
+      element.classList.contains("site-title")
+    ) {
+      if (element.querySelector("a")) return;
+
+      const link = document.createElement("a");
+      link.href = homeURL;
+      link.className = "hasiba-home-link";
+      link.textContent = text;
+      element.textContent = "";
+      element.appendChild(link);
+    }
+  });
+});
+</script>
+
 </body>
 </html>

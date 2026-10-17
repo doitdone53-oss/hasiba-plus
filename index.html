@@ -1056,67 +1056,45 @@ tradeFee();
 loadCrypto();
 setInterval(loadCrypto, 120000);
 </script>
-        <script>
+        
+<script>
 (function () {
-  const search = document.getElementById("calculatorSearch");
-  const tiles = document.querySelectorAll(".calculator-tile");
-  const message = document.getElementById("noCalculatorResults");
+  const homeURL = "https://doitdone53-oss.github.io/hasiba-plus/";
 
-  function normalize(text) {
-    return String(text || "")
-      .toLowerCase()
-      .replace(/[أإآ]/g, "ا")
-      .replace(/ى/g, "ي")
-      .replace(/ة/g, "ه")
-      .replace(/[\u064B-\u065F\u0670ـ]/g, "")
-      .trim();
-  }
+  document.addEventListener("DOMContentLoaded", function () {
+    const selectors = [
+      ".logo",
+      ".site-title",
+      "header h1",
+      "header h2",
+      "header .brand"
+    ];
 
-  function filterCalculators() {
-    const query = normalize(search.value);
-    let count = 0;
+    document.querySelectorAll(selectors.join(",")).forEach(function (el) {
+      if (!/hasiba\s*plus/i.test(el.textContent)) return;
 
-    tiles.forEach(function (tile) {
-      const title = tile.querySelector("strong");
+      // إذا كان الاسم داخل رابط، نعدّل الرابط الموجود
+      const existingLink = el.closest("a") || el.querySelector("a");
 
-      const words = normalize(
-        (tile.getAttribute("data-search") || "") + " " +
-        (title ? title.textContent : "") + " " +
-        (title ? title.getAttribute("data-ar") || "" : "") + " " +
-        (title ? title.getAttribute("data-en") || "" : "")
-      );
+      if (existingLink) {
+        existingLink.href = homeURL;
+        return;
+      }
 
-      const show = query === "" || words.includes(query);
+      // جعل العنصر نفسه رابطًا مع الحفاظ على محتواه وتنسيقه
+      const link = document.createElement("a");
+      link.href = homeURL;
+      link.style.cssText =
+        "color:inherit;text-decoration:none;cursor:pointer;";
 
-      tile.style.display = show ? "flex" : "none";
+      while (el.firstChild) {
+        link.appendChild(el.firstChild);
+      }
 
-      if (show) count++;
+      el.appendChild(link);
     });
-
-    if (message) {
-      message.classList.toggle("hidden", count !== 0);
-    }
-  }
-
-  if (search) {
-    search.addEventListener("input", filterCalculators);
-    window.filterCalculatorTiles = filterCalculators;
-    filterCalculators();
-  }
+  });
 })();
 </script>
-        
-<!-- Hasiba Plus: Home links -->
-<style>
-  .hasiba-home-link {
-    color: inherit !important;
-    text-decoration: none !important;
-    cursor: pointer;
-  }
-
-  .hasiba-home-link:hover {
-    text-decoration: underline !important;
-  }
-/
 </body>
 </html>

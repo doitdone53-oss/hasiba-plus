@@ -1144,5 +1144,68 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<!-- Hasiba Plus: Make brand and copyright links return home -->
+<style>
+  a.hasiba-home-link {
+    color: inherit !important;
+    text-decoration: none !important;
+    cursor: pointer;
+  }
+
+  a.hasiba-home-link:hover {
+    text-decoration: underline !important;
+  }
+</style>
+
+<script>
+(function () {
+  const homeURL = "https://doitdone53-oss.github.io/hasiba-plus/";
+
+  function makeHasibaLinks() {
+    // اجعل أي نص مستقل يساوي Hasiba Plus رابطًا للصفحة الرئيسية
+    const elements = document.querySelectorAll(
+      "a, h1, h2, h3, h4, p, span, div, footer, header, strong"
+    );
+
+    elements.forEach(function (element) {
+      // لا نغيّر عناصر كبيرة تحتوي على الموقع كله
+      if (element.children.length > 0) return;
+
+      const text = element.textContent.trim();
+
+      if (!/hasiba\s*plus/i.test(text)) return;
+
+      // إذا كان النص داخل رابط، وجّه الرابط إلى الصفحة الرئيسية
+      const existingLink = element.closest("a");
+
+      if (existingLink) {
+        existingLink.href = homeURL;
+        existingLink.classList.add("hasiba-home-link");
+        return;
+      }
+
+      // استهدف اسم الموقع أو حقوق النشر فقط
+      if (
+        /^hasiba\s*plus$/i.test(text) ||
+        /^(©\s*)?(\d{4}\s*)?hasiba\s*plus$/i.test(text) ||
+        /^(copyright\s*)?(©\s*)?(\d{4}\s*)?hasiba\s*plus(\s*\.?\s*all rights reserved)?$/i.test(text)
+      ) {
+        const link = document.createElement("a");
+        link.href = homeURL;
+        link.className = "hasiba-home-link";
+        link.textContent = text;
+        element.replaceWith(link);
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", makeHasibaLinks);
+  } else {
+    makeHasibaLinks();
+  }
+})();
+</script>
+
 </body>
 </html>

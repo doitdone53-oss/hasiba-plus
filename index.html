@@ -1117,48 +1117,6 @@ setInterval(loadCrypto, 120000);
   .hasiba-home-link:hover {
     text-decoration: underline !important;
   }
-</style>
-
-<script>
-(function () {
-  const homeURL = "https://doitdone53-oss.github.io/hasiba-plus/";
-
-  function linkBrandText() {
-    // إصلاح روابط Hasiba Plus الموجودة أصلًا
-    document.querySelectorAll("a").forEach(function (link) {
-      if (/hasiba\s*plus/i.test(link.textContent)) {
-        link.href = homeURL;
-        link.classList.add("hasiba-home-link");
-      }
-    });
-
-    // تحويل اسم الموقع أو حقوق النشر إلى رابط
-    document.querySelectorAll("h1, h2, h3, p, span, div, strong, small").forEach(function (el) {
-      if (el.children.length !== 0) return;
-
-      const text = el.textContent.trim();
-
-      const isBrand = /^hasiba\s*plus(?:\s+حاسبة)?$/i.test(text);
-      const isCopyright =
-        /^(?:©\s*)?(?:copyright\s*)?(?:©\s*)?(?:\d{4}\s*)?hasiba\s*plus(?:\s*[.|-]?\s*all rights reserved)?$/i.test(text);
-
-      if (!isBrand && !isCopyright) return;
-
-      const a = document.createElement("a");
-      a.href = homeURL;
-      a.className = "hasiba-home-link";
-      a.textContent = text;
-      el.replaceWith(a);
-    });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", linkBrandText);
-  } else {
-    linkBrandText();
-  }
-})();
-</script>
-
+/
 </body>
 </html>

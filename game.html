@@ -1034,9 +1034,11 @@ showCelebration();
   document.querySelectorAll(".diff").forEach(btn => {
     btn.addEventListener("click", () => setDifficulty(btn.dataset.level));
   });
-  function showCelebration() {
-
   $("startBtn").addEventListener("click", startGame);
+$("quitBtn").addEventListener("click", endGame);
+$("replayBtn").addEventListener("click", startGame);
+$("homeBtn").addEventListener("click", backToMenu);
+$("shareBtn").addEventListener("click", shareResult);
   $("quitBtn").addEventListener("click", endGame);
   $("replayBtn").addEventListener("click", startGame);
   $("homeBtn").addEventListener("click", backToMenu);

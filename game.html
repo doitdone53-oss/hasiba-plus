@@ -1,318 +1,952 @@
 
-<!-- Hasiba Plus: Beat the Clock Game -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="العب اسبقهم مجانًا! اختبر سرعتك الذهنية في تحديات حسابية يومية بالعربية والإنجليزية.">
+<title>اسبقهم | Beat the Clock</title>
+
 <style>
-#hasibaGame {
-  margin: 30px auto;
-  padding: 22px;
+:root {
+  --bg: #080d19;
+  --panel: #111a2d;
+  --panel2: #17233a;
+  --border: #293750;
+  --red: #ef4444;
+  --red2: #b91c1c;
+  --text: #f8fafc;
+  --muted: #a5b4cc;
+  --green: #34d399;
+  --gold: #fbbf24;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at top, #202b48 0, transparent 48%),
+    var(--bg);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+button { font: inherit; }
+button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+.topbar {
+  max-width: 920px;
+  margin: auto;
+  padding: 18px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.logo {
+  width: 43px;
+  height: 43px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--red), #991b1b);
+  font-size: 23px;
+  box-shadow: 0 7px 24px #ef444433;
+}
+.brand strong { display: block; font-size: 18px; }
+.brand small { color: var(--muted); }
+.small-btn {
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 13px;
+  cursor: pointer;
+}
+main {
   max-width: 760px;
-  color: #1f2937;
-  background: #fff;
-  border: 2px solid #b91c1c;
-  border-radius: 18px;
-  box-sizing: border-box;
+  padding: 8px 16px 35px;
+  margin: auto;
+}
+.hero { text-align: center; padding: 22px 0 25px; }
+.eyebrow {
+  color: #fca5a5;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+h1 { font-size: clamp(32px, 7vw, 48px); margin: 10px 0; }
+.hero p { color: var(--muted); margin: 0; line-height: 1.9; }
+.card {
+  background: linear-gradient(160deg, #141e33, #0f1728);
+  border: 1px solid var(--border);
+  border-radius: 23px;
+  padding: clamp(17px, 4vw, 27px);
+  box-shadow: 0 20px 60px #0003;
+}
+.hidden { display: none !important; }
+.section-title { font-size: 20px; margin: 0 0 7px; }
+.muted { color: var(--muted); line-height: 1.8; font-size: 14px; }
+.modes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0;
+}
+.mode {
+  text-align: start;
+  color: var(--text);
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 17px 14px;
+  cursor: pointer;
+  transition: .2s;
+}
+.mode:hover, .mode.selected {
+  border-color: var(--red);
+  background: #38202d;
+  transform: translateY(-2px);
+}
+.mode .emoji { display: block; font-size: 25px; margin-bottom: 9px; }
+.mode strong { display: block; margin-bottom: 5px; }
+.mode small { color: var(--muted); line-height: 1.6; }
+.field-label { display: block; margin: 15px 0 10px; font-weight: 700; }
+.difficulty {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+.diff {
+  padding: 12px 5px;
+  border-radius: 12px;
+  color: var(--text);
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+.diff.selected {
+  border-color: var(--red);
+  background: #4a1d29;
+  color: #fff;
+}
+.primary, .secondary {
+  border: 0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .15s, filter .15s;
+}
+.primary {
+  color: white;
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  box-shadow: 0 8px 25px #ef444433;
+}
+.primary:hover { filter: brightness(1.1); }
+.primary:active, .secondary:active { transform: scale(.98); }
+.secondary {
+  color: var(--text);
+  background: var(--panel2);
+  border: 1px solid var(--border);
+}
+.full { width: 100%; margin-top: 20px; }
+.game-top {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+.stat {
+  background: #0a1222;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 7px;
   text-align: center;
 }
-#hasibaGame * { box-sizing: border-box; }
-#hasibaGame h2 { color: #b91c1c; margin-top: 0; }
-#hasibaGame .hg-stats {
-  display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
+.stat-label { display: block; color: var(--muted); font-size: 12px; margin-bottom: 5px; }
+.stat-value { font-size: 23px; font-weight: 850; font-variant-numeric: tabular-nums; }
+.time-value { color: var(--gold); }
+.progress {
+  height: 8px;
+  border-radius: 20px;
+  background: #26344b;
+  overflow: hidden;
+  margin: 14px 0 20px;
+}
+.progress-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f87171, #ef4444);
+  transition: width .2s linear;
+}
+.question-meta {
+  display: flex;
+  justify-content: space-between;
   gap: 8px;
-  margin: 18px 0;
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 16px;
 }
-#hasibaGame .hg-stat {
-  padding: 12px 5px;
-  background: #fff1f2;
-  border-radius: 10px;
-}
-#hasibaGame .hg-stat strong {
-  display: block;
-  font-size: 23px;
-  color: #b91c1c;
-}
-#hasibaGame .hg-question {
-  font-size: clamp(27px,6vw,40px);
-  font-weight: 800;
-  margin: 24px 0;
+.question {
+  min-height: 115px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: clamp(31px, 8vw, 47px);
+  font-weight: 850;
+  letter-spacing: .5px;
+  padding: 12px 0;
   overflow-wrap: anywhere;
 }
-#hasibaGame .hg-answers {
+.answers {
   display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+  margin-top: 15px;
 }
-#hasibaGame button {
+.answer {
+  min-height: 65px;
+  padding: 13px 8px;
+  border-radius: 14px;
+  border: 1px solid #34435c;
+  background: #19253b;
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 800;
   cursor: pointer;
-  touch-action: manipulation;
-  font: inherit;
-  font-weight: 700;
-  border-radius: 10px;
-  padding: 13px 10px;
-  min-height: 48px;
+  transition: background .15s, border .15s, transform .15s;
+  overflow-wrap: anywhere;
 }
-#hasibaGame .hg-answer {
-  background: #fff;
-  border: 2px solid #b91c1c;
-  color: #b91c1c;
-  font-size: 20px;
+.answer:hover:not(:disabled) { border-color: #f87171; transform: translateY(-2px); }
+.answer:disabled { cursor: default; opacity: .85; }
+.answer.correct {
+  background: #064e3b;
+  border-color: var(--green);
+  color: #a7f3d0;
+  animation: pop .25s ease;
 }
-#hasibaGame .hg-answer:active { background: #fee2e2; }
-#hasibaGame .hg-primary {
-  background: #b91c1c;
-  color: #fff;
-  border: 2px solid #b91c1c;
+.answer.wrong {
+  background: #651c29;
+  border-color: var(--red);
+  color: #fecaca;
+  animation: shake .25s ease;
 }
-#hasibaGame .hg-secondary {
-  background: white;
-  color: #b91c1c;
-  border: 2px solid #b91c1c;
+.feedback {
+  min-height: 31px;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 800;
+  color: var(--muted);
 }
-#hasibaGame .hg-actions {
+.feedback.good { color: var(--green); }
+.feedback.bad { color: #fca5a5; }
+.game-bottom {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 18px;
+  margin-top: 10px;
 }
-#hasibaGame .hg-message {
-  min-height: 28px;
-  margin: 15px 0 5px;
-  font-weight: 700;
+.streak { color: var(--gold); font-size: 14px; font-weight: 700; }
+.result { text-align: center; }
+.result-icon { font-size: 65px; margin: 8px 0; }
+.result-score { font-size: 58px; font-weight: 900; color: var(--gold); }
+.result-label { color: var(--muted); }
+.result-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 20px 0;
 }
-#hasibaGame .hg-note {
+.result-stat {
+  border: 1px solid var(--border);
+  background: #0a1222;
+  border-radius: 14px;
+  padding: 15px 7px;
+}
+.result-stat strong { display: block; font-size: 23px; margin-bottom: 5px; }
+.result-stat span { color: var(--muted); font-size: 13px; }
+.result-actions { display: grid; gap: 10px; }
+.daily-note {
+  background: #322817;
+  color: #fde68a;
+  border: 1px solid #65502b;
+  padding: 12px;
+  border-radius: 12px;
   font-size: 13px;
-  color: #6b7280;
-  line-height: 1.7;
+  line-height: 1.8;
+  margin-top: 15px;
 }
-@media(max-width:420px) {
-  #hasibaGame { padding: 14px; }
-  #hasibaGame .hg-stat { font-size: 13px; }
-  #hasibaGame .hg-stat strong { font-size: 20px; }
+footer {
+  text-align: center;
+  color: #7f8da7;
+  font-size: 12px;
+  padding: 22px 12px 8px;
+}
+footer a { color: #fca5a5; text-decoration: none; }
+@keyframes pop { 50% { transform: scale(1.04); } }
+@keyframes shake {
+  25% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+}
+@media (max-width: 420px) {
+  .brand strong { font-size: 16px; }
+  .card { border-radius: 18px; }
+  .stat-value { font-size: 20px; }
+  .answer { min-height: 59px; font-size: 20px; }
+  .game-bottom { align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
 }
 </style>
+</head>
 
-<section id="hasibaGame" dir="rtl" aria-labelledby="hgTitle">
-  <h2 id="hgTitle">🏆 اسبقهم | Beat the Clock</h2>
-  <p id="hgIntro">اختبر سرعتك وذكاءك! أجب عن أكبر عدد من الأسئلة خلال 60 ثانية.</p>
-
-  <div class="hg-actions">
-    <button type="button" class="hg-secondary" id="hgLang">English</button>
-  </div>
-
-  <div class="hg-stats">
-    <div class="hg-stat">
-      <span id="hgScoreLabel">النقاط</span>
-      <strong id="hgScore">0</strong>
-    </div>
-    <div class="hg-stat">
-      <span id="hgTimeLabel">الوقت</span>
-      <strong><span id="hgTime">60</span></strong>
-    </div>
-    <div class="hg-stat">
-      <span id="hgBestLabel">أفضل نتيجة</span>
-      <strong id="hgBest">0</strong>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">⚡</div>
+    <div>
+      <strong>اسبقهم</strong>
+      <small>Beat the Clock</small>
     </div>
   </div>
+  <button class="small-btn" id="languageBtn" type="button">English</button>
+</header>
 
-  <div id="hgQuestion" class="hg-question">هل أنت مستعد؟</div>
-  <div id="hgAnswers" class="hg-answers"></div>
-  <p id="hgMessage" class="hg-message" aria-live="polite">اضغط ابدأ لتحدي نفسك.</p>
+<main>
+  <section class="hero">
+    <div class="eyebrow" id="eyebrow">تحدَّ عقلك • تغلّب على الوقت</div>
+    <h1 id="heroTitle">هل تستطيع اسبقهم؟</h1>
+    <p id="heroDesc">60 ثانية فقط! أجب بسرعة، اجمع النقاط، وحطّم رقمك القياسي.</p>
+  </section>
 
-  <div class="hg-actions">
-    <button type="button" class="hg-primary" id="hgStart">ابدأ اللعب</button>
-    <button type="button" class="hg-secondary" id="hgReset">إعادة اللعب</button>
-  </div>
+  <section class="card" id="startScreen">
+    <h2 class="section-title" id="chooseTitle">اختر طريقة اللعب</h2>
+    <p class="muted" id="chooseDesc">تدرّب بحرية أو اختبر نفسك في تحدي اليوم.</p>
 
-  <p class="hg-note" id="hgNote">
-    كل إجابة صحيحة تمنحك نقطة. حاول تحطيم رقمك القياسي!
-  </p>
-</section>
+    <div class="modes">
+      <button class="mode selected" id="normalMode" type="button">
+        <span class="emoji">⚡</span>
+        <strong id="normalTitle">اللعب السريع</strong>
+        <small id="normalDesc">جولة جديدة مدتها 60 ثانية.</small>
+      </button>
+      <button class="mode" id="dailyMode" type="button">
+        <span class="emoji">🏆</span>
+        <strong id="dailyTitle">تحدي اليوم</strong>
+        <small id="dailyDesc">أسئلة اليوم نفسها للجميع على هذا الجهاز والتاريخ.</small>
+      </button>
+    </div>
+
+    <label class="field-label" id="difficultyLabel">مستوى الصعوبة</label>
+    <div class="difficulty">
+      <button class="diff selected" data-level="easy" type="button" id="easyBtn">سهل</button>
+      <button class="diff" data-level="medium" type="button" id="mediumBtn">متوسط</button>
+      <button class="diff" data-level="hard" type="button" id="hardBtn">صعب</button>
+    </div>
+
+    <div class="daily-note" id="dailyNote">
+      نصيحة: الإجابة الصحيحة تمنحك نقاطًا، والاستمرار في الإجابات الصحيحة يزيد سلسلة إنجازاتك.
+    </div>
+
+    <button class="primary full" id="startBtn" type="button">ابدأ التحدي ←</button>
+    <p class="muted" style="text-align:center;margin-bottom:0" id="bestOnStart">أفضل نتيجة: 0</p>
+  </section>
+
+  <section class="card hidden" id="gameScreen" aria-live="polite">
+    <div class="game-top">
+      <div class="stat">
+        <span class="stat-label" id="timeLabel">الوقت</span>
+        <span class="stat-value time-value" id="timeValue">60</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label" id="scoreLabel">النقاط</span>
+        <span class="stat-value" id="scoreValue">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label" id="bestLabel">الأفضل</span>
+        <span class="stat-value" id="bestValue">0</span>
+      </div>
+    </div>
+
+    <div class="progress" aria-label="الوقت المتبقي">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="question-meta">
+      <span id="roundLabel">السؤال 1</span>
+      <span id="levelLabel">المستوى: سهل</span>
+    </div>
+
+    <div class="question" id="questionText">7 + 5 = ؟</div>
+    <div class="answers" id="answers"></div>
+    <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+
+    <div class="game-bottom">
+      <span class="streak" id="streakText">🔥 سلسلة: 0</span>
+      <button class="small-btn" id="quitBtn" type="button">إنهاء الجولة</button>
+    </div>
+  </section>
+
+  <section class="card result hidden" id="resultScreen" aria-live="polite">
+    <div class="result-icon" id="resultIcon">🏆</div>
+    <h2 class="section-title" id="resultTitle">أحسنت!</h2>
+    <p class="muted" id="resultMessage">لقد أنهيت التحدي.</p>
+    <div class="result-score" id="finalScore">0</div>
+    <div class="result-label" id="pointsText">نقطة</div>
+
+    <div class="result-stats">
+      <div class="result-stat">
+        <strong id="correctCount">0</strong>
+        <span id="correctLabel">إجابات صحيحة</span>
+      </div>
+      <div class="result-stat">
+        <strong id="bestStreak">0</strong>
+        <span id="streakLabel">أفضل سلسلة</span>
+      </div>
+      <div class="result-stat">
+        <strong id="bestResult">0</strong>
+        <span id="bestResultLabel">أفضل نتيجة</span>
+      </div>
+      <div class="result-stat">
+        <strong id="accuracy">0%</strong>
+        <span id="accuracyLabel">دقة الإجابات</span>
+      </div>
+    </div>
+
+    <div class="result-actions">
+      <button class="primary" id="replayBtn" type="button">العب مرة أخرى</button>
+      <button class="secondary" id="shareBtn" type="button">شارك نتيجتك</button>
+      <button class="secondary" id="homeBtn" type="button">العودة للقائمة</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a href="./">Hasiba Plus</a>
+  <span id="footerText"> — أدوات مفيدة وتحديات ممتعة</span>
+</footer>
 
 <script>
 (function () {
-  const root = document.getElementById("hasibaGame");
-  if (!root || root.dataset.ready === "1") return;
-  root.dataset.ready = "1";
+  "use strict";
 
   const $ = id => document.getElementById(id);
-  let lang = "ar";
-  let score = 0;
-  let time = 60;
-  let running = false;
-  let ended = false;
-  let timer = null;
-  let correctAnswer = 0;
-  let questionCount = 0;
-  let best = 0;
 
-  try {
-    best = Number(localStorage.getItem("hasibaGameBest") || 0);
-    if (!Number.isFinite(best) || best < 0) best = 0;
-  } catch (_) {}
-
-  const words = {
+  const text = {
     ar: {
-      intro: "اختبر سرعتك وذكاءك! أجب عن أكبر عدد من الأسئلة خلال 60 ثانية.",
-      score: "النقاط", time: "الوقت", best: "أفضل نتيجة",
-      ready: "هل أنت مستعد؟", start: "ابدأ اللعب",
-      reset: "إعادة اللعب", note: "كل إجابة صحيحة تمنحك نقطة. حاول تحطيم رقمك القياسي!",
-      prompt: "اضغط ابدأ لتحدي نفسك.", right: "إجابة صحيحة! أحسنت 🎉",
-      wrong: "ليست صحيحة! حاول في السؤال التالي.",
-      end: "انتهى الوقت! نتيجتك: ", again: "العب مرة أخرى",
-      newBest: "رقم قياسي جديد! 🏆",
-      questions: ["كم يساوي", "احسب", "أوجد الناتج"]
+      eyebrow:"تحدَّ عقلك • تغلّب على الوقت",
+      heroTitle:"هل تستطيع اسبقهم؟",
+      heroDesc:"60 ثانية فقط! أجب بسرعة، اجمع النقاط، وحطّم رقمك القياسي.",
+      chooseTitle:"اختر طريقة اللعب",
+      chooseDesc:"تدرّب بحرية أو اختبر نفسك في تحدي اليوم.",
+      normalTitle:"اللعب السريع",
+      normalDesc:"جولة جديدة مدتها 60 ثانية.",
+      dailyTitle:"تحدي اليوم",
+      dailyDesc:"أسئلة يومية ثابتة حسب التاريخ.",
+      difficultyLabel:"مستوى الصعوبة",
+      easy:"سهل", medium:"متوسط", hard:"صعب",
+      dailyNote:"نصيحة: الإجابة الصحيحة تمنحك نقاطًا، والاستمرار في الإجابات الصحيحة يزيد سلسلة إنجازاتك.",
+      start:"ابدأ التحدي ←", best:"أفضل نتيجة",
+      time:"الوقت", score:"النقاط", round:"السؤال",
+      level:"المستوى", streak:"🔥 سلسلة: ",
+      quit:"إنهاء الجولة", correct:"صحيح! أحسنت ⚡",
+      wrong:"ليست الإجابة الصحيحة، حاول في السؤال التالي!",
+      timeUp:"انتهى الوقت!", finished:"أنهيت الجولة.",
+      result:"نتيجتك", points:"نقطة",
+      correctLabel:"إجابات صحيحة", streakLabel:"أفضل سلسلة",
+      bestResultLabel:"أفضل نتيجة", accuracyLabel:"دقة الإجابات",
+      replay:"العب مرة أخرى", share:"شارك نتيجتك",
+      home:"العودة للقائمة", newRecord:"رقم قياسي جديد! 🎉",
+      excellent:"مذهل! سرعة ذهنية رائعة.",
+      good:"عمل رائع! هل تستطيع تحسين نتيجتك؟",
+      keepGoing:"استمر في التدريب، ستصبح أسرع!",
+      shareText:"حققت {score} نقطة في لعبة اسبقهم! هل تستطيع تحطيم نتيجتي؟",
+      shareTitle:"نتيجتي في اسبقهم",
+      copied:"تعذرت المشاركة التلقائية. يمكنك نسخ النتيجة ومشاركتها.",
+      footer:" — أدوات مفيدة وتحديات ممتعة",
+      question:"السؤال", dailyPlayed:"تحدي اليوم",
+      dailyInfo:"في تحدي اليوم، تتكرر مجموعة الأسئلة نفسها عند إعادة اللعب في التاريخ نفسه. أفضل نتيجة تُحفظ لهذا اليوم على جهازك.",
+      modeNormal:"اللعب السريع", modeDaily:"تحدي اليوم",
+      noQuestions:"جارٍ تجهيز السؤال...",
+      todayBest:"أفضل نتيجة اليوم",
+      accuracy:"الدقة"
     },
     en: {
-      intro: "Test your speed and brain! Answer as many questions as you can in 60 seconds.",
-      score: "Score", time: "Time", best: "Best",
-      ready: "Ready to play?", start: "Start Game",
-      reset: "Play Again", note: "Each correct answer earns one point. Beat your best score!",
-      prompt: "Press Start to challenge yourself.", right: "Correct! Well done 🎉",
-      wrong: "Not quite! Try the next question.",
-      end: "Time's up! Your score: ", again: "Play Again",
-      newBest: "New high score! 🏆",
-      questions: ["What is", "Calculate", "Solve"]
+      eyebrow:"Challenge your mind • Beat the clock",
+      heroTitle:"Can you beat them?",
+      heroDesc:"You have 60 seconds! Answer fast, score points, and beat your record.",
+      chooseTitle:"Choose your game mode",
+      chooseDesc:"Practice freely or take on today's challenge.",
+      normalTitle:"Quick Play",
+      normalDesc:"A fresh 60-second round.",
+      dailyTitle:"Daily Challenge",
+      dailyDesc:"A daily question set based on the date.",
+      difficultyLabel:"Difficulty",
+      easy:"Easy", medium:"Medium", hard:"Hard",
+      dailyNote:"Tip: Correct answers earn points. Keep answering correctly to build your streak.",
+      start:"Start Challenge →", best:"Best score",
+      time:"Time", score:"Score", round:"Question",
+      level:"Level", streak:"🔥 Streak: ",
+      quit:"End round", correct:"Correct! Great job ⚡",
+      wrong:"Not quite! Try the next question.",
+      timeUp:"Time's up!", finished:"Round complete.",
+      result:"Your result", points:"points",
+      correctLabel:"Correct answers", streakLabel:"Best streak",
+      bestResultLabel:"Best score", accuracyLabel:"Accuracy",
+      replay:"Play again", share:"Share your score",
+      home:"Back to menu", newRecord:"New record! 🎉",
+      excellent:"Amazing! Excellent mental speed.",
+      good:"Great work! Can you beat your score?",
+      keepGoing:"Keep practicing. You'll get faster!",
+      shareText:"I scored {score} points in Beat the Clock! Can you beat my score?",
+      shareTitle:"My Beat the Clock score",
+      copied:"Automatic sharing wasn't available. You can copy and share your result.",
+      footer:" — Useful tools and fun challenges",
+      question:"Question", dailyPlayed:"Daily Challenge",
+      dailyInfo:"Today's challenge uses the same question sequence when replayed on the same date. Your best score for today is saved on this device.",
+      modeNormal:"Quick Play", modeDaily:"Daily Challenge",
+      noQuestions:"Preparing question...",
+      todayBest:"Today's best",
+      accuracy:"Accuracy"
     }
   };
 
-  function setText(id, key) { $(id).textContent = words[lang][key]; }
+  let lang = "ar";
+  let mode = "normal";
+  let difficulty = "easy";
+  let running = false;
+  let score = 0;
+  let correctCount = 0;
+  let attempts = 0;
+  let streak = 0;
+  let bestStreak = 0;
+  let questionNumber = 0;
+  let timeLeft = 60;
+  let startedAt = 0;
+  let timerId = null;
+  let questionLock = false;
+  let currentAnswer = null;
+  let currentQuestion = null;
+  let dailyRng = null;
+  let dailyDate = "";
+  let dailySeed = 0;
+  let bestNormal = 0;
+  let bestDaily = 0;
 
-  function updateBest() { $("hgBest").textContent = best; }
+  const levelNames = {
+    ar: {easy:"سهل",medium:"متوسط",hard:"صعب"},
+    en: {easy:"Easy",medium:"Medium",hard:"Hard"}
+  };
+
+  function safeGet(key, fallback) {
+    try {
+      const value = localStorage.getItem(key);
+      return value === null ? fallback : value;
+    } catch (_) { return fallback; }
+  }
+
+  function safeSet(key, value) {
+    try { localStorage.setItem(key, String(value)); } catch (_) {}
+  }
+
+  function todayKey() {
+    const d = new Date();
+    return d.getFullYear() + "-" +
+      String(d.getMonth()+1).padStart(2,"0") + "-" +
+      String(d.getDate()).padStart(2,"0");
+  }
+
+  function dailyBestKey() {
+    return "hasibaBeatDailyBest_" + todayKey() + "_" + difficulty;
+  }
+
+  function loadBests() {
+    bestNormal = Number(safeGet("hasibaBeatBest_" + difficulty, 0)) || 0;
+    bestDaily = Number(safeGet(dailyBestKey(), 0)) || 0;
+  }
+
+  function bestScore() {
+    return mode === "daily" ? bestDaily : bestNormal;
+  }
+
+  function saveScore() {
+    if (mode === "daily") {
+      if (score > bestDaily) {
+        bestDaily = score;
+        safeSet(dailyBestKey(), bestDaily);
+      }
+    } else {
+      if (score > bestNormal) {
+        bestNormal = score;
+        safeSet("hasibaBeatBest_" + difficulty, bestNormal);
+      }
+    }
+  }
+
+  function t(key) { return text[lang][key] || key; }
 
   function setLanguage(next) {
     lang = next;
-    root.dir = lang === "ar" ? "rtl" : "ltr";
-    setText("hgIntro", "intro");
-    setText("hgScoreLabel", "score");
-    setText("hgTimeLabel", "time");
-    setText("hgBestLabel", "best");
-    setText("hgStart", "start");
-    setText("hgReset", "reset");
-    setText("hgNote", "note");
-    $("hgLang").textContent = lang === "ar" ? "English" : "العربية";
-    if (!running && !ended) {
-      $("hgQuestion").textContent = words[lang].ready;
-      $("hgMessage").textContent = words[lang].prompt;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    $("languageBtn").textContent = lang === "ar" ? "English" : "العربية";
+
+    const map = [
+      ["eyebrow","eyebrow"],["heroTitle","heroTitle"],
+      ["heroDesc","heroDesc"],["chooseTitle","chooseTitle"],
+      ["chooseDesc","chooseDesc"],["normalTitle","normalTitle"],
+      ["normalDesc","normalDesc"],["dailyTitle","dailyTitle"],
+      ["dailyDesc","dailyDesc"],["difficultyLabel","difficultyLabel"],
+      ["easyBtn","easy"],["mediumBtn","medium"],["hardBtn","hard"],
+      ["startBtn","start"],["timeLabel","time"],["scoreLabel","score"],
+      ["bestLabel","best"],["quitBtn","quit"],["replayBtn","replay"],
+      ["shareBtn","share"],["homeBtn","home"],
+      ["correctLabel","correctLabel"],["streakLabel","streakLabel"],
+      ["bestResultLabel","bestResultLabel"],["accuracyLabel","accuracyLabel"],
+      ["footerText","footer"]
+    ];
+    map.forEach(([id,key]) => {
+      if ($(id)) $(id).textContent = t(key);
+    });
+
+    $("dailyNote").textContent = mode === "daily" ? t("dailyInfo") : t("dailyNote");
+    $("bestOnStart").textContent = t("best") + ": " + bestScore();
+    $("normalMode").classList.toggle("selected", mode === "normal");
+    $("dailyMode").classList.toggle("selected", mode === "daily");
+
+    if (running) {
+      updateStats();
+      updateQuestionMeta();
+      if ($("feedback").classList.contains("good")) {
+        $("feedback").textContent = t("correct");
+      } else if ($("feedback").classList.contains("bad")) {
+        $("feedback").textContent = t("wrong");
+      }
     }
-    if (running) newQuestion();
+  }
+
+  function updateStats() {
+    $("timeValue").textContent = timeLeft;
+    $("scoreValue").textContent = score;
+    $("bestValue").textContent = bestScore();
+    $("progressBar").style.width = Math.max(0, timeLeft / 60 * 100) + "%";
+    $("timeValue").style.color = timeLeft <= 10 ? "#f87171" : "var(--gold)";
+    $("streakText").textContent = t("streak") + streak;
+  }
+
+  function updateQuestionMeta() {
+    $("roundLabel").textContent = t("round") + " " + questionNumber;
+    const modeName = mode === "daily" ? t("modeDaily") : t("modeNormal");
+    $("levelLabel").textContent = modeName + " · " + t("level") + ": " + levelNames[lang][difficulty];
+  }
+
+  function seededRandom(seed) {
+    let s = seed >>> 0;
+    return function () {
+      s = (s + 0x6D2B79F5) >>> 0;
+      let v = s;
+      v = Math.imul(v ^ (v >>> 15), v | 1);
+      v ^= v + Math.imul(v ^ (v >>> 7), v | 61);
+      return ((v ^ (v >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  function makeDailySeed() {
+    const str = todayKey() + "|" + difficulty + "|hasiba-beat-v2";
+    let h = 2166136261;
+    for (let i = 0; i < str.length; i++) {
+      h ^= str.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return h >>> 0;
+  }
+
+  function randInt(min, max) {
+    const r = mode === "daily" && dailyRng ? dailyRng() : Math.random();
+    return Math.floor(r * (max - min + 1)) + min;
+  }
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = randInt(0, i);
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
   }
 
   function makeQuestion() {
-    const difficulty = Math.min( questionCount, 20);
-    const type = Math.floor(Math.random() * (difficulty < 3 ? 3 : 5));
-    let a, b, answer, symbol, question;
+    const ranges = {
+      easy: {min:2,max:20,mul:10,div:10},
+      medium: {min:5,max:60,mul:15,div:12},
+      hard: {min:10,max:150,mul:25,div:20}
+    };
+    const r = ranges[difficulty];
+    const kind = randInt(0, 5);
+    let a, b, answer, question;
 
-    if (type === 0) {
-      a = 2 + Math.floor(Math.random() * (10 + difficulty * 3));
-      b = 1 + Math.floor(Math.random() * (10 + difficulty * 2));
-      answer = a + b; symbol = "+";
-    } else if (type === 1) {
-      a = 10 + Math.floor(Math.random() * (20 + difficulty * 4));
-      b = 1 + Math.floor(Math.random() * Math.min(a, 15 + difficulty));
-      answer = a - b; symbol = "−";
-    } else if (type === 2) {
-      a = 2 + Math.floor(Math.random() * (8 + Math.floor(difficulty / 2)));
-      b = 2 + Math.floor(Math.random() * 10);
-      answer = a * b; symbol = "×";
-    } else if (type === 3) {
-      b = [5, 10, 20, 25, 50][Math.floor(Math.random() * 5)];
-      a = 20 + Math.floor(Math.random() * 19) * 10;
-      answer = a * b / 100;
-      question = `${b}% ${lang === "ar" ? "من" : "of"} ${a}`;
+    if (kind === 0) {
+      a = randInt(r.min, r.max);
+      b = randInt(r.min, r.max);
+      answer = a + b;
+      question = a + " + " + b + " = ?";
+    } else if (kind === 1) {
+      a = randInt(r.min, r.max);
+      b = randInt(r.min, r.max);
+      if (b > a) [a,b] = [b,a];
+      answer = a - b;
+      question = a + " − " + b + " = ?";
+    } else if (kind === 2) {
+      a = randInt(2, r.mul);
+      b = randInt(2, difficulty === "easy" ? 10 : difficulty === "medium" ? 15 : 25);
+      answer = a * b;
+      question = a + " × " + b + " = ?";
+    } else if (kind === 3) {
+      b = randInt(2, r.div);
+      answer = randInt(2, r.div) * b;
+      a = answer;
+      answer = a / b;
+      question = a + " ÷ " + b + " = ?";
+    } else if (kind === 4) {
+      const rates = [5,10,15,20,25,30,50];
+      const rate = rates[randInt(0, rates.length-1)];
+      const base = randInt(2, difficulty === "easy" ? 20 : difficulty === "medium" ? 80 : 200);
+      answer = base * rate / 100;
+      question = rate + "% of " + base + " = ?";
     } else {
-      a = 50 + Math.floor(Math.random() * 20) * 10;
-      b = [5, 10, 15, 20, 25][Math.floor(Math.random() * 5)];
-      answer = a - a * b / 100;
-      question = `${a} ${lang === "ar" ? "بعد خصم" : "after"} ${b}%`;
+      const rates = [10,15,20,25,30,40,50];
+      const rate = rates[randInt(0, rates.length-1)];
+      const base = randInt(2, difficulty === "easy" ? 20 : difficulty === "medium" ? 80 : 200);
+      answer = base * (100-rate) / 100;
+      question = (lang === "ar" ? "خصم " : "Discount ") + rate + "% " +
+        (lang === "ar" ? "من " : "off ") + base + " = ?";
     }
 
-    if (!question) question = `${a} ${symbol} ${b}`;
-    return { question, answer };
+    answer = Math.round(answer * 100) / 100;
+    return {question, answer};
   }
 
-  function newQuestion() {
-    if (!running) return;
-    const q = makeQuestion();
-    correctAnswer = q.answer;
-    questionCount++;
-    $("hgQuestion").textContent = q.question;
-    $("hgAnswers").replaceChildren();
-
-    const options = new Set([correctAnswer]);
-    while (options.size < 4) {
-      const spread = Math.max(5, Math.ceil(Math.abs(correctAnswer) * 0.35));
-      let candidate = correctAnswer +
-        Math.floor(Math.random() * (spread * 2 + 1)) - spread;
-      if (candidate !== correctAnswer && candidate >= 0) options.add(candidate);
+  function makeChoices(answer) {
+    const choices = new Set([answer]);
+    let tries = 0;
+    while (choices.size < 4 && tries < 100) {
+      tries++;
+      let delta;
+      if (Number.isInteger(answer) && Math.abs(answer) < 100) {
+        delta = randInt(1, Math.max(5, Math.ceil(Math.abs(answer) * 0.35)));
+      } else {
+        delta = randInt(1, 15) / 2;
+      }
+      const wrong = Math.random() < 0.5 ? answer + delta : answer - delta;
+      const normalized = Math.round(wrong * 100) / 100;
+      if (normalized !== answer && normalized >= 0) choices.add(normalized);
     }
+    let fallback = 1;
+    while (choices.size < 4) {
+      const n = Math.max(0, Math.round((answer + fallback) * 100) / 100);
+      if (n !== answer) choices.add(n);
+      fallback++;
+    }
+    return shuffle(Array.from(choices));
+  }
 
-    [...options].sort(() => Math.random() - 0.5).forEach(value => {
+  function formatNumber(n) {
+    return Number.isInteger(n) ? String(n) : String(Number(n.toFixed(2)));
+  }
+
+  function renderQuestion() {
+    questionLock = false;
+    currentQuestion = makeQuestion();
+    currentAnswer = currentQuestion.answer;
+    $("questionText").textContent = currentQuestion.question;
+    $("feedback").textContent = "";
+    $("feedback").className = "feedback";
+    $("answers").innerHTML = "";
+
+    makeChoices(currentAnswer).forEach(value => {
       const button = document.createElement("button");
       button.type = "button";
-      button.className = "hg-answer";
-      button.textContent = value;
-      button.addEventListener("click", () => answerQuestion(value));
-      $("hgAnswers").appendChild(button);
+      button.className = "answer";
+      button.textContent = formatNumber(value);
+      button.addEventListener("click", () => chooseAnswer(button, value));
+      $("answers").appendChild(button);
     });
+
+    updateQuestionMeta();
   }
 
-  function answerQuestion(value) {
-    if (!running) return;
-    if (value === correctAnswer) {
-      score++;
-      $("hgScore").textContent = score;
-      $("hgMessage").textContent = words[lang].right;
-    } else {
-      $("hgMessage").textContent = words[lang].wrong;
-    }
-    newQuestion();
-  }
+  function chooseAnswer(button, value) {
+    if (!running || questionLock) return;
+    questionLock = true;
+    attempts++;
 
-  function finishGame() {
-    running = false;
-    ended = true;
-    clearInterval(timer);
-    $("hgAnswers").replaceChildren();
-    $("hgQuestion").textContent = words[lang].end + score;
-    $("hgStart").textContent = words[lang].again;
+    const buttons = Array.from($("answers").querySelectorAll("button"));
+    buttons.forEach(b => b.disabled = true);
 
-    if (score > best) {
-      best = score;
-      try { localStorage.setItem("hasibaGameBest", String(best)); } catch (_) {}
-      $("hgMessage").textContent = words[lang].newBest;
+    if (value === currentAnswer) {
+      score += difficulty === "easy" ? 10 : difficulty === "medium" ? 15 : 20;
+      correctCount++;
+      streak++;
+      bestStreak = Math.max(bestStreak, streak);
+      button.classList.add("correct");
+      $("feedback").textContent = t("correct");
+      $("feedback").className = "feedback good";
+      $("scoreValue").animate([{transform:"scale(1)"},{transform:"scale(1.22)"},{transform:"scale(1)"}], {duration:260});
+      if (navigator.vibrate) navigator.vibrate(30);
     } else {
-      $("hgMessage").textContent = words[lang].prompt;
+      streak = 0;
+      button.classList.add("wrong");
+      buttons.forEach(b => {
+        if (Number(b.textContent) === currentAnswer) b.classList.add("correct");
+      });
+      $("feedback").textContent = t("wrong");
+      $("feedback").className = "feedback bad";
+      if (navigator.vibrate) navigator.vibrate([40,30,40]);
     }
-    updateBest();
+
+    updateStats();
+    window.setTimeout(() => {
+      if (running) {
+        questionNumber++;
+        renderQuestion();
+      }
+    }, 420);
   }
 
   function startGame() {
-    clearInterval(timer);
+    stopTimer();
     score = 0;
-    time = 60;
-    questionCount = 0;
+    correctCount = 0;
+    attempts = 0;
+    streak = 0;
+    bestStreak = 0;
+    questionNumber = 1;
+    timeLeft = 60;
+    questionLock = false;
+    dailyDate = todayKey();
+    dailySeed = makeDailySeed();
+    dailyRng = mode === "daily" ? seededRandom(dailySeed) : null;
     running = true;
-    ended = false;
-    $("hgScore").textContent = "0";
-    $("hgTime").textContent = time;
-    $("hgStart").textContent = words[lang].start;
-    $("hgMessage").textContent = "";
-    newQuestion();
+    startedAt = Date.now();
 
-    timer = setInterval(() => {
-      time--;
-      $("hgTime").textContent = time;
-      if (time <= 0) finishGame();
-    }, 1000);
+    loadBests();
+    $("startScreen").classList.add("hidden");
+    $("resultScreen").classList.add("hidden");
+    $("gameScreen").classList.remove("hidden");
+
+    updateStats();
+    renderQuestion();
+
+    timerId = window.setInterval(() => {
+      if (!running) return;
+      timeLeft = Math.max(0, 60 - Math.floor((Date.now() - startedAt) / 1000));
+      updateStats();
+      if (timeLeft <= 0) endGame();
+    }, 150);
   }
 
-  $("hgLang").addEventListener("click", () => {
-    setLanguage(lang === "ar" ? "en" : "ar");
-  });
-  $("hgStart").addEventListener("click", startGame);
-  $("hgReset").addEventListener("click", startGame);
+  function stopTimer() {
+    if (timerId !== null) {
+      window.clearInterval(timerId);
+      timerId = null;
+    }
+  }
 
-  updateBest();
+  function endGame() {
+    if (!running) return;
+    running = false;
+    stopTimer();
+    saveScore();
+    loadBests();
+
+    $("gameScreen").classList.add("hidden");
+    $("resultScreen").classList.remove("hidden");
+
+    const isRecord = score > 0 && score >= bestScore();
+    $("resultIcon").textContent = isRecord ? "🏆" : score >= 100 ? "⚡" : "🎯";
+    $("resultTitle").textContent = isRecord ? t("newRecord") : t("timeUp");
+    $("resultMessage").textContent =
+      score >= 200 ? t("excellent") :
+      score >= 80 ? t("good") : t("keepGoing");
+
+    $("finalScore").textContent = score;
+    $("pointsText").textContent = t("points");
+    $("correctCount").textContent = correctCount;
+    $("bestStreak").textContent = bestStreak;
+    $("bestResult").textContent = bestScore();
+    $("accuracy").textContent = (attempts ? Math.round(correctCount / attempts * 100) : 0) + "%";
+  }
+
+  function backToMenu() {
+    running = false;
+    stopTimer();
+    $("gameScreen").classList.add("hidden");
+    $("resultScreen").classList.add("hidden");
+    $("startScreen").classList.remove("hidden");
+    loadBests();
+    $("bestOnStart").textContent = t("best") + ": " + bestScore();
+    $("dailyNote").textContent = mode === "daily" ? t("dailyInfo") : t("dailyNote");
+  }
+
+  function setMode(next) {
+    mode = next;
+    $("normalMode").classList.toggle("selected", mode === "normal");
+    $("dailyMode").classList.toggle("selected", mode === "daily");
+    $("dailyNote").textContent = mode === "daily" ? t("dailyInfo") : t("dailyNote");
+    loadBests();
+    $("bestOnStart").textContent = t("best") + ": " + bestScore();
+  }
+
+  function setDifficulty(next) {
+    difficulty = next;
+    document.querySelectorAll(".diff").forEach(btn => {
+      btn.classList.toggle("selected", btn.dataset.level === difficulty);
+    });
+    loadBests();
+    $("bestOnStart").textContent = t("best") + ": " + bestScore();
+  }
+
+  async function shareResult() {
+    const message = t("shareText").replace("{score}", score) +
+      "\n" + location.href;
+    try {
+      if (navigator.share) {
+        await navigator.share({title:t("shareTitle"), text:message, url:location.href});
+      } else if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(message);
+        $("shareBtn").textContent = lang === "ar" ? "تم نسخ النتيجة ✓" : "Score copied ✓";
+        window.setTimeout(() => $("shareBtn").textContent = t("share"), 1800);
+      } else {
+        window.prompt(t("copied"), message);
+      }
+    } catch (err) {
+      if (err && err.name !== "AbortError") {
+        window.prompt(t("copied"), message);
+      }
+    }
+  }
+
+  $("languageBtn").addEventListener("click", () => setLanguage(lang === "ar" ? "en" : "ar"));
+  $("normalMode").addEventListener("click", () => setMode("normal"));
+  $("dailyMode").addEventListener("click", () => setMode("daily"));
+  document.querySelectorAll(".diff").forEach(btn => {
+    btn.addEventListener("click", () => setDifficulty(btn.dataset.level));
+  });
+  $("startBtn").addEventListener("click", startGame);
+  $("quitBtn").addEventListener("click", endGame);
+  $("replayBtn").addEventListener("click", startGame);
+  $("homeBtn").addEventListener("click", backToMenu);
+  $("shareBtn").addEventListener("click", shareResult);
+
+  loadBests();
   setLanguage("ar");
 })();
 </script>
+</body>
+</html>

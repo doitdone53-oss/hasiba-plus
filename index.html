@@ -1115,5 +1115,43 @@ setInterval(loadCrypto, 120000);
   });
 })();
 </script>
+        
+<script>
+function filterCalculatorTiles(query) {
+  const searchText = query.trim().toLowerCase();
+  const tiles = document.querySelectorAll(
+    ".calculator-directory-grid .calculator-tile"
+  );
+  const noResults = document.getElementById(
+    "noCalculatorResults"
+  );
+  let visibleCount = 0;
+
+  tiles.forEach(function(tile) {
+    const text = (
+      tile.innerText + " " +
+      (tile.getAttribute("data-search") || "")
+    ).toLowerCase();
+
+    const matches = text.includes(searchText);
+
+    tile.style.display = matches ? "" : "none";
+
+    if (matches) {
+      visibleCount++;
+    }
+  });
+
+  if (noResults) {
+    noResults.classList.toggle(
+      "hidden",
+      visibleCount !== 0
+    );
+  }
+}
+</script>
+<a class="calculator-tile"
+   href="game.html"
+   data-search="لعبة اسبقهم لعبة تحدي beat the clock game">
 </body>
 </html>

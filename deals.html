@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#b91c1c">
+  <meta name="description" content="صفقات اليوم: اكتشف منتجات مفيدة وعروض التسوق وقارن الأسعار قبل الشراء.">
+
+  <title>صفقة اليوم | Hasiba Plus</title>
+
+  <style>
+    :root {
+      --red: #b91c1c;
+      --red2: #dc2626;
+      --dark: #202124;
+      --muted: #666;
+      --line: #eeeeee;
+      --bg: #f7f7f7;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      color: var(--red);
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .back {
+      color: var(--red);
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #991b1b, #dc2626);
+      color: white;
+      text-align: center;
+      padding: 38px 18px 34px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(27px, 5vw, 40px);
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      opacity: .95;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 22px 16px;
+    }
+
+    .notice {
+      background: #fff;
+      border: 1px solid #f0d1d1;
+      border-right: 4px solid var(--red);
+      border-radius: 10px;
+      padding: 13px 15px;
+      font-size: 13px;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .search {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      background: white;
+      margin-bottom: 14px;
+      outline-color: var(--red);
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .filter {
+      border: 1px solid #ddd;
+      background: white;
+      border-radius: 22px;
+      padding: 8px 15px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .filter.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: white;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin: 10px 0 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .product {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .product:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px #0000000d;
+    }
+
+    .product-art {
+      height: 145px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff4f4;
+      font-size: 55px;
+    }
+
+    .product-body {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .category {
+      color: var(--red);
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .product h3 {
+      font-size: 17px;
+      margin: 5px 0;
+    }
+
+    .product p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 14px;
+      flex: 1;
+    }
+
+    .price {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      border: 0;
+      border-radius: 9px;
+      padding: 11px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--red2);
+    }
+
+    .btn.disabled {
+      background: #777;
+      cursor: default;
+    }
+
+    .empty {
+      display: none;
+      text-align: center;
+      padding: 25px;
+      color: var(--muted);
+    }
+
+    .share-box {
+      background: white;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      text-align: center;
+      padding: 22px 16px;
+      margin-top: 25px;
+    }
+
+    .share-box h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    .share-btn {
+      display: inline-block;
+      margin-top: 8px;
+      background: #16834a;
+      color: white;
+      border-radius: 9px;
+      padding: 10px 20px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 15px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .product-art {
+        height: 115px;
+        font-size: 43px;
+      }
+
+      .product-body {
+        padding: 11px;
+      }
+
+      .product h3 {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="index.html">Hasiba Plus</a>
+    <a class="back" href="index.html">العودة إلى الحاسبات ←</a>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>🔥 صفقة اليوم</h1>
+  <p>اكتشف منتجات مفيدة، وقارن الأسعار، واختر ما يناسب احتياجاتك.</p>
+</section>
+
+<main class="container">
+
+  <div class="notice">
+    <strong>تنويه:</strong>
+    هذه الصفحة قيد التجهيز. المنتجات والأسعار وروابط الشراء ستضاف
+    بعد التحقق منها. قد نحصل مستقبلًا على عمولة من المشتريات المؤهلة
+    عبر روابط التسويق بالعمولة، دون تكلفة إضافية عليك.
+  </div>
+
+  <input
+    id="search"
+    class="search"
+    type="search"
+    placeholder="🔎 ابحث عن منتج..."
+    aria-label="ابحث عن منتج"
+  >
+
+  <div class="filters" aria-label="تصنيفات المنتجات">
+    <button class="filter active" data-category="all">الكل</button>
+    <button class="filter" data-category="tech">إلكترونيات</button>
+    <button class="filter" data-category="home">المنزل</button>
+    <button class="filter" data-category="car">السيارات</button>
+    <button class="filter" data-category="care">العناية الشخصية</button>
+  </div>
+
+  <h2 class="section-title">🛍️ اكتشف المنتجات</h2>
+
+  <div class="grid" id="products">
+
+    <article class="product" data-category="tech">
+      <div class="product-art" aria-hidden="true">🎧</div>
+      <div class="product-body">
+        <span class="category">إلكترونيات</span>
+        <h3>سماعات لاسلكية</h3>
+        <p>قارن جودة الصوت والبطارية والتوافق مع هاتفك قبل الشراء.</p>
+        <div class="price">السعر: يُحدَّد بعد التحقق</div>
+        <span class="btn disabled">الرابط قريبًا</span>
+      </div>
+    </article>
+
+    <article class="product" data-category="home">
+      <div class="product-art" aria-hidden="true">🍳</div>
+      <div class="product-body">
+        <span class="category">المنزل</span>
+        <h3>أدوات مطبخ عملية</h3>
+        <p>أدوات تساعد على تجهيز الطعام وتسهيل الأعمال اليومية.</p>
+        <div class="price">السعر: يُحدَّد بعد التحقق</div>
+        <span class="btn disabled">الرابط قريبًا</span>
+      </div>
+    </article>
+
+    <article class="product" data-category="car">
+      <div class="product-art" aria-hidden="true">🚗</div>
+      <div class="product-body">
+        <span class="category">السيارات</span>
+        <h3>إكسسوارات السيارة</h3>
+        <p>ابحث عن إكسسوارات مناسبة لسيارتك واحتياجاتك اليومية.</p>
+        <div class="price">السعر: يُحدَّد بعد التحقق</div>
+        <span class="btn disabled">الرابط قريبًا</span>
+      </div>
+    </article>
+
+    <article class="product" data-category="care">
+      <div class="product-art" aria-hidden="true">🧴</div>
+      <div class="product-body">
+        <span class="category">العناية الشخصية</span>
+        <h3>منتجات العناية اليومية</h3>
+        <p>قارن المكونات والحجم والتقييمات قبل اختيار المنتج.</p>
+        <div class="price">السعر: يُحدَّد بعد التحقق</div>
+        <span class="btn disabled">الرابط قريبًا</span>
+      </div>
+    </article>
+
+    <article class="product" data-category="tech">
+      <div class="product-art" aria-hidden="true">🔌</div>
+      <div class="product-body">
+        <span class="category">إلكترونيات</span>
+        <h3>شواحن وكابلات</h3>
+        <p>تحقق من قدرة الشحن وتوافق الكابل مع جهازك.</p>
+        <div class="price">السعر: يُحدَّد بعد التحقق</div>
+        <span class="btn disabled">الرابط قريبًا</span>
+      </div>
+    </article>
+
+    <article class="product" data-category="home">
+      <div class="product-art" aria-hidden="true">🧹</div>
+      <div class="product-body">
+        <span class="category">المنزل</span>
+        <h3>أدوات تنظيم المنزل</h3>
+        <p>حلول عملية تساعد على ترتيب المساحات واستغلالها.</p>
+        <div class="price">السعر: يُحدَّد بعد التحقق</div>
+        <span class="btn disabled">الرابط قريبًا</span>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="empty" id="empty">
+    لم نعثر على منتجات مطابقة. جرّب كلمة أخرى.
+  </div>
+
+  <section class="share-box">
+    <h2>📢 تابع صفقة اليوم</h2>
+    <p>شارك المنتجات المفيدة مع أصدقائك، وتابع أحدث الاختيارات.</p>
+    <button class="btn" id="sharePage" type="button">
+      مشاركة صفحة العروض
+    </button>
+  </section>
+
+</main>
+
+<footer>
+  <p>Hasiba Plus © 2026 — صفقة اليوم</p>
+  <p>تأكد من السعر والتوفر وشروط الشراء لدى المتجر قبل إتمام طلبك.</p>
+</footer>
+
+<script>
+  const searchInput = document.getElementById("search");
+  const products = [...document.querySelectorAll(".product")];
+  const filters = [...document.querySelectorAll(".filter")];
+  const empty = document.getElementById("empty");
+
+  let selectedCategory = "all";
+
+  function filterProducts() {
+    const query = searchInput.value.trim().toLowerCase();
+    let visible = 0;
+
+    products.forEach(product => {
+      const matchesText = product.textContent
+        .toLowerCase()
+        .includes(query);
+
+      const matchesCategory =
+        selectedCategory === "all" ||
+        product.dataset.category === selectedCategory;
+
+      const show = matchesText && matchesCategory;
+
+      product.style.display = show ? "flex" : "none";
+
+      if (show) visible++;
+    });
+
+    empty.style.display = visible ? "none" : "block";
+  }
+
+  searchInput.addEventListener("input", filterProducts);
+
+  filters.forEach(button => {
+    button.addEventListener("click", () => {
+      selectedCategory = button.dataset.category;
+
+      filters.forEach(item => item.classList.remove("active"));
+      button.classList.add("active");
+
+      filterProducts();
+    });
+  });
+
+  document.getElementById("sharePage").addEventListener("click", async () => {
+    const shareData = {
+      title: "صفقة اليوم | Hasiba Plus",
+      text: "اكتشف المنتجات والصفقات عبر صفقة اليوم",
+      url: window.location.href
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          alert("تعذرت المشاركة. يمكنك نسخ رابط الصفحة.");
+        }
+      }
+    } else if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert("تم نسخ رابط الصفحة.");
+      } catch {
+        alert("انسخ رابط الصفحة من شريط العنوان وشاركه.");
+      }
+    } else {
+      alert("انسخ رابط الصفحة من شريط العنوان وشاركه.");
+    }
+  });
+</script>
+
+</body>
+</html>
